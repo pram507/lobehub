@@ -61,6 +61,16 @@ export function defineConfig(config: CustomNextConfig) {
   const nextConfig: NextConfig = {
     ...(isStandaloneMode ? standaloneConfig : {}),
     assetPrefix,
+    // @ts-expect-error - allowedDevOrigins is supported at runtime in Next.js but may not be present in local NextConfig typescript definitions
+    allowedDevOrigins: [
+      'localhost:3010',
+      'localhost:9876',
+      'localhost',
+      '127.0.0.1:3010',
+      '127.0.0.1:9876',
+      '127.0.0.1',
+      'app.lobehub.com',
+    ],
 
     compiler: {
       emotion: true,
