@@ -87,18 +87,18 @@ services:
     env_file:
       - .env
 
-  searxng:
-    image: searxng/searxng
-    container_name: lobe-searxng
-    ports:
-      - '8180:8080'
-    volumes:
-      - './searxng-settings.yml:/etc/searxng/settings.yml'
-    environment:
-      - 'SEARXNG_SETTINGS_FILE=/etc/searxng/settings.yml'
-    restart: always
-    networks:
-      - lobe-network
+  # searxng:
+  #   image: searxng/searxng
+  #   container_name: lobe-searxng
+  #   ports:
+  #     - '8180:8080'
+  #   volumes:
+  #     - './searxng-settings.yml:/etc/searxng/settings.yml'
+  #   environment:
+  #     - 'SEARXNG_SETTINGS_FILE=/etc/searxng/settings.yml'
+  #   restart: always
+  #   networks:
+  #     - lobe-network
 
 volumes:
   data:
