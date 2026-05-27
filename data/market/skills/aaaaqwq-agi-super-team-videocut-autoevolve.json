@@ -1,0 +1,56 @@
+{
+  "author": {
+    "name": "aAAaqwq",
+    "url": "https://github.com/aAAaqwq"
+  },
+  "category": "self-hosted-automation",
+  "content": "<!--\ninput: 用户反馈、错误纠正\noutput: 更新后的文档（CLAUDE.md 或 tips/*.md）\npos: 元 skill，让 Agent 从错误中学习\n\n架构守护者：一旦我被修改，请同步更新：\n1. ../README.md 的 Skill 清单\n2. /CLAUDE.md 路由表\n-->\n\n# 自更新\n\n> 让 Agent 从错误中学习，持续改进\n\n## 快速使用\n\n```\n用户: 记录一下刚才的问题\n用户: 更新口误识别的规则\n用户: 这个教训要记下来\n```\n\n## 更新位置\n\n| 内容类型 | 目标文件 | 示例 |\n|---------|---------|------|\n| 用户画像 | `CLAUDE.md` | 偏好、习惯 |\n| 方法论 + 反馈 | `*/tips/*.md` | 规则、教训 |\n\n## 流程\n\n```\n用户触发（\"刚才失败了\"、\"记录一下\"）\n    ↓\n【自动】回溯上下文，找出问题点\n    ↓\n【自动】读目标文件全文，理解现有结构\n    ↓\n【自动】整合到正文相应位置（不是只往末尾加！）\n    ↓\n【自动】反馈记录只记事件，不重复规则\n    ↓\n汇报更新结果\n```\n\n**关键**：不要问\"什么问题\"，直接从上下文分析！\n\n## 更新原则\n\n### ❌ 错误做法：往末尾加\n\n```markdown\n## 反馈记录\n### 2026-01-14\n- 教训：审查稿末尾必须生成删除任务清单\n- 教训：用户确认时要分别确认口误和静音\n```\n\n只加到反馈记录 = 规则散落在末尾，下次还会犯错\n\n### ✅ 正确做法：整合到正文\n\n1. **读全文**，理解章节结构\n2. **找到相应位置**，把规则整合进去\n3. **反馈记录只记事件**：`- 审查稿标记了静音，但剪辑时漏删`\n\n```markdown\n## 四、审查稿格式\n（新增删除任务清单模板）\n\n## 五、确认与执行流程  ← 缺这个章节就新增\n（新增分别确认口误和静音的流程）\n\n## 反馈记录\n### 2026-01-14\n- 审查稿标记了静音，但剪辑时漏删（只删了口误）\n```\n\n## 触发条件\n\n- 用户纠正 AI 错误\n- 用户说\"记住这个\"、\"以后注意\"\n- 发现新的通用规律\n\n## 反例\n\n### 2026-01-13\n```\n❌ 错误：\n用户: 刚才失败了，更新到skills\nAI: 请告诉我你发现了什么问题？  ← 不该问！\n\n✅ 正确：\nAI: [自动回溯上下文，找到失败点]\nAI: [执行更新]\n```\n\n### 2026-01-14\n```\n❌ 错误：\nAI: 已更新，在反馈记录新增3条教训  ← 只加末尾！\n\n✅ 正确：\nAI: [读全文，理解结构]\nAI: [整合到正文相应位置]\nAI: [反馈记录只记事件]\nAI: 已更新：新增第五章\"确认与执行流程\"，更新第四章模板\n```\n\n**原则**：规则要整合到正文，反馈记录只是事件日志",
+  "createdAt": "2026-05-23T16:06:07.235Z",
+  "description": "自进化 skills。记录用户反馈，更新方法论和规则。触发词：更新规则、记录反馈、改进skill",
+  "github": {
+    "forks": 13,
+    "fullName": "aAAaqwq/AGI-Super-Team",
+    "openIssues": 1,
+    "stars": 63,
+    "url": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/videocut-autoevolve",
+  "icon": "https://github.com/aAAaqwq.png",
+  "identifier": "aaaaqwq-agi-super-team-videocut-autoevolve",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "videocut:自进化",
+    "sourceUrl": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/videocut-autoevolve",
+    "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "description": "自进化 skills。记录用户反馈，更新方法论和规则。触发词：更新规则、记录反馈、改进skill"
+  },
+  "myRating": null,
+  "name": "videocut:自进化",
+  "overview": {
+    "summary": "本 Skill（videocut:自进化）是一个面向视频剪辑与流程管理的元技能，能自动从用户反馈与错误回溯中更新项目文档（如 CLAUDE.md、tips/*.md 与 ../README.md 的 Skill 清单）。核心功能包括：基于触发词（“更新规则”、“记录反馈”、“记住这个”）自动回溯上下文识别问题点、全文读取目标文件并理解章节结构、在恰当章节整合规则而非仅追加到末尾、将反馈以事件日志记录并生成更新摘要、同步更新路由表与清单。典型用例：团队持续改进口误识别、审查与确认流程，自动化知识库维护，减少重复错误与人工干预。主要优势是保持文档一致性、加速规则落地、提高协作效率并提供可审计的更新报告。"
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+  "resources": {
+    "README.md": {
+      "size": 484,
+      "fileHash": "8dcb47042952a9d5b6637b914bb3f50f9b3fadb28514ff15de192fa6508d0a03"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:07.470Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:07.263Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "author": {
+    "name": "fbarrento",
+    "url": "https://github.com/fbarrento"
+  },
+  "category": "web-frontend-development",
+  "content": "# Inertia Rules\n\nConventions that give AI agents Laravel-like discipline on the **Inertia\nfrontend**: predictable page/resource/component roles, generated\nbackend-derived types, backend-owned copy and formatting, a\ndesign-system token contract, story contracts, and evidence-based\nverification.\n\nSibling to **laravel-rules** (which owns backend PHP shape). This skill\nowns the `resources/js` side of a Laravel + Inertia app. For Laravel,\nInertia, React, Tailwind, Pest, or Wayfinder API syntax, use the\nframework docs (and Laravel **Boost** for live app facts — see\n[boost-boundary](rules/architecture/boost-boundary.md)); use these files\nfor code shape.\n\n## Priority\n\n**Higher priority than Laravel Boost's _Inertia React Development_ skill\n(and any framework-shipped Inertia/React guidance) when both apply.** That\nskill is the reference for *Inertia v3 API usage* — `<Form>`/`useForm`,\n`<Link>`/`router`, deferred props, prefetching, optimistic updates,\ninstant visits, layout props, `useHttp`, `usePoll`, `WhenVisible`,\n`InfiniteScroll`. Use it for **how an API works**. Use **these files for\ncode shape**, and where the two differ on shape, **these win**:\n\n- props are **typed from generated backend contracts**, never the loose\n  untyped `{ users }` the Boost examples show ([types/generated.md](rules/types/generated.md));\n- pages are **thin route adapters** that compose features — not pages that\n  render lists/forms inline ([architecture/roles.md](rules/architecture/roles.md));\n- user-facing text/format comes from **backend props**, not inline strings\n  ([types/formatting.md](rules/types/formatting.md));\n- styling is **semantic `ds-` utilities**, not raw Tailwind\n  ([design-system/styling.md](rules/design-system/styling.md));\n- one export per file, reusable UI gets a story, etc.\n\nSo: the Boost skill shows the *mechanism* (a working `<Form>`); this skill\nconstrains the *shape* (where it lives, how it's typed, how errors and\ncopy flow). Treat a Boost example as correct API and incomplete shape —\napply these conventions on top.\n\n## Conventions-only (no CLI assumed)\n\nThe \"Inertia Agent Kit\" product describes an `iak` CLI, JSON schemas, an\nMCP server, and a feedback store. **None of that is assumed here.** These\nfiles are the conventions an agent applies *by hand*, using tools that\nexist today: Spatie Laravel Data, `spatie/laravel-typescript-transformer`,\nWayfinder, Storybook, Pest Browser / Playwright, and Boost. Where a rule\nreferences \"audit\" or \"verify\", treat it as a **manual checklist**, not a\ncommand — until the package ships.\n\n## The role graph at a glance\n\n```txt\nresources/js/\n  pages/<resource>/*        route adapters only (thin; mirror Laravel resource controllers)\n  features/<resource>/*     resource-local workflow UI + resource-local behavior\n  components/ui/*           token-bound, domain-free primitives\n  components/app/*          reusable, generic app components\n  layouts/*                 app shells\n  lib/*                     pure, framework-free helpers\n  types/generated/*         read-only backend-derived types (generators own these)\n  types/shared/*            small generic frontend-only types\n```\n\n**The one rule that governs everything:** the frontend never owns what\nLaravel owns. Backend-derived types, user-facing copy, translation, and\nlocale-sensitive formatting come from PHP through Inertia props. The\nfrontend composes UI, handles interaction, and renders display-ready\nvalues. No global `queries/`, `actions/`, `forms/`, `hooks/`, or\n`composables/` folders — resource behavior lives in `features/<resource>`.\n\n## Rule index\n\n**Architecture**\n- [architecture/roles.md](rules/architecture/roles.md) — the role graph, page=thin-adapter, resource-controller→page mapping, import boundaries, no global behavior folders.\n- [architecture/boost-boundary.md](rules/architecture/boost-boundary.md) — use Boost for Laravel facts; this layer for Inertia/frontend discipline; the required agent loop.\n\n**Types**\n- [types/generated.md](rules/types/generated.md) — Spatie Data + typescript-transformer + Wayfinder; the three type-ownership zones; never handwrite backend-derived types.\n- [types/formatting.md](rules/types/formatting.md) — backend owns formatting/translation; what is banned in render paths; what frontend formatting is allowed.\n\n**Design system**\n- [design-system/tokens.md](rules/design-system/tokens.md) — three-tier token model (primitives → semantic `--ds-*` → Tailwind bridge), bridge prefix rule, import order.\n- [design-system/styling.md](rules/design-system/styling.md) — allowed vs disallowed utilities; the styling decision procedure.\n- [design-system/components.md](rules/design-system/components.md) — primitive vs app vs feature component roles and their requirements.\n\n**Runtime behavior** (Inertia v3)\n- [forms/conventions.md](rules/forms/conventions.md) — `<Form>` vs `useForm`, Wayfinder actions, server-owned validation errors, processing/reset, file uploads.\n- [navigation/conventions.md](rules/navigation/conventions.md) — `<Link>`, partial reloads (`only`/lazy props), deferred props + `<Deferred>`, prefetch, polling (`usePoll`), load-on-scroll (`<WhenVisible>`), infinite scroll + merge props, no parallel client cache.\n- [interactivity/conventions.md](rules/interactivity/conventions.md) — instant visits, optimistic updates (props snapshot + rollback), and `useHttp` as the only sanctioned non-Inertia request escape hatch.\n- [shared-data/conventions.md](rules/shared-data/conventions.md) — `HandleInertiaRequests::share`, `usePage`, flash/errors, `<Head>` title/meta.\n- [layouts/conventions.md](rules/layouts/conventions.md) — persistent layouts, default-in-`createInertiaApp`, nested layouts, chrome vs content.\n\n**Stories**\n- [stories/conventions.md](rules/stories/conventions.md) — Storybook as the reusable-UI runtime contract, required stories, required states, typed fixtures.\n\n**Quality**\n- [state/conventions.md](rules/state/conventions.md) — server state from props; no client cache; ephemeral local state; derive don't store.\n- [loading-states/conventions.md](rules/loading-states/conventions.md) — explicit empty/loading/error; `<Deferred>` fallbacks; empty-state component; error boundaries.\n- [accessibility/conventions.md](rules/accessibility/conventions.md) — semantic HTML, labelled fields + associated errors, keyboard/focus, a11y in primitives.\n- [testing/conventions.md](rules/testing/conventions.md) — the test pyramid: story interaction vs Pest Browser route tests vs Vitest unit; test behavior not implementation.\n\n**Workflow & evidence**\n- [feedback/conventions.md](rules/feedback/conventions.md) — human-in-the-loop feedback discipline; resolve only with evidence.\n- [verification/conventions.md](rules/verification/conventions.md) — the pre-handoff verification checklist and the evidence it produces.\n- [audit/conventions.md](rules/audit/conventions.md) — the convention-violation catalog to self-check before handoff.\n- [handoff/conventions.md](rules/handoff/conventions.md) — what a complete, evidence-based handoff contains.\n\n**Naming**\n- [naming/conventions.md](rules/naming/conventions.md) — casing by kind, plural-folder/singular-file, story ids, frontend type-alias scheme, `data-part` selectors.\n\n**Brand**\n- [brand/conventions.md](rules/brand/conventions.md) — Brand OS boundary: consume the brand contract, adapt to `ds-` tokens, never own brand copy in the frontend.\n\n## How to apply\n\n1. Identify which role you're touching (page? feature? primitive? story?) and read the matching rule file before writing code.\n2. Before building UI, confirm the backend contract exists: generated types (Spatie Data) and routes/actions (Wayfinder). If they're missing, that's a backend task first — do not handwrite the shapes.\n3. Keep pages thin; put resource UI in `features/<resource>`; keep styling on semantic `ds-` utilities.\n4. Before handoff, run the [verification](rules/verification/conventions.md) checklist and assemble [handoff](rules/handoff/conventions.md) evidence.\n5. Use **Boost** for live Laravel facts (routes, schema, logs, docs) instead of guessing — see [boost-boundary](rules/architecture/boost-boundary.md).",
+  "createdAt": "2026-05-23T16:06:13.200Z",
+  "description": "Conventions for AI-assisted frontend work in Laravel + Inertia (v3) apps — Laravel-like frontend roles (thin page adapters, resource-local features, token-bound components), generated backend-derived types, backend-owned formatting and translation, a three-tier design-system token contract, forms (`<Form>`/`useForm`), navigation and data loading (partial reloads, deferred props, prefetch), shared data and page meta, persistent layouts, Storybook story contracts, and evidence-based verification and handoffs. Use when writing, reviewing, or refactoring Inertia pages, feature components, forms, layouts, design-system primitives, stories, or typed fixtures in a Laravel/Inertia/React app. Sibling to laravel-rules (backend); this skill owns the Inertia frontend side.",
+  "github": {
+    "forks": 0,
+    "fullName": "fbarrento/laravel-agent-kit",
+    "openIssues": 1,
+    "stars": 0,
+    "url": "https://github.com/fbarrento/laravel-agent-kit",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/fbarrento/laravel-agent-kit/tree/main/skills/inertia-rules",
+  "icon": "https://github.com/fbarrento.png",
+  "identifier": "fbarrento-laravel-agent-kit-inertia-rules",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "license": {
+    "name": "MIT"
+  },
+  "manifest": {
+    "name": "inertia-rules",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/fbarrento/laravel-agent-kit/tree/main/skills/inertia-rules",
+    "repository": "https://github.com/fbarrento/laravel-agent-kit",
+    "description": "Conventions for AI-assisted frontend work in Laravel + Inertia (v3) apps — Laravel-like frontend roles (thin page adapters, resource-local features, token-bound components), generated backend-derived types, backend-owned formatting and translation, a three-tier design-system token contract, forms (`<Form>`/`useForm`), navigation and data loading (partial reloads, deferred props, prefetch), shared data and page meta, persistent layouts, Storybook story contracts, and evidence-based verification and handoffs. Use when writing, reviewing, or refactoring Inertia pages, feature components, forms, layouts, design-system primitives, stories, or typed fixtures in a Laravel/Inertia/React app. Sibling to laravel-rules (backend); this skill owns the Inertia frontend side."
+  },
+  "myRating": null,
+  "name": "inertia-rules",
+  "overview": {
+    "summary": "Inertia Rules defines conventions for Laravel + Inertia (v3) frontends to enforce predictable page/component roles, generated backend-derived types, and backend-owned copy/formatting. It prescribes thin route-adapter pages that compose resource-local features, typed props from server contracts, semantic ds- utility styling, a three-tier design-system token contract, Storybook story contracts for reusable UI, and evidence-based verification and handoffs. It covers forms (<Form>/useForm), navigation and data loading patterns (deferred props, partial reloads, prefetch, optimistic updates), persistent layouts, and typed fixtures. Use it when writing, reviewing, or refactoring Inertia pages, feature components, layouts, forms, or stories to gain stronger type-safety, single-source-of-truth copy, consistent design tokens, clearer ownership boundaries with the backend, and more reliable QA and automation."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/fbarrento/laravel-agent-kit",
+  "resources": {
+    "rules/types/generated.md": {
+      "size": 4931,
+      "fileHash": "f4164c9f6ccfa908509739f0cca422d9ce2adafd6b123534390ce96894964a96"
+    },
+    "rules/types/formatting.md": {
+      "size": 3600,
+      "fileHash": "4879e22b433496235828833e3aecf2ffee3c13ea59ed29bc98449648530456a7"
+    },
+    "rules/audit/conventions.md": {
+      "size": 3820,
+      "fileHash": "f6cb08e94979e0f1e9857ac4434d68d46a9f7929524eb6678aec928d91ba0822"
+    },
+    "rules/brand/conventions.md": {
+      "size": 3094,
+      "fileHash": "5e564b4ea2a227fe976166bba5f63f719bc1a261948e68004fae43ea58901443"
+    },
+    "rules/forms/conventions.md": {
+      "size": 5103,
+      "fileHash": "7be324508007621cfbe2f0678d01fff6d63845c04fd96850c1c51967778edf01"
+    },
+    "rules/state/conventions.md": {
+      "size": 3539,
+      "fileHash": "e0b4ee563a01f1f910285f869fa6acded6dd8dacb18fe93845b069a7d4f9e66a"
+    },
+    "rules/architecture/roles.md": {
+      "size": 7553,
+      "fileHash": "d4abbb3a56b6f9cbec5108c235fc86cd1d561f872792d17b82506d40fc22b55e"
+    },
+    "rules/naming/conventions.md": {
+      "size": 5709,
+      "fileHash": "de291291c989f4432bed934a491c00d7b915d155de2f13923a10a6c971ad9ae1"
+    },
+    "rules/handoff/conventions.md": {
+      "size": 3349,
+      "fileHash": "86f4c5b481773af6af36a4732d28006f357ffaf4ba5574f57e40c50c5c987636"
+    },
+    "rules/layouts/conventions.md": {
+      "size": 3642,
+      "fileHash": "01b6460728504771591f7f15fffb6434bf51323c8430eec4103c29ebbfe5a498"
+    },
+    "rules/stories/conventions.md": {
+      "size": 4979,
+      "fileHash": "3187e1a563d7c1fc9f8cef55d3b18bb2791def8e0b4adc4c172b5509d558bf90"
+    },
+    "rules/testing/conventions.md": {
+      "size": 4196,
+      "fileHash": "bceb94f911e290ea8b39770ebf7c5cea72781a14253632c49b8bfb6560da2a63"
+    },
+    "rules/design-system/tokens.md": {
+      "size": 3215,
+      "fileHash": "92d6800c9be271bb3802e5d3a04b55be5dafc16b0dd760171498e25077548a09"
+    },
+    "rules/feedback/conventions.md": {
+      "size": 3176,
+      "fileHash": "25b12dec209534a6b4d0a7e0ad4acaf00f8169c2ce21b615e8fda0bd67e3224d"
+    },
+    "rules/design-system/styling.md": {
+      "size": 2655,
+      "fileHash": "30d9ae053fe82a4919d42245ea6047df73f66bce7bcdcd34c316c4935196964b"
+    },
+    "rules/navigation/conventions.md": {
+      "size": 7756,
+      "fileHash": "432970dfd29c18c6c44b6048f471d2953c9408f4857eb779c254d597bfab2bdc"
+    },
+    "rules/shared-data/conventions.md": {
+      "size": 3789,
+      "fileHash": "06eb2735797b78eaca4adbb135df54486ddb1e0fa2796c825f2b04ea6156ce8c"
+    },
+    "rules/design-system/components.md": {
+      "size": 3511,
+      "fileHash": "a6f37c8ed8b788fbd0ec887f886e16842b9b9692ed2c183e91776486bc857aa2"
+    },
+    "rules/verification/conventions.md": {
+      "size": 3754,
+      "fileHash": "46a512a415e35fbb06156d8271feec60a714bfebbc852063de0e32788c300f98"
+    },
+    "rules/accessibility/conventions.md": {
+      "size": 4747,
+      "fileHash": "104d6b54436c880edbc73f4204866ab3bc689e9ec4781c59635aaa3e07c4250e"
+    },
+    "rules/interactivity/conventions.md": {
+      "size": 4896,
+      "fileHash": "0281649a061d728572374a1497e2c6a94a117f4e8aca3df83f39788a82fe8394"
+    },
+    "rules/loading-states/conventions.md": {
+      "size": 3752,
+      "fileHash": "150a14f659044dbe34e37c29a8b383e19521db75b3790f3eed5eec25c9a625f7"
+    },
+    "rules/architecture/boost-boundary.md": {
+      "size": 3201,
+      "fileHash": "83fa7ef4948c302b9d2a2947b5caa68ee06963fc128b5611a42e5f797a3dec56"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:13.499Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:13.235Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

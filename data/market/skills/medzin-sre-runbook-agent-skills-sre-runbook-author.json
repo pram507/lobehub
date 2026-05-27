@@ -1,0 +1,68 @@
+{
+  "author": {
+    "name": "medzin",
+    "url": "https://github.com/medzin"
+  },
+  "category": "devops-cloud",
+  "content": "# SRE Runbook Author\n\nUse this skill when the user asks to create, improve, restructure, or convert operational knowledge into a production SRE runbook.\n\nDo not use this skill to execute a runbook, approve risky actions, or invent service-specific operational facts. For execution, use an execution-focused skill.\n\n## Core Behavior\n\nCreate runbooks that can be followed by a human or AI agent during an incident. Include only information needed to decide, act, verify, stop, roll back, or escalate during the incident. Use concise, concrete steps and make missing details explicit.\n\nWhen the user provides alert, dashboard, service, or incident identifiers, try to enrich and verify context through available MCP servers, apps, or connectors before drafting. Prefer links to authoritative sources over copying alert queries or thresholds into the runbook. If no connector is available or access is missing, do not guess.\n\nIf the user asks for a production runbook and required local details are missing, ask a short clarification before drafting unless the user explicitly asks for a generic example, template, or best-effort draft. Ask for the smallest useful set of values, such as service, environment, owner or escalation path, and required tooling. Also ask whether missing optional systems should be omitted.\n\nBefore finalizing a production runbook, resolve missing local details with the user when possible. For each missing item, choose one explicit outcome:\n\n- The user provides the value.\n- The runbook intentionally keeps a placeholder because it is a reusable template or example.\n- The item or optional source link is omitted because it does not apply to the user's environment.\n\nDo not force placeholders for optional systems a team does not use, such as an incident process URL, service catalog URL, change history URL, feature flag tool, or dashboard. Keep required sections, but include only applicable entries inside them.\n\nEvery runbook must include:\n\n- Title\n- Purpose\n- When to use this runbook\n- When not to use this runbook\n- Preconditions\n- Required access and tools\n- Safety constraints\n- Source links\n- Symptoms\n- Initial triage\n- Impact assessment\n- Read-only diagnostics\n- Decision tree\n- Mitigation steps\n- Verification after each step\n- Rollback / abort criteria\n- Escalation\n- Evidence to preserve\n- Completion criteria\n\n## Safety Constraints\n\n- Prefer read-only diagnostics before mutating actions.\n- Mark risky, destructive, or customer-impacting actions clearly.\n- Do not invent commands, dashboards, owners, thresholds, credentials, service names, or expected outputs.\n- Prefer verified operational data from available connectors over user-supplied names or memory, but never require a connector for the skill to work.\n- Use placeholders only for reusable templates/examples, truly unresolved required facts, or intentionally variable incident inputs. Do not leave avoidable placeholders in a production runbook when the user can provide the value.\n- Do not put authoring metadata, validation gaps, post-incident process, or automation ideas inside the executable runbook.\n- Do not expose secrets; tell responders to redact sensitive values from logs, manifests, command output, and evidence before sharing.\n- Prefer the approved deployment or GitOps tool for rollback or config changes; direct platform commands are examples only unless explicitly approved.\n- Include verification after each mitigation step.\n- Include rollback or abort criteria for every risky action.\n- Include escalation criteria.\n\n## References\n\nOpen these only when useful:\n\n- `references/runbook-template.md` for the full runbook structure.\n- `references/runbook-quality-bar.md` when checking completeness.\n- `references/context-enrichment.md` when alert, dashboard, incident, or service identifiers may be validated through available connectors.\n- `references/sre-principles.md` for SRE practice alignment.\n\n## Output Format\n\nReturn the executable runbook first in Markdown. If important details are missing, add a horizontal rule after the runbook, then a plain-text agent-output block titled `Agent output, not part of the runbook:`. Do not use a Markdown heading for this block. Do not include these notes under the runbook title, in a runbook table of contents, or inside the incident-time execution flow.",
+  "createdAt": "2026-05-23T16:06:05.345Z",
+  "description": "Create execution-focused production SRE runbooks for incidents, alerts, operational procedures, service failures, rollbacks, mitigations, diagnostics, and escalation. Use when the user asks to write, improve, structure, or convert operational knowledge into a clear SRE runbook.",
+  "github": {
+    "forks": 0,
+    "fullName": "medzin/sre-runbook-agent-skills",
+    "openIssues": 0,
+    "stars": 0,
+    "url": "https://github.com/medzin/sre-runbook-agent-skills",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/medzin/sre-runbook-agent-skills/tree/main/skills/sre-runbook-author",
+  "icon": "https://github.com/medzin.png",
+  "identifier": "medzin-sre-runbook-agent-skills-sre-runbook-author",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "sre-runbook-author",
+    "sourceUrl": "https://github.com/medzin/sre-runbook-agent-skills/tree/main/skills/sre-runbook-author",
+    "repository": "https://github.com/medzin/sre-runbook-agent-skills",
+    "description": "Create execution-focused production SRE runbooks for incidents, alerts, operational procedures, service failures, rollbacks, mitigations, diagnostics, and escalation. Use when the user asks to write, improve, structure, or convert operational knowledge into a clear SRE runbook."
+  },
+  "myRating": null,
+  "name": "sre-runbook-author",
+  "overview": {
+    "summary": "SRE Runbook Author generates clear, execution-focused production runbooks for incidents, alerts, operational procedures, rollbacks, mitigations, diagnostics, and escalation. Use it to create, improve, restructure, or convert operational knowledge into a human- and agent-actionable runbook. Features include concise, concrete step-by-step actions to decide, act, verify, stop, roll back, and escalate; explicit handling of missing local details; and links to authoritative dashboards and docs when connectors are available. The skill asks minimal clarifying questions (service, environment, owner, tooling) before drafting production material and will not invent service-specific facts or execute steps. It supports templates and placeholders when requested, omits optional systems not in use, and enforces required sections (title, purpose, when-to-use, steps, verification, rollback, escalation). Core advantages: reduces ambiguity, standardizes incident response, and produces safe, audit-ready runbooks."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/medzin/sre-runbook-agent-skills",
+  "resources": {
+    "references/sre-principles.md": {
+      "size": 1897,
+      "fileHash": "24d89d3a4ef384bb043edcd6fe154935edc9f0deb68f1c52e9e8534313760fdb"
+    },
+    "references/runbook-template.md": {
+      "size": 4592,
+      "fileHash": "b9ed541c36f1f0590f074c7238380c77959cec4ec7aed0207cf31f8539a69122"
+    },
+    "references/context-enrichment.md": {
+      "size": 5278,
+      "fileHash": "f0bf0e9dec80719c58b5516742389ca523948a5081964ff53ce45cb26e8aea3b"
+    },
+    "references/runbook-quality-bar.md": {
+      "size": 3474,
+      "fileHash": "a4da885df47ff6e9bbcca9b75956bad6fb67eade0b58fbc312694216db407ff0"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:06.721Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:05.722Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

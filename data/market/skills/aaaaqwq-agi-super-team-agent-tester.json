@@ -1,0 +1,51 @@
+{
+  "author": {
+    "name": "aAAaqwq",
+    "url": "https://github.com/aAAaqwq"
+  },
+  "category": "coding-agents-ides",
+  "content": "---\nname: agent-tester\ndescription: Test agent: dry-run, unit, integration, compatibility\n---\n# Agent Tester\n\n> Tests a built agent: dry-run, unit tests, integration, compatibility with other agents.\n\n## When to use\n\n- After Agent Builder has finished\n- \"test agent X\"\n- \"check agent compatibility\"\n\n## Input\n\n- Agent from `$AGENTS_PATH/[name]/`\n- Spec from `$AGENTS_PATH/specs/[name].spec.md`\n\n## How to execute\n\n### Step 1: Static analysis\n\nCheck the agent code:\n\n- [ ] File exists and runs without syntax errors\n- [ ] All imports resolve\n- [ ] Config file is valid\n- [ ] Paths in config exist\n- [ ] Credentials are accessible\n- [ ] Dry-run mode is implemented\n\n### Step 2: Dry-run test\n\nRun the agent with `--dry-run`:\n\n```bash\npython3 $AGENTS_PATH/[name]/[name]_agent.py --dry-run\n```\n\nCheck:\n- [ ] Agent starts without errors\n- [ ] Logs are clear\n- [ ] Shows what it WOULD do (without real side effects)\n- [ ] Execution time is reasonable\n\n### Step 3: Unit tests\n\nRun tests:\n\n```bash\npython3 -m pytest $AGENTS_PATH/[name]/test_[name].py -v\n```\n\nMinimum tests:\n- [ ] Input parsing works\n- [ ] Business logic is correct on test data\n- [ ] Error handling works (bad input, missing files, API timeout)\n- [ ] Output format is correct\n\n### Step 4: Integration test (one run on real data)\n\n**WARNING: only with human approval!**\n\n1. Back up data that the agent modifies:\n```bash\ncp [target.csv] [target.csv.backup]\n```\n\n2. Run the agent once on real data\n3. Check output:\n   - [ ] Data was written correctly\n   - [ ] Format matches schema.yaml\n   - [ ] Nothing broke\n   - [ ] Git commit was created (if needed)\n\n4. If something is wrong -- rollback:\n```bash\ncp [target.csv.backup] [target.csv]\n```\n\n### Step 5: Compatibility test\n\nCheck that the new agent does not conflict with existing ones:\n\n```markdown\n## Compatibility Matrix\n\n| Agent | Shared Files | Potential Conflict | Status |\n|-------|-------------|-------------------|--------|\n| Email Pipeline | activities.csv | Write conflict | ? |\n| [other agents] | ... | ... | ? |\n```\n\nSpecific checks:\n- [ ] **File locks**: can two agents write to the same CSV simultaneously\n- [ ] **Data consistency**: does the agent overwrite another agent's data\n- [ ] **ID generation**: do IDs conflict (person_id, activity_id, etc.)\n- [ ] **Schedule overlap**: do agents run at the same time\n- [ ] **Git conflicts**: does auto-commit create merge conflicts\n\n### Step 6: Report\n\nCreate a test report file:\n\n```\n$AGENTS_PATH/specs/[name].test-report.md\n```\n\n**Report structure:**\n\n```markdown\n# Test Report: [Agent Name]\n\n## Date: YYYY-MM-DD\n## Tester: Process Analyst Agent\n\n## Results\n\n| Test | Status | Notes |\n|------|--------|-------|\n| Static analysis | PASS/FAIL | |\n| Dry-run | PASS/FAIL | |\n| Unit tests | PASS/FAIL | X/Y passed |\n| Integration | PASS/FAIL | |\n| Compatibility | PASS/FAIL | |\n\n## Issues Found\n1. [Issue description + severity]\n\n## Recommendation\n- [ ] READY for production\n- [ ] NEEDS FIXES (list what)\n- [ ] BLOCKED (list why)\n```\n\n## Output\n\n- Test report in `$AGENTS_PATH/specs/[name].test-report.md`\n- PASS/FAIL verdict\n- List of issues if any\n\n## Related skills\n\n- `process-analyst` — creates the spec\n- `agent-builder` — builds the agent\n- `change-review` — validates CRM/PM changes",
+  "createdAt": "2026-05-23T16:08:50.162Z",
+  "description": "name: agent-tester description: Test agent: dry-run, unit, integration, compatibility",
+  "github": {
+    "forks": 13,
+    "fullName": "aAAaqwq/AGI-Super-Team",
+    "openIssues": 1,
+    "stars": 63,
+    "url": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/agent-tester",
+  "icon": "https://github.com/aAAaqwq.png",
+  "identifier": "aaaaqwq-agi-super-team-agent-tester",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "Agent Tester",
+    "sourceUrl": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/agent-tester",
+    "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "description": "name: agent-tester description: Test agent: dry-run, unit, integration, compatibility"
+  },
+  "myRating": null,
+  "name": "Agent Tester",
+  "overview": {
+    "summary": "Agent Tester is a developer-facing validation Skill that verifies a built agent through static analysis, dry-run execution, unit testing, one-shot human-approved integration runs, and inter-agent compatibility checks. It accepts an agent directory ($AGENTS_PATH/[name]/) and spec ($AGENTS_PATH/specs/[name].spec.md) and performs checks such as syntax/import resolution, config/path/credential validation, and dry-run behavior via the provided --dry-run flag. It automates pytest invocation for unit tests, validates input parsing, business logic, error handling, and output format, and guides a cautious integration run with backup/rollback commands. Finally, it produces a compatibility matrix highlighting shared files and potential conflicts. Use it after Agent Builder, in CI pre-deploy gates, or before registering agents to reduce regressions, prevent side effects, and ensure safe interoperability."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+  "resources": {},
+  "updatedAt": "2026-05-23T16:08:50.436Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:08:50.194Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

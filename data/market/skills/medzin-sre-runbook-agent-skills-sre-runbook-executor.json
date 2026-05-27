@@ -1,0 +1,68 @@
+{
+  "author": {
+    "name": "medzin",
+    "url": "https://github.com/medzin"
+  },
+  "category": "devops-cloud",
+  "content": "# SRE Runbook Executor\n\nUse this skill when the user asks to execute, follow, apply, or walk through an existing production SRE runbook.\n\nDo not use this skill to create a new runbook or to improvise missing operational procedures. If the runbook is incomplete, stop and ask for the missing detail.\n\n## Core Behavior\n\n- Restate the incident or input.\n- Identify the runbook being used and why it applies.\n- Execute only one step at a time.\n- Prefer read-only diagnostics first.\n- Use available MCP servers, apps, or connectors only for read-only evidence collection and context verification for the current step.\n- Record evidence for every step.\n- Compare actual results with expected results.\n- Stop if a step is ambiguous.\n- Stop if required access or tools are missing.\n- Stop if observed state does not match the runbook.\n- Never invent missing commands, thresholds, owners, dashboards, or expected outputs.\n- Ask for approval before any risky action.\n- Never use connector data to silently skip an approval gate, broaden scope, or perform a mutating action not explicitly present in the runbook.\n\n## Risky Actions\n\nRisky actions include:\n\n- Destructive commands\n- Customer-impacting changes\n- Data changes\n- Deploys\n- Rollbacks\n- Restarts\n- Scaling operations\n- Failovers\n- Config changes\n- Permission changes\n- Disabling alerts\n- Deleting or modifying resources\n\n## References\n\nOpen these only when useful:\n\n- `references/execution-safety-contract.md` for the execution rules.\n- `references/approval-gates.md` for approval requirements.\n- `references/execution-log-template.md` for evidence logging.\n- `references/context-evidence.md` when read-only connector lookups can support execution evidence.\n\n## Execution Output Format\n\nFor every step, use:\n\n- Current step\n- Action to perform\n- Safety classification: read-only / low-risk / risky\n- Required approval: yes/no\n- Evidence collected\n- Expected result\n- Actual result\n- Decision\n- Next step\n- Stop condition, if any",
+  "createdAt": "2026-05-23T16:06:06.360Z",
+  "description": "Execute production SRE runbooks step by step during incidents or operational tasks. Use when the user asks an agent to follow, run, execute, apply, or walk through a runbook safely with read-only diagnostics first, evidence capture, verification, ambiguity stops, escalation, and approval gates for risky actions.",
+  "github": {
+    "forks": 0,
+    "fullName": "medzin/sre-runbook-agent-skills",
+    "openIssues": 0,
+    "stars": 0,
+    "url": "https://github.com/medzin/sre-runbook-agent-skills",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/medzin/sre-runbook-agent-skills/tree/main/skills/sre-runbook-executor",
+  "icon": "https://github.com/medzin.png",
+  "identifier": "medzin-sre-runbook-agent-skills-sre-runbook-executor",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "sre-runbook-executor",
+    "sourceUrl": "https://github.com/medzin/sre-runbook-agent-skills/tree/main/skills/sre-runbook-executor",
+    "repository": "https://github.com/medzin/sre-runbook-agent-skills",
+    "description": "Execute production SRE runbooks step by step during incidents or operational tasks. Use when the user asks an agent to follow, run, execute, apply, or walk through a runbook safely with read-only diagnostics first, evidence capture, verification, ambiguity stops, escalation, and approval gates for risky actions."
+  },
+  "myRating": null,
+  "name": "sre-runbook-executor",
+  "overview": {
+    "summary": "The SRE Runbook Executor is a safety-first agent skill for executing existing production SRE runbooks step-by-step during incidents and operational tasks. It restates the incident, identifies the applicable runbook, and performs only one step at a time, preferring read-only diagnostics and using MCP servers/apps/connectors only for evidence collection and context verification. For every step it records evidence, compares actual results with expected results, and follows strict stop conditions for ambiguity, missing access/tools, or mismatched states. It enforces approval gates before any risky action (restarts, deploys, rollbacks, config or data changes, failovers, etc.), never invents missing procedures, and surfaces required approvals. Use cases include incident response, operational playbook adherence, and audit-ready execution logs. Core advantages are safety, reproducibility, clear decision points, and comprehensive evidence logging aligned with referenced execution and approval policies."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/medzin/sre-runbook-agent-skills",
+  "resources": {
+    "references/approval-gates.md": {
+      "size": 1033,
+      "fileHash": "44cbf44252c2e767867ab8eb7f0173fbedd0c11725a3ef2167612bdba31bba58"
+    },
+    "references/context-evidence.md": {
+      "size": 3132,
+      "fileHash": "b882fb2047f19cfbdb7249187672ac4e4d49eabfcc847edb7738c3d21ebf6938"
+    },
+    "references/execution-log-template.md": {
+      "size": 1140,
+      "fileHash": "7f5dc1e67d5d9131cc839de7823bb9079539b1a18c848e0272f167dc4a081a7b"
+    },
+    "references/execution-safety-contract.md": {
+      "size": 1888,
+      "fileHash": "aed2da20d4540a5fa02d7bda404e18cab3c1f1fec201140e31d928e47400dbc1"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:06.627Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:06.398Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

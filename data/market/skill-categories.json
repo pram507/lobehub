@@ -1,0 +1,1186 @@
+[
+  {
+    "category": "_meta",
+    "count": 4
+  },
+  {
+    "category": "_persona",
+    "count": 1
+  },
+  {
+    "category": "2d-assets",
+    "count": 7
+  },
+  {
+    "category": "3d-assets",
+    "count": 5
+  },
+  {
+    "category": "accounting",
+    "count": 2
+  },
+  {
+    "category": "advanced",
+    "count": 3
+  },
+  {
+    "category": "Agent & Orchestration",
+    "count": 1
+  },
+  {
+    "category": "agent-behavior",
+    "count": 1
+  },
+  {
+    "category": "agent-orchestration",
+    "count": 1
+  },
+  {
+    "category": "agent-to-agent-protocols",
+    "count": 8366
+  },
+  {
+    "category": "agents",
+    "count": 1
+  },
+  {
+    "category": "ai",
+    "count": 6
+  },
+  {
+    "category": "AI & Machine Learning",
+    "count": 5
+  },
+  {
+    "category": "ai-agent-infrastructure",
+    "count": 1
+  },
+  {
+    "category": "ai-agents",
+    "count": 2
+  },
+  {
+    "category": "ai-and-npcs",
+    "count": 1
+  },
+  {
+    "category": "ai-framework",
+    "count": 1
+  },
+  {
+    "category": "ai-infrastructure",
+    "count": 1
+  },
+  {
+    "category": "ai-llms",
+    "count": 15249
+  },
+  {
+    "category": "ai-ml",
+    "count": 4
+  },
+  {
+    "category": "ai-native",
+    "count": 2
+  },
+  {
+    "category": "AI-RAG",
+    "count": 3
+  },
+  {
+    "category": "ai-research",
+    "count": 1
+  },
+  {
+    "category": "ai-testing",
+    "count": 1
+  },
+  {
+    "category": "ai-tooling",
+    "count": 1
+  },
+  {
+    "category": "analytics",
+    "count": 1
+  },
+  {
+    "category": "Analytics",
+    "count": 1
+  },
+  {
+    "category": "andruia",
+    "count": 4
+  },
+  {
+    "category": "animation",
+    "count": 6
+  },
+  {
+    "category": "api",
+    "count": 1
+  },
+  {
+    "category": "API Design",
+    "count": 2
+  },
+  {
+    "category": "api-integration",
+    "count": 1
+  },
+  {
+    "category": "apple-apps-services",
+    "count": 704
+  },
+  {
+    "category": "architecture",
+    "count": 4
+  },
+  {
+    "category": "arduino",
+    "count": 1
+  },
+  {
+    "category": "asset-pipeline",
+    "count": 1
+  },
+  {
+    "category": "audio",
+    "count": 7
+  },
+  {
+    "category": "audit",
+    "count": 4
+  },
+  {
+    "category": "automation",
+    "count": 3
+  },
+  {
+    "category": "backend",
+    "count": 1
+  },
+  {
+    "category": "Backend",
+    "count": 225
+  },
+  {
+    "category": "Backend & Databases",
+    "count": 1
+  },
+  {
+    "category": "Backend & Infrastructure",
+    "count": 13
+  },
+  {
+    "category": "best-practice",
+    "count": 1
+  },
+  {
+    "category": "browser-automation",
+    "count": 5389
+  },
+  {
+    "category": "build",
+    "count": 4
+  },
+  {
+    "category": "business",
+    "count": 11
+  },
+  {
+    "category": "business-architecture",
+    "count": 1
+  },
+  {
+    "category": "business-strategy",
+    "count": 2
+  },
+  {
+    "category": "calendar-scheduling",
+    "count": 1192
+  },
+  {
+    "category": "chain-scanner",
+    "count": 4
+  },
+  {
+    "category": "character-controllers",
+    "count": 1
+  },
+  {
+    "category": "ci-cd",
+    "count": 1
+  },
+  {
+    "category": "clawdbot-tools",
+    "count": 1383
+  },
+  {
+    "category": "cli-tool",
+    "count": 1
+  },
+  {
+    "category": "cli-utilities",
+    "count": 25876
+  },
+  {
+    "category": "Cloud & Infrastructure",
+    "count": 1
+  },
+  {
+    "category": "cloud-native",
+    "count": 2
+  },
+  {
+    "category": "cloud-services",
+    "count": 1
+  },
+  {
+    "category": "cms-template",
+    "count": 1
+  },
+  {
+    "category": "code",
+    "count": 1
+  },
+  {
+    "category": "Code Quality & Testing",
+    "count": 1
+  },
+  {
+    "category": "code-quality",
+    "count": 1
+  },
+  {
+    "category": "coding",
+    "count": 1
+  },
+  {
+    "category": "coding-agents-ides",
+    "count": 48974
+  },
+  {
+    "category": "collaboration",
+    "count": 1
+  },
+  {
+    "category": "communication",
+    "count": 6163
+  },
+  {
+    "category": "compiler",
+    "count": 1
+  },
+  {
+    "category": "Compliance",
+    "count": 1
+  },
+  {
+    "category": "container-runtime",
+    "count": 1
+  },
+  {
+    "category": "content",
+    "count": 3
+  },
+  {
+    "category": "content-generation",
+    "count": 1
+  },
+  {
+    "category": "conversation-intelligence",
+    "count": 1
+  },
+  {
+    "category": "conversion",
+    "count": 3
+  },
+  {
+    "category": "core-dev",
+    "count": 1
+  },
+  {
+    "category": "crm",
+    "count": 4
+  },
+  {
+    "category": "data",
+    "count": 8
+  },
+  {
+    "category": "Data & Analytics",
+    "count": 1
+  },
+  {
+    "category": "data-ai",
+    "count": 3
+  },
+  {
+    "category": "data-analytics",
+    "count": 14106
+  },
+  {
+    "category": "data-engineering",
+    "count": 2
+  },
+  {
+    "category": "data-science",
+    "count": 4
+  },
+  {
+    "category": "data-source",
+    "count": 1
+  },
+  {
+    "category": "database",
+    "count": 1
+  },
+  {
+    "category": "database-processing",
+    "count": 1
+  },
+  {
+    "category": "daw-master",
+    "count": 1
+  },
+  {
+    "category": "debugging",
+    "count": 1
+  },
+  {
+    "category": "deployment",
+    "count": 1
+  },
+  {
+    "category": "design",
+    "count": 13
+  },
+  {
+    "category": "design-tools",
+    "count": 9
+  },
+  {
+    "category": "Develop",
+    "count": 2
+  },
+  {
+    "category": "Developer Tools",
+    "count": 1
+  },
+  {
+    "category": "developer_tooling",
+    "count": 4
+  },
+  {
+    "category": "development",
+    "count": 23
+  },
+  {
+    "category": "development-and-testing",
+    "count": 1
+  },
+  {
+    "category": "development-practices",
+    "count": 1
+  },
+  {
+    "category": "development-tools",
+    "count": 1
+  },
+  {
+    "category": "development-workflow",
+    "count": 1
+  },
+  {
+    "category": "devops",
+    "count": 5
+  },
+  {
+    "category": "DevOps",
+    "count": 1
+  },
+  {
+    "category": "DevOps & Infrastructure",
+    "count": 9
+  },
+  {
+    "category": "devops-cloud",
+    "count": 39954
+  },
+  {
+    "category": "distributed-systems",
+    "count": 1
+  },
+  {
+    "category": "document",
+    "count": 1
+  },
+  {
+    "category": "document-creation",
+    "count": 1
+  },
+  {
+    "category": "document-processing",
+    "count": 1
+  },
+  {
+    "category": "document-quality",
+    "count": 2
+  },
+  {
+    "category": "documentation",
+    "count": 1
+  },
+  {
+    "category": "documents",
+    "count": 1
+  },
+  {
+    "category": "domain",
+    "count": 2
+  },
+  {
+    "category": "e-commerce",
+    "count": 3
+  },
+  {
+    "category": "echolon_api",
+    "count": 22
+  },
+  {
+    "category": "ecommerce",
+    "count": 2
+  },
+  {
+    "category": "education",
+    "count": 2
+  },
+  {
+    "category": "email-intelligence",
+    "count": 1
+  },
+  {
+    "category": "email-outreach",
+    "count": 1
+  },
+  {
+    "category": "encoding",
+    "count": 1
+  },
+  {
+    "category": "Engage",
+    "count": 1
+  },
+  {
+    "category": "Engineering / Code Quality",
+    "count": 1
+  },
+  {
+    "category": "enterprise-integration",
+    "count": 1
+  },
+  {
+    "category": "evaluation",
+    "count": 2
+  },
+  {
+    "category": "example",
+    "count": 3
+  },
+  {
+    "category": "experimental",
+    "count": 2
+  },
+  {
+    "category": "finance",
+    "count": 7819
+  },
+  {
+    "category": "food",
+    "count": 1
+  },
+  {
+    "category": "framework",
+    "count": 11
+  },
+  {
+    "category": "front-end",
+    "count": 1
+  },
+  {
+    "category": "frontend",
+    "count": 13
+  },
+  {
+    "category": "Frontend & UI",
+    "count": 5
+  },
+  {
+    "category": "Frontend Frameworks",
+    "count": 2
+  },
+  {
+    "category": "frontend-development",
+    "count": 2
+  },
+  {
+    "category": "gameplay-mechanics",
+    "count": 1
+  },
+  {
+    "category": "gaming",
+    "count": 3904
+  },
+  {
+    "category": "general",
+    "count": 1
+  },
+  {
+    "category": "git-github",
+    "count": 15191
+  },
+  {
+    "category": "google",
+    "count": 1
+  },
+  {
+    "category": "governance",
+    "count": 1
+  },
+  {
+    "category": "granular-workflow-bundle",
+    "count": 12
+  },
+  {
+    "category": "graphics-processing",
+    "count": 1
+  },
+  {
+    "category": "growth",
+    "count": 3
+  },
+  {
+    "category": "gui-framework",
+    "count": 1
+  },
+  {
+    "category": "health-fitness",
+    "count": 1419
+  },
+  {
+    "category": "hr",
+    "count": 3
+  },
+  {
+    "category": "image-video-generation",
+    "count": 5934
+  },
+  {
+    "category": "implementation",
+    "count": 1
+  },
+  {
+    "category": "improvement",
+    "count": 2
+  },
+  {
+    "category": "Inclusion",
+    "count": 1
+  },
+  {
+    "category": "infrastructure",
+    "count": 10
+  },
+  {
+    "category": "integrations",
+    "count": 1
+  },
+  {
+    "category": "Integrations & Connectors",
+    "count": 1
+  },
+  {
+    "category": "interface",
+    "count": 1
+  },
+  {
+    "category": "ios-macos-development",
+    "count": 5020
+  },
+  {
+    "category": "knowledge",
+    "count": 1
+  },
+  {
+    "category": "language",
+    "count": 1
+  },
+  {
+    "category": "language-concept",
+    "count": 1
+  },
+  {
+    "category": "language-runtime",
+    "count": 13
+  },
+  {
+    "category": "legal",
+    "count": 1
+  },
+  {
+    "category": "leisure",
+    "count": 1
+  },
+  {
+    "category": "level-design",
+    "count": 1
+  },
+  {
+    "category": "library",
+    "count": 6
+  },
+  {
+    "category": "list-library",
+    "count": 1
+  },
+  {
+    "category": "machine-learning",
+    "count": 2
+  },
+  {
+    "category": "management",
+    "count": 10
+  },
+  {
+    "category": "marketing",
+    "count": 8
+  },
+  {
+    "category": "marketing-sales",
+    "count": 13188
+  },
+  {
+    "category": "mathematics",
+    "count": 1
+  },
+  {
+    "category": "mcp",
+    "count": 2
+  },
+  {
+    "category": "media",
+    "count": 5
+  },
+  {
+    "category": "media-streaming",
+    "count": 1222
+  },
+  {
+    "category": "memory",
+    "count": 1
+  },
+  {
+    "category": "messaging",
+    "count": 2
+  },
+  {
+    "category": "meta",
+    "count": 13
+  },
+  {
+    "category": "methodology",
+    "count": 2
+  },
+  {
+    "category": "microsoft",
+    "count": 1
+  },
+  {
+    "category": "ml-ai",
+    "count": 1
+  },
+  {
+    "category": "moltbook",
+    "count": 360
+  },
+  {
+    "category": "monetization",
+    "count": 7
+  },
+  {
+    "category": "monitoring",
+    "count": 2
+  },
+  {
+    "category": "multimedia",
+    "count": 1
+  },
+  {
+    "category": "multiplayer",
+    "count": 7
+  },
+  {
+    "category": "multiplayer-and-networking",
+    "count": 3
+  },
+  {
+    "category": "natural-language-processing",
+    "count": 1
+  },
+  {
+    "category": "networking",
+    "count": 3
+  },
+  {
+    "category": "nlp",
+    "count": 1
+  },
+  {
+    "category": "normal",
+    "count": 2
+  },
+  {
+    "category": "notes-pkm",
+    "count": 6172
+  },
+  {
+    "category": "observability",
+    "count": 2
+  },
+  {
+    "category": "Observability",
+    "count": 1
+  },
+  {
+    "category": "operations",
+    "count": 1
+  },
+  {
+    "category": "orchestration",
+    "count": 2
+  },
+  {
+    "category": "organization",
+    "count": 3
+  },
+  {
+    "category": "Organization",
+    "count": 1
+  },
+  {
+    "category": "Others",
+    "count": 1
+  },
+  {
+    "category": "parsing",
+    "count": 3
+  },
+  {
+    "category": "patterns",
+    "count": 3
+  },
+  {
+    "category": "payments",
+    "count": 1
+  },
+  {
+    "category": "pdf",
+    "count": 9
+  },
+  {
+    "category": "pdf-documents",
+    "count": 2871
+  },
+  {
+    "category": "performance",
+    "count": 4
+  },
+  {
+    "category": "Performance & Caching",
+    "count": 1
+  },
+  {
+    "category": "personal-development",
+    "count": 2215
+  },
+  {
+    "category": "Phase 1 — Discovery",
+    "count": 2
+  },
+  {
+    "category": "Phase 2 — Validation",
+    "count": 2
+  },
+  {
+    "category": "Phase 3 — Build",
+    "count": 1
+  },
+  {
+    "category": "Phase 4 — Launch",
+    "count": 2
+  },
+  {
+    "category": "Phase 5 — Scale",
+    "count": 4
+  },
+  {
+    "category": "Phase 6 — Leverage",
+    "count": 1
+  },
+  {
+    "category": "planning",
+    "count": 2
+  },
+  {
+    "category": "Planning",
+    "count": 1
+  },
+  {
+    "category": "presentation",
+    "count": 3
+  },
+  {
+    "category": "presentation-processing",
+    "count": 1
+  },
+  {
+    "category": "principle",
+    "count": 1
+  },
+  {
+    "category": "product-management",
+    "count": 1
+  },
+  {
+    "category": "productivity",
+    "count": 17
+  },
+  {
+    "category": "productivity-tasks",
+    "count": 21074
+  },
+  {
+    "category": "professional",
+    "count": 39
+  },
+  {
+    "category": "professional-practice",
+    "count": 1
+  },
+  {
+    "category": "programming-languages",
+    "count": 1
+  },
+  {
+    "category": "project-management",
+    "count": 5
+  },
+  {
+    "category": "project-setup",
+    "count": 1
+  },
+  {
+    "category": "protocol",
+    "count": 2
+  },
+  {
+    "category": "qcsd-phases",
+    "count": 5
+  },
+  {
+    "category": "qe-core",
+    "count": 1
+  },
+  {
+    "category": "quality",
+    "count": 2
+  },
+  {
+    "category": "Quality & Standards",
+    "count": 1
+  },
+  {
+    "category": "quality-assurance",
+    "count": 1
+  },
+  {
+    "category": "quality-communication",
+    "count": 1
+  },
+  {
+    "category": "quality-review",
+    "count": 1
+  },
+  {
+    "category": "qualityforge-testing",
+    "count": 20
+  },
+  {
+    "category": "Recruit",
+    "count": 1
+  },
+  {
+    "category": "reference",
+    "count": 1
+  },
+  {
+    "category": "reliability",
+    "count": 1
+  },
+  {
+    "category": "rendering",
+    "count": 2
+  },
+  {
+    "category": "rendering-and-lighting",
+    "count": 2
+  },
+  {
+    "category": "reporting",
+    "count": 1
+  },
+  {
+    "category": "requirements",
+    "count": 1
+  },
+  {
+    "category": "research",
+    "count": 8
+  },
+  {
+    "category": "Resilience & Distributed Systems",
+    "count": 1
+  },
+  {
+    "category": "Reward",
+    "count": 1
+  },
+  {
+    "category": "sales",
+    "count": 3
+  },
+  {
+    "category": "sales-intelligence",
+    "count": 1
+  },
+  {
+    "category": "scene-and-project",
+    "count": 5
+  },
+  {
+    "category": "scripting-patterns",
+    "count": 1
+  },
+  {
+    "category": "sdk",
+    "count": 1
+  },
+  {
+    "category": "search-research",
+    "count": 9805
+  },
+  {
+    "category": "secure_development",
+    "count": 103
+  },
+  {
+    "category": "security",
+    "count": 6
+  },
+  {
+    "category": "Security",
+    "count": 1
+  },
+  {
+    "category": "security_auditing",
+    "count": 4
+  },
+  {
+    "category": "security_testing",
+    "count": 17
+  },
+  {
+    "category": "security-passwords",
+    "count": 4175
+  },
+  {
+    "category": "self-hosted-automation",
+    "count": 9758
+  },
+  {
+    "category": "shopping-ecommerce",
+    "count": 1639
+  },
+  {
+    "category": "skill-management",
+    "count": 1
+  },
+  {
+    "category": "smart-home-iot",
+    "count": 900
+  },
+  {
+    "category": "social",
+    "count": 1
+  },
+  {
+    "category": "social-media",
+    "count": 3
+  },
+  {
+    "category": "software-development",
+    "count": 6
+  },
+  {
+    "category": "specialized-testing",
+    "count": 6
+  },
+  {
+    "category": "speech-transcription",
+    "count": 1264
+  },
+  {
+    "category": "spreadsheet-processing",
+    "count": 1
+  },
+  {
+    "category": "storage",
+    "count": 1
+  },
+  {
+    "category": "Succession",
+    "count": 1
+  },
+  {
+    "category": "system-administration",
+    "count": 2
+  },
+  {
+    "category": "system-tool",
+    "count": 1
+  },
+  {
+    "category": "technical",
+    "count": 72
+  },
+  {
+    "category": "template",
+    "count": 1
+  },
+  {
+    "category": "Templates &amp; Workflows",
+    "count": 1
+  },
+  {
+    "category": "test-automation",
+    "count": 1
+  },
+  {
+    "category": "testing",
+    "count": 6
+  },
+  {
+    "category": "testing-methodologies",
+    "count": 5
+  },
+  {
+    "category": "tool-quality",
+    "count": 1
+  },
+  {
+    "category": "tooling",
+    "count": 7
+  },
+  {
+    "category": "tools",
+    "count": 2
+  },
+  {
+    "category": "transportation",
+    "count": 895
+  },
+  {
+    "category": "travel",
+    "count": 3
+  },
+  {
+    "category": "typescript",
+    "count": 1
+  },
+  {
+    "category": "ui",
+    "count": 2
+  },
+  {
+    "category": "ui-and-ux",
+    "count": 1
+  },
+  {
+    "category": "utilities",
+    "count": 3
+  },
+  {
+    "category": "utility",
+    "count": 2
+  },
+  {
+    "category": "validation",
+    "count": 8
+  },
+  {
+    "category": "video",
+    "count": 3
+  },
+  {
+    "category": "visual-effects",
+    "count": 9
+  },
+  {
+    "category": "visualization",
+    "count": 3
+  },
+  {
+    "category": "voice-agents",
+    "count": 1
+  },
+  {
+    "category": "web",
+    "count": 1
+  },
+  {
+    "category": "web-frontend-development",
+    "count": 32559
+  },
+  {
+    "category": "web-scraping",
+    "count": 1
+  },
+  {
+    "category": "web3",
+    "count": 1
+  },
+  {
+    "category": "Wellbeing",
+    "count": 1
+  },
+  {
+    "category": "workflow",
+    "count": 18
+  },
+  {
+    "category": "workflow-bundle",
+    "count": 9
+  },
+  {
+    "category": "workflow-management",
+    "count": 3
+  },
+  {
+    "category": "workspace",
+    "count": 1
+  },
+  {
+    "category": "writing",
+    "count": 5
+  }
+]

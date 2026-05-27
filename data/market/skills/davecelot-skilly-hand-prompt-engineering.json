@@ -1,0 +1,176 @@
+{
+  "author": {
+    "name": "Davecelot",
+    "url": "https://github.com/Davecelot"
+  },
+  "category": "ai-llms",
+  "content": "# Prompt Engineering Guide\n\n## When to Use\n\nUse this skill when:\n\n- A user wants to write, improve, debug, or compare prompts for an LLM.\n- The task needs a prompt strategy for a scenario such as Q&A, ideation, extraction, RAG, coding, safety review, or agent/tool use.\n- The user needs decoding or output controls such as temperature, top-p, top-k, max tokens, stop sequences, or repetition penalties.\n- Prompt quality needs evaluation through tests, rubrics, structured validation, self-evaluation, or red-team cases.\n\nDo not use this skill for:\n\n- General project implementation where prompt design is incidental.\n- Provider-specific current model recommendations unless the user asks and current sources can be verified.\n- Replacing safety, legal, medical, financial, or compliance review with prompt wording alone.\n\n---\n\n## Critical Patterns\n\n### Pattern 1: Build the Prompt Contract First\n\nEvery strong prompt should make the contract explicit:\n\n| Component | Purpose |\n| --- | --- |\n| Role | Sets useful expertise and voice without vague \"expert\" framing. |\n| Task | Names the single primary outcome. |\n| Context | Supplies only relevant facts, data, sources, or constraints. |\n| Constraints | Defines length, tone, exclusions, evidence rules, and missing-data policy. |\n| Examples | Shows desired input -> output behavior when style or format matters. |\n| Output | Specifies schema, sections, table columns, or final answer boundary. |\n| Evaluation | States how success will be judged or validated. |\n\nDefault missing-data rule:\n\n```text\nIf required information is missing, say \"insufficient data\" or return null.\nDo not infer or invent facts.\n```\n\n### Pattern 2: Choose the Lightest Strategy That Fits\n\n| Scenario | Recommended strategy |\n| --- | --- |\n| Simple, standard task | Zero-shot with explicit format and length. |\n| Style, label, or schema consistency matters | One-shot or few-shot examples. |\n| Context-grounded answer or RAG | Contextual prompting with delimiters and \"use only context.\" |\n| Principle-heavy planning or critique | Step-back prompting, then apply the criteria. |\n| Math, logic, or multi-step reasoning | Bounded reasoning with a clear final answer contract. |\n| Hard reasoning where one path may fail | Self-consistency with multiple samples and vote/verify. |\n| Exploration or planning with many possible paths | Tree of Thoughts with breadth, depth, and scoring limits. |\n| Tool or external-data workflow | ReAct-style Thought/Action/Observation/Final boundaries. |\n| Safety, bias, or policy risk | Debiasing instructions, red-team cases, fallback text, and low randomness. |\n\n### Pattern 3: Tune Parameters by Risk and Goal\n\n| Goal | Starting controls |\n| --- | --- |\n| Factual Q&A, classification, code, compliance | `temperature=0.0-0.3`, lower `top_p`, no repetition penalties. |\n| General explanations, summaries, UX copy | `temperature=0.4-0.6`, `top_p=0.8-0.95`, mild penalties only if repetitive. |\n| Creative ideation, slogans, fiction, brainstorming | `temperature=0.8-1.0`, `top_p=0.9-1.0`, higher `top_k`, generate multiple candidates. |\n| Structured JSON, code, legal/medical terminology | Keep penalties at `0.0`; use schema/function calling or validation. |\n\nRules:\n\n- `max_tokens` caps output; it does not make writing concise.\n- Stop sequences define clean boundaries; keep a rare sentinel as a finish line.\n- Tune one primary knob at a time, usually temperature or top-p.\n- Model/provider choice should be based on durable traits: context length, cost, latency, modality, tool support, deployment constraints, safety posture, and instruction-following reliability.\n\n### Pattern 4: Validate, Repair, and Version Prompts\n\nUse this loop:\n\n```text\nDraft prompt -> run examples -> inspect failures -> refine prompt/params -> validate -> version\n```\n\nFor production prompts:\n\n- Add golden tests for schema, sections, length, and expected decisions.\n- Validate structured outputs with JSON Schema, Zod, Pydantic, regex, or equivalent parsers.\n- Use a rubric judge or self-evaluation pass when quality cannot be checked mechanically.\n- Add red-team and debiasing cases when prompts touch safety, sensitive attributes, tools, PII, or policy.\n- Track prompt version, model, parameters, metrics, known failures, and rationale.\n\n---\n\n## Decision Tree\n\n```text\nIs the task simple and low risk?\n  YES -> Use zero-shot with role, task, format, and length.\n\nDoes the output need exact structure or style?\n  YES -> Use few-shot examples plus schema/JSON/tool mode and validation.\n\nMust the answer use only supplied facts?\n  YES -> Delimit context, say \"use only context\", define missing-data behavior.\n\nDoes the task require reasoning or design tradeoffs?\n  YES -> Use step-back first; add bounded reasoning or ToT only if needed.\n\nDoes the model need tools or current external data?\n  YES -> Use ReAct boundaries, allowed tools, observations, and final-answer stop.\n\nCould bias, unsafe content, prompt injection, PII, or tool abuse matter?\n  YES -> Add safety/debiasing rules, red-team tests, low randomness, and fallback.\n\nOtherwise\n  -> Use the general prompt template and evaluate one or two outputs.\n```\n\n---\n\n## Prompt Patterns\n\n### General Prompt Skeleton\n\n```text\nSystem: You are a <ROLE> writing for <AUDIENCE>.\n\nTask: <ONE-SENTENCE GOAL>.\n\nContext:\n<<<CONTEXT>>>\n<relevant facts or data>\n<<<END_CONTEXT>>>\n\nConstraints:\n- Format: <FORMAT>\n- Length: <= <LIMIT>\n- Tone: <TONE>\n- Use only the supplied context when factual grounding is required.\n- If unknown, output null or \"insufficient data\"; do not invent.\n\nOutput:\n<schema, sections, table columns, or final answer boundary>\n```\n\n### Structured Output Contract\n\n```text\nReturn ONLY valid JSON. No prose, no markdown, no code fences.\nIf a value is unknown, use null. Do not infer missing data.\n\nSchema:\n<TYPE OR JSON SCHEMA>\n\nInput:\n<<<DATA>>>\n...\n<<<END_DATA>>>\n```\n\n### Evaluation Prompt\n\n```text\nEvaluate the candidate against the rubric. Be strict and concise.\nReturn ONLY JSON:\n{\n  \"valid\": true,\n  \"scores\": {\"fidelity\": 1, \"grounding\": 1, \"format\": 1},\n  \"violations\": [],\n  \"repair_plan\": \"\"\n}\n\nRubric:\n- Fidelity: follows the task exactly.\n- Grounding: uses only supplied context.\n- Format: matches the requested contract.\n\nCandidate:\n<<<ANSWER>>>\n...\n<<<END_ANSWER>>>\n```\n\n---\n\n## Resources\n\n- Prompt templates: [assets/prompt-templates.md](assets/prompt-templates.md)\n- Scenario recipes: [assets/scenario-recipes.md](assets/scenario-recipes.md)\n- Evaluation checklist: [assets/evaluation-checklist.md](assets/evaluation-checklist.md)\n- NotebookLLM source map: [references/notebookllm-source-map.md](references/notebookllm-source-map.md)",
+  "createdAt": "2026-05-23T16:06:27.085Z",
+  "description": "Guide users in writing, improving, evaluating, and tuning prompts for LLMs across factual, creative, structured, grounded, coding, safety-sensitive, and production scenarios. Trigger: writing, improving, evaluating, or tuning prompts for LLMs.",
+  "github": {
+    "forks": 0,
+    "fullName": "Davecelot/skilly-hand",
+    "openIssues": 0,
+    "stars": 2,
+    "url": "https://github.com/Davecelot/skilly-hand",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/Davecelot/skilly-hand/tree/main/catalog/skills/prompt-engineering",
+  "icon": "https://github.com/Davecelot.png",
+  "identifier": "davecelot-skilly-hand-prompt-engineering",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "prompt-engineering",
+    "sourceUrl": "https://github.com/Davecelot/skilly-hand/tree/main/catalog/skills/prompt-engineering",
+    "repository": "https://github.com/Davecelot/skilly-hand",
+    "description": "Guide users in writing, improving, evaluating, and tuning prompts for LLMs across factual, creative, structured, grounded, coding, safety-sensitive, and production scenarios. Trigger: writing, improving, evaluating, or tuning prompts for LLMs."
+  },
+  "myRating": null,
+  "name": "prompt-engineering",
+  "overview": {
+    "summary": "The Prompt Engineering Guide helps users write, improve, debug, and compare prompts for LLMs by prescribing a reusable \"prompt contract\" (Role, Task, Context, Constraints, Examples, Output, Evaluation) and clear missing-data rules. It recommends the lightest effective strategy—zero-shot, one/few-shot, or context/RAG—and prescribes decoding and output controls (temperature, top-p/top-k, max tokens, stop sequences, repetition penalties). Use cases include Q&A, ideation, extraction, retrieval-augmented generation, coding prompts, safety reviews, and agent/tool orchestration. It also provides evaluation approaches: tests, rubrics, structured validation, self-evaluation, and red-teaming to measure prompt quality and robustness. Core advantages are repeatable, auditable prompts that reduce hallucination, enforce format/schema, and clarify success criteria. Not intended to replace domain safety, legal, medical, or compliance review."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/Davecelot/skilly-hand",
+  "resources": {
+    "manifest.json": {
+      "size": 3721,
+      "fileHash": "2d62eda8e86f876ea7a4f28f31297391777d6f4e6fca15f5a5524c924f81fbcd"
+    },
+    "assets/prompt-templates.md": {
+      "size": 4394,
+      "fileHash": "ac12724339d11af00bb809b93c3c671e34d207363d8ae874f98fcf6109ada8f6"
+    },
+    "assets/scenario-recipes.md": {
+      "size": 3577,
+      "fileHash": "6f06d5f6a28ced0214e7d65fcea69568ccc145c2d7731aeaaceb587fea3d04b1"
+    },
+    "assets/evaluation-checklist.md": {
+      "size": 3389,
+      "fileHash": "513dfab3eef2928b028a9518bb6f7d1925f56e32526886edf6f2ab95ec68f16a"
+    },
+    "references/notebookllm/Top-K.pdf": {
+      "size": 257598,
+      "fileHash": "0069fba539de054e9b1fad25d943f3e5871b4fdbabd63e2a99231d48fe2985d4"
+    },
+    "references/notebookllm/Top-P.pdf": {
+      "size": 275675,
+      "fileHash": "553d67e99fa3f535a346cec488bbfbcace6f25e72bc4cfa510b95afeccbd0da7"
+    },
+    "references/notebookllm-source-map.md": {
+      "size": 4542,
+      "fileHash": "b324eba0b0439bd1ee122199eee217a43e7b4e793d8b7341ed4a2e851acfda91"
+    },
+    "references/notebookllm/Max_Tokens.pdf": {
+      "size": 365320,
+      "fileHash": "cc0e55a0194ad232eb809333d197c7530b16a7d3fc0dd4c249e40d6e71d4fe6d"
+    },
+    "references/notebookllm/Vocabulary.pdf": {
+      "size": 90903,
+      "fileHash": "ba8bf3bd048fed317e7e65e3af5d13a5c58df5ae2a7c9eb8cc35ac1fc22dc70c"
+    },
+    "references/notebookllm/Temperature.pdf": {
+      "size": 263911,
+      "fileHash": "1428d3a3488492093def68028d9133b9fdf533b954a85400ccf2c5b74fa79ea5"
+    },
+    "references/notebookllm/Introduction.pdf": {
+      "size": 40283,
+      "fileHash": "756f365e210daa69c026b0f5a24cba985b14f3f6be7f04b60c466ba0ea319a76"
+    },
+    "references/notebookllm/AI_Red_Teaming.pdf": {
+      "size": 406193,
+      "fileHash": "57bbb264447b99d9ca5dada58d45e0ccdb09128c15be89e5471e30920214e4da"
+    },
+    "references/notebookllm/Output_Control.pdf": {
+      "size": 398476,
+      "fileHash": "9aefa592b2bc956edd8567abc6f5b34e6c13150893dbb2a246d93cb537a01a69"
+    },
+    "references/notebookllm/Stop_Sequences.pdf": {
+      "size": 336033,
+      "fileHash": "5a91f97dfa387da5ba7e0eb1baa1a875c0d399d1236827ccd00c430c676587ed"
+    },
+    "references/notebookllm/Whats_a_prompt.pdf": {
+      "size": 263491,
+      "fileHash": "029ddc6775a9c08f4bca5f772e71d30f00d9776dca0e13a578fa9767f253e98c"
+    },
+    "references/notebookllm/Calibrating_LLMs.pdf": {
+      "size": 325781,
+      "fileHash": "d0eca4e4f6af6e372b8aeb1e7dd004b31e0c94e691ced7fc829164f76038feeb"
+    },
+    "references/notebookllm/Presence_Penalty.pdf": {
+      "size": 297833,
+      "fileHash": "552b5cdf86d4691c6b537242ad65c767fed369b0455c367c3f72977d0deddc6c"
+    },
+    "references/notebookllm/Prompt_Debiasing.pdf": {
+      "size": 295057,
+      "fileHash": "5b1a92a01fc1368e49b9338f38bb2fea7d3a9312c255ccc88e095f17a6064057"
+    },
+    "references/notebookllm/Frequency_Penalty.pdf": {
+      "size": 304294,
+      "fileHash": "03ae88afd277ec1ea5ef694c2cd2513adb80b0181bd1600aabca074e383cf95f"
+    },
+    "references/notebookllm/Prompt_Ensembling.pdf": {
+      "size": 374645,
+      "fileHash": "e8e3659084cfa187339814a6e3f66fded1dc7a933c621c9b57dd5bca28c1d189"
+    },
+    "references/notebookllm/Prompt_Engineering.pdf": {
+      "size": 344623,
+      "fileHash": "15fb3223765b7baa2f123de56fdcd69384fb8aab48ac1f7ffbf4843c8f19147a"
+    },
+    "references/notebookllm/Structured_Outputs.pdf": {
+      "size": 363306,
+      "fileHash": "0144dfc540e12d1c8fe467b1697cb1844651a573d04a58250631d3e0f5adac91"
+    },
+    "references/notebookllm/LLM_Self_Evaluation.pdf": {
+      "size": 364836,
+      "fileHash": "a2b9b8cbac91d0bfd8b2da0e0ef67b35a493dfb0788be71953646b26e5287582"
+    },
+    "references/notebookllm/Sampling_Parameters.pdf": {
+      "size": 56154,
+      "fileHash": "58da5ae51ed12b34556e4ebb3cdbeedb9ba0f79d701176709f222ea85eab5f51"
+    },
+    "references/notebookllm/Prompting_Techniques.pdf": {
+      "size": 417559,
+      "fileHash": "6e195c35713d2c29fb135f45ee310f55209b93c64a25eaa6283e8da65c6c7874"
+    },
+    "references/notebookllm/Repetition_Penalties.pdf": {
+      "size": 310562,
+      "fileHash": "5387abcd894e1d996daa7fec520f0437cf643e9dbe62efe9297b15058d347974"
+    },
+    "references/notebookllm/Models_commonly_known.pdf": {
+      "size": 365591,
+      "fileHash": "44da1e8a5453921bcb2d8840f0988eb288f53ed7b3914ea78a120487ba2f150f"
+    },
+    "references/notebookllm/Prompting_Best_Practices.pdf": {
+      "size": 258154,
+      "fileHash": "fdf5d036061b9f300678db1cd288526d196412e94d21fde92795ec1649a80fdd"
+    },
+    "references/notebookllm/Whats_prompt_engineering.pdf": {
+      "size": 280572,
+      "fileHash": "546ed9e3ceb756c58ef10ef0d8c5cb29bbc3b800285978c20298fc22d16c81d6"
+    },
+    "references/notebookllm/LLMs_and_How_Do_They_Work.pdf": {
+      "size": 299676,
+      "fileHash": "13534267fd9f4ab170190d844ff15d385dccbbcec16848e9ab9eef42fcfd7746"
+    },
+    "references/notebookllm/Automatic_Prompt_Engineering.pdf": {
+      "size": 346789,
+      "fileHash": "d7bc9d9a67863b3a8e60ce9e55d1ac3148564e1f610aded124b4f1a98e2914fd"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:27.329Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:27.118Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

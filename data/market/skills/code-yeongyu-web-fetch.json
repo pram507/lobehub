@@ -1,0 +1,102 @@
+{
+  "author": {
+    "name": "code-yeongyu",
+    "url": "https://github.com/code-yeongyu"
+  },
+  "category": "cli-utilities",
+  "content": "# web-fetch\n\nFetch a URL, write the body to `$TMPDIR/web-fetch-<runid>/`, print the path. Pipe the path through `rg` / `jq` / `awk` to surgically extract what you need.\n\n## Why this skill exists\n\nThe built-in `webfetch` tool dumps the whole rendered page into the conversation. For anything bigger than a few KB that drowns the context window. The fix is dead simple: **write the page to disk, then grep it**.\n\nThat is all this skill does. One curl call, one Cloudflare-aware retry, HTML → Markdown via stdlib, save to a temp dir, print the path. No providers, no fallback chain, no fancy machinery. The same shape as `pi-webfetch` and `opencode/webfetch`, but as a standalone skill that works from any agent (Claude Code, OpenCode, pi, hermes, openclaw, whatever speaks Bash).\n\n## When to use it\n\nTrigger this skill any time the user hands you a URL and the goal is to read its content. Examples:\n\n- \"Fetch <https://docs.python.org/3/library/asyncio.html> and tell me about TaskGroup.\"\n- \"Read the README at <https://github.com/anthropics/anthropic-sdk-python>.\"\n- \"What does this article say about <topic>? <URL>\"\n- \"Pull <PR url>, what's the key change?\"\n- \"Fetch the page and pull out only the deprecated section.\"\n\nIf the URL is `https://example.com` and you only need 3 lines, the built-in tool is fine. Use this skill when the page is **non-trivially large** or you want to **filter before reading**.\n\n## How to invoke it\n\nThe script is at `scripts/web_fetch.py`. It needs `python3` (3.9+) and ideally `curl` (auto-detected; `urllib` fallback works too).\n\n### Basic fetch (markdown is default)\n\n```bash\npython3 <skill_dir>/scripts/web_fetch.py https://docs.python.org/3/library/asyncio.html\n```\n\nStdout prints two lines:\n\n```\n/tmp/web-fetch-20260501-171120-abc123/result.md\n/tmp/web-fetch-20260501-171120-abc123/result.json\n```\n\n`result.md` is the converted markdown. `result.json` is the same content plus a `_meta` envelope.\n\n### Pick format\n\n```bash\npython3 web_fetch.py https://example.com --format markdown   # default; HTML auto-converted\npython3 web_fetch.py https://example.com --format text       # tags stripped, entities decoded\npython3 web_fetch.py https://example.com --format html       # original HTML untouched\npython3 web_fetch.py https://example.com --format raw        # bytes-as-they-came (no conversion)\n```\n\n### Other flags\n\n| Flag | Default | Purpose |\n|---|---|---|\n| `--timeout SEC` | 30 (cap 120) | Per-request timeout |\n| `--output-dir PATH` | `$TMPDIR/web-fetch-<runid>` | Custom output dir for stable paths |\n| `--print-path {all,content,json}` | `all` | What to print on stdout |\n| `--print-content` | off | Also dump rendered content to stdout (for direct piping) |\n| `--use-curl` / `--use-urllib` | auto | Force the HTTP transport |\n| `--quiet` / `--verbose` | off | Trace verbosity |\n\n## The pipe-and-grep pattern\n\nThis is the whole point. Resist the temptation to read the entire `result.md`. Use the path:\n\n```bash\n# Capture the content path\nCONTENT=$(python3 web_fetch.py https://docs.python.org/3/library/asyncio.html --print-path content --quiet)\n\n# Find the relevant section\nrg -n \"TaskGroup\" \"$CONTENT\" | head -20\n\n# Get N lines of context around a match\nrg -B2 -A8 \"asyncio.run\" \"$CONTENT\" | head -40\n\n# Multiple keywords\nrg -in \"deprecated|removed|since 3\\.1[0-9]\" \"$CONTENT\"\n\n# Grab specific markdown sections (## or ### headings)\nawk '/^## TaskGroup/,/^## /' \"$CONTENT\"\n```\n\nFor headers / metadata extraction:\n\n```bash\nJSON=$(python3 web_fetch.py https://example.com --print-path json --quiet)\njq -r '._meta.final_url, ._meta.content_type, ._meta.bytes' \"$JSON\"\njq -r '._meta.attempts[] | \"\\(.user_agent): \\(.status) (\\(.duration_ms)ms)\"' \"$JSON\"\n```\n\nFor Windows PowerShell, see `references/pipelines-windows.md`.\n\n## What gets written\n\n```\n$TMPDIR/web-fetch-<runid>/\n├── result.md          rendered markdown (or .txt / .html depending on --format)\n├── result.json        { content, _meta }\n├── trace.json         _meta only (faster to inspect)\n└── raw.html           original response body (or raw.bin for non-text)\n```\n\nUseful when:\n\n- You want to compare rendered markdown against raw HTML (`diff result.md raw.html`).\n- You want to keep the raw bytes around for forensic / replay use.\n- You want the structured `_meta` separate from the content for cheap inspection.\n\n## The `_meta` envelope\n\nEvery successful fetch produces this metadata:\n\n```json\n{\n  \"version\": \"0.1.0\",\n  \"url\": \"https://docs.python.org/3/library/asyncio.html\",\n  \"format\": \"markdown\",\n  \"ok\": true,\n  \"http_status\": 200,\n  \"content_type\": \"text/html\",\n  \"final_url\": \"https://docs.python.org/3/library/asyncio.html\",\n  \"converted\": true,\n  \"bytes\": 41023,\n  \"raw_bytes\": 198541,\n  \"attempts\": [\n    {\"user_agent\": \"browser\", \"status\": 200, \"duration_ms\": 187, \"bytes\": 198541,\n     \"content_type\": \"text/html\", \"final_url\": \"...\", \"cf_challenge\": false}\n  ],\n  \"duration_ms\": 199,\n  \"started_at\": \"2026-05-01T08:11:20.045449+00:00\",\n  \"raw_path\": \"/tmp/.../raw.html\",\n  \"content_path\": \"/tmp/.../result.md\",\n  \"output_dir\": \"/tmp/.../\",\n  \"transport\": \"curl\"\n}\n```\n\n`attempts[]` shows the actual HTTP calls. If a Cloudflare challenge fired, you will see two entries (`browser` then `honest`). If you need to debug a fetch that \"looks weird,\" dump this trace.\n\n## Cloudflare retry (built-in)\n\nSome sites return HTTP 403 with a Cloudflare challenge page when called with a browser-like UA but a non-browser TLS fingerprint. The skill detects this case (status 403 or 503 plus body markers like `<title>Just a moment...</title>` or `cf-mitigated`) and retries once with a plain `web-fetch/<version>` UA. Some operators allow honest UAs through. This is the same trick `pi-webfetch` and `opencode/webfetch` use.\n\nIf both attempts fail, the script exits with code 2 and the trace records both attempts so you can see exactly why.\n\n## Limits\n\n- **5 MB response cap.** Anything larger is rejected (curl uses `--max-filesize`; urllib reads N+1 then aborts).\n- **120 second timeout cap.** `--timeout` larger than this is silently clamped.\n- **Read-only.** This skill never modifies remote state; all calls are GET.\n- **Public HTTP/HTTPS only.** No file://, no localhost shortcuts, no credentials in the URL.\n- **No JS rendering.** If the page needs a real browser to populate content, you will get the unhydrated shell. For SPAs / aggressively dynamic content, use a headless-browser tool (`playwright`, `firecrawl`, etc.) outside this skill.\n\n## Key invariants (do not break)\n\n- **Content lives on disk, not in the conversation.** Quote what is relevant from the file. Never paste a full fetched body into your response unless the user explicitly asked for the full content.\n- **Always mention the path.** When you tell the user \"I fetched X\", also mention where it is on disk so they can grep it themselves.\n- **Pipe before reading.** When the user asks a specific question about the page, run `rg` / `jq` / `awk` against the saved path and quote only matching lines. Do not pre-load the entire file.\n- **Trace is machine-readable.** If a fetch fails, surface the per-attempt error from `trace.json`, do not blindly retry the same URL with the same args.\n\n## More\n\n- `references/pipelines-posix.md` - rg/jq/awk worked examples for macOS / Linux / WSL / Git Bash.\n- `references/pipelines-windows.md` - PowerShell + cmd equivalents.\n- `references/compat.md` - per-OS support matrix, Python/curl version floor, Windows / WSL / Alpine / RHEL 7 setup.\n- `references/troubleshooting.md` - 403 / 429 / Cloudflare / TLS / proxy gotchas and how to read the trace.\n- `README.md` - install, packaging, registration into pi/senpi/.agents/skills/, project structure.",
+  "createdAt": "2026-05-23T16:06:11.978Z",
+  "description": "Fetch a URL and save the body to a temp file so you can pipe it through rg / jq / awk instead of dumping the whole page into the conversation. Use this whenever a user gives you a URL to read - articles, docs, PRs, gists, README files, blog posts, anything HTTP. Returns a path on disk; the agent then greps the path for the relevant section and quotes only what matters. Strongly preferred over the built-in webfetch tool when (a) the page is more than a few KB, (b) the user wants to find a specific phrase / table / code block on the page, (c) you need to keep the long page out of context, or (d) you want to inspect raw HTML alongside rendered markdown. Triggers: 'fetch', 'fetch this URL', 'fetch and save', 'fetch the page', 'pull this', 'grab this article', 'read this URL', 'read the docs at', 'mirror this page', 'page is too long', 'save the page so I can grep it', 'put it on disk so I can rg', 'cache this URL'.",
+  "github": {
+    "forks": 1,
+    "fullName": "code-yeongyu/web-fetch",
+    "openIssues": 0,
+    "stars": 2,
+    "url": "https://github.com/code-yeongyu/web-fetch",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/code-yeongyu/web-fetch",
+  "icon": "https://github.com/code-yeongyu.png",
+  "identifier": "code-yeongyu-web-fetch",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/code-yeongyu/web-fetch/blob/main/LICENSE"
+  },
+  "manifest": {
+    "name": "web-fetch",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/code-yeongyu/web-fetch",
+    "licenseUrl": "https://github.com/code-yeongyu/web-fetch/blob/main/LICENSE",
+    "repository": "https://github.com/code-yeongyu/web-fetch",
+    "description": "Fetch a URL and save the body to a temp file so you can pipe it through rg / jq / awk instead of dumping the whole page into the conversation. Use this whenever a user gives you a URL to read - articles, docs, PRs, gists, README files, blog posts, anything HTTP. Returns a path on disk; the agent then greps the path for the relevant section and quotes only what matters. Strongly preferred over the built-in webfetch tool when (a) the page is more than a few KB, (b) the user wants to find a specific phrase / table / code block on the page, (c) you need to keep the long page out of context, or (d) you want to inspect raw HTML alongside rendered markdown. Triggers: 'fetch', 'fetch this URL', 'fetch and save', 'fetch the page', 'pull this', 'grab this article', 'read this URL', 'read the docs at', 'mirror this page', 'page is too long', 'save the page so I can grep it', 'put it on disk so I can rg', 'cache this URL'."
+  },
+  "myRating": null,
+  "name": "web-fetch",
+  "overview": {
+    "summary": "web-fetch is a lightweight CLI skill that fetches a URL, converts HTML to Markdown, writes the results to $TMPDIR/web-fetch-<runid>/, and prints the resulting file paths. It performs a Cloudflare-aware retry, prefers curl when available (urllib fallback supported), and emits result.md (Markdown) plus result.json (same content with a _meta envelope). Use it when a user provides a URL and the page is non-trivially large, when you need to grep or jq/awk the raw output before quoting, or when you want to keep long pages out of the chat context. Core advantages: minimal dependencies, no provider chains, cross-agent compatibility, deterministic temp paths, and surgical post-processing (pipe to rg/jq/awk) so agents read only relevant excerpts instead of dumping whole pages."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/code-yeongyu/web-fetch",
+  "resources": {
+    "LICENSE": {
+      "size": 1068,
+      "fileHash": "b083425948376611de9b92b0aeb7377e604505756ea427e541a34d9b030d4dc1"
+    },
+    "README.md": {
+      "size": 5416,
+      "fileHash": "5045fc032be8856d6e75d49f123296b91881d90fb80f65efe89f8014f8503182"
+    },
+    ".gitignore": {
+      "size": 273,
+      "fileHash": "3c01272d720c626a24cf5c134a248603d510897e58d7e15f9927021d4ded959e"
+    },
+    "tests/smoke.sh": {
+      "size": 3304,
+      "fileHash": "fce409817872497cebe81f449ccbee774cb21b49877b5e020cbd450b4b1c49f0"
+    },
+    "tests/smoke.ps1": {
+      "size": 4345,
+      "fileHash": "2f03eae1068a01d6f2fb23e7e1dc3e66acf2103df71f5ed156bb74c77b6a372c"
+    },
+    "references/compat.md": {
+      "size": 6420,
+      "fileHash": "19ad3c2b09db58a4600125d1fc85f7b6ecd8e64bac39cc8dbe657d5d8f40d721"
+    },
+    "scripts/web_fetch.py": {
+      "size": 19560,
+      "fileHash": "a55cd16e8c6ff163a513eaa4270ddbf00493a9aef10dc02c3d30147f77670aa0"
+    },
+    ".github/workflows/ci.yml": {
+      "size": 4660,
+      "fileHash": "93cb7604a1743f9be3f9b41bafd311bd0b3aff5c71b28667ecd1713b90ef2e52"
+    },
+    "references/pipelines-posix.md": {
+      "size": 4488,
+      "fileHash": "88531bf92486ddd0d583457efccbdfb2c6e9fea9ceeaec65a9e557cafe6929e8"
+    },
+    "references/troubleshooting.md": {
+      "size": 7638,
+      "fileHash": "8845cd89cd19bc5922f9bbc689081238a48062cedbf74e49ab67ac03c4939924"
+    },
+    "references/pipelines-windows.md": {
+      "size": 5597,
+      "fileHash": "2f61cf4c7f2de0e775ff8eae7a52f6f3209f34801adbc40ae4f8e39ea6aea5e0"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:12.257Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:12.016Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

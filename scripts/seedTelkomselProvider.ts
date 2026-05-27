@@ -116,6 +116,46 @@ const runSeeding = async () => {
     });
 
   console.log(`✓ Custom model "${modelId}" upserted successfully.`);
+
+  // 5. Inject environment variables into .env file
+  console.log('📝 Injecting environment variables into .env file...');
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const envPath = path.resolve(process.cwd(), '.env');
+
+  const envInjects = {
+    NEXT_PUBLIC_BRANDING_NAME: 'TselAIHub',
+    NEXT_PUBLIC_ORG_NAME: 'TselAIHub',
+    NEXT_PUBLIC_BRANDING_LOGO_URL: '',
+    DEFAULT_EMBEDDING_PROVIDER: 'telkomsel-ai',
+    DEFAULT_MINI_MODEL: 'model-GPU_1-2_new',
+    DEFAULT_MINI_PROVIDER: 'telkomsel-ai',
+    DEFAULT_MODEL: 'model-GPU_1-2_new',
+    DEFAULT_ONBOARDING_MODEL: 'model-GPU_1-2_new',
+    DEFAULT_ONBOARDING_PROVIDER: 'telkomsel-ai',
+    DEFAULT_PROVIDER: 'telkomsel-ai',
+  };
+
+  if (fs.existsSync(envPath)) {
+    let envContent = fs.readFileSync(envPath, 'utf8');
+    let hasChanges = false;
+    for (const [key, value] of Object.entries(envInjects)) {
+      const regex = new RegExp(`^#?\\s*${key}=.*$`, 'm');
+      const replacement = `${key}="${value}"`;
+      if (regex.test(envContent)) {
+        envContent = envContent.replace(regex, replacement);
+        hasChanges = true;
+      } else {
+        envContent += `\n${replacement}`;
+        hasChanges = true;
+      }
+    }
+    if (hasChanges) {
+      fs.writeFileSync(envPath, envContent, 'utf8');
+      console.log('✓ .env file updated successfully with TselAIHub constants.');
+    }
+  }
+
   console.log('🎉 Seeding completed successfully!');
   process.exit(0);
 };

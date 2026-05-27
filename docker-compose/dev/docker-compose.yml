@@ -60,6 +60,7 @@ services:
       - RUSTFS_CONSOLE_ENABLE=true
       - RUSTFS_ACCESS_KEY=${RUSTFS_ACCESS_KEY}
       - RUSTFS_SECRET_KEY=${RUSTFS_SECRET_KEY}
+      - MINIO_API_CORS_ALLOW_ORIGIN="*" # This enables CORS for the frontend
     volumes:
       - rustfs-data:/data
     healthcheck:
@@ -86,19 +87,18 @@ services:
       - lobe-network
     env_file:
       - .env
-
-  # searxng:
-  #   image: searxng/searxng
-  #   container_name: lobe-searxng
-  #   ports:
-  #     - '8180:8080'
-  #   volumes:
-  #     - './searxng-settings.yml:/etc/searxng/settings.yml'
-  #   environment:
-  #     - 'SEARXNG_SETTINGS_FILE=/etc/searxng/settings.yml'
-  #   restart: always
-  #   networks:
-  #     - lobe-network
+  searxng:
+    image: searxng/searxng
+    container_name: lobe-searxng
+    ports:
+      - '8180:8080'
+    volumes:
+      - './searxng-settings.yml:/etc/searxng/settings.yml'
+    environment:
+      - 'SEARXNG_SETTINGS_FILE=/etc/searxng/settings.yml'
+    restart: always
+    networks:
+      - lobe-network
 
 volumes:
   data:

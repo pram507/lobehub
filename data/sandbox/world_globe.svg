@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="globeGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop_color="#8fd3ff"/>
+      <stop offset="100%" stop_color="#1a56a2"/>
+    </radialGradient>
+  </defs>
+  <circle cx="250" cy="250" r="200" fill="url(#globeGrad)" stroke="#0d3b7c" stroke_width="2"/>
+  <path d="M150,150 L200,140 L220,200 L200,260 L180,350 L150,330 L130,220 Z" fill="#4caf50" stroke="#2e7d32" stroke_width="1"/>
+  <path d="M260,140 L380,130 L420,200 L390,280 L320,330 L280,280 L250,220 Z" fill="#4caf50" stroke="#2e7d32" stroke_width="1"/>
+  <path d="M380,320 L420,330 L410,360 L370,350 Z" fill="#4caf50" stroke="#2e7d32" stroke_width="1"/>
+  <line x1="50" y1="250" x2="450" y2="250" stroke="rgba(255, 255, 255, 0.3)" stroke_width="1"/>
+  <line x1="250" y1="50" x2="250" y2="450" stroke="rgba(255, 255, 255, 0.3)" stroke_width="1"/>
+  <text x="250" y="480" text_anchor="middle" fill="#1a56a2" font_size="24" font_family="Arial" font_weight="bold">Hello World 🌍</text>
+</svg>

@@ -159,9 +159,17 @@ export const agentBotProviderRouter = router({
     .input(z.object({ applicationId: z.string(), platform: z.string() }))
     .mutation(async ({ input, ctx }) => {
       const service = new GatewayService();
-      const status = await service.startClient(input.platform, input.applicationId, ctx.userId);
+      try {
+        const status = await service.startClient(input.platform, input.applicationId, ctx.userId);
 
-      return { status };
+        return { status };
+      } catch (e: any) {
+        throw new TRPCError({
+          cause: e,
+          code: 'BAD_REQUEST',
+          message: e.message || 'Failed to connect bot',
+        });
+      }
     }),
 
   testConnection: agentBotProviderProcedure

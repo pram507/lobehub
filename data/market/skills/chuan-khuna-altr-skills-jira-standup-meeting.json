@@ -1,0 +1,51 @@
+{
+  "author": {
+    "name": "chuan-khuna",
+    "url": "https://github.com/chuan-khuna"
+  },
+  "category": "productivity-tasks",
+  "content": "# Jira Daily Standup Skill\n\nProduce a structured morning summary of the user's Jira tasks, followed by automatic recommendations for the day, using the **Atlassian Rovo MCP Server**.\n\n## Prerequisites\n\nThe Atlassian Rovo MCP Server must be configured and authenticated via OAuth 2.1 (`https://mcp.atlassian.com/v1/mcp`). If tools from this MCP server are not available, let the user know and stop.\n\n## Workflow\n\n### Step 1 — Ask for the Jira username\n\nBefore querying anything, ask the user:\n\n> \"What's your Jira username or email address?\"\n\nWait for the answer. Use it in the next step.\n\n### Step 2 — Resolve account ID and query Jira\n\nFirst, look up the user's Jira account ID using `lookupJiraAccountId` with the provided username/email. Use the returned `accountId` (not the display name) in all JQL queries — this ensures precise filtering.\n\nThen run the following two JQL queries **in parallel** using `searchJiraIssuesUsingJql`:\n\n1. **Active sprint issues:**\n   ```\n   assignee = \"{accountId}\" AND project = \"Tech Team\" AND sprint in openSprints() ORDER BY status ASC\n   ```\n2. **Recently updated (last 7 days):**\n   ```\n   assignee = \"{accountId}\" AND project = \"Tech Team\" AND updated >= -7d ORDER BY updated DESC\n   ```\n\nRequest these fields on every issue:\n`summary`, `status`, `priority`, `description`, `updated`, `customfield_10020`, `customfield_10014`, `parent`\n\n> `customfield_10020` is the sprint array — it contains all sprints an issue has been in, plus each sprint's `endDate` and `state`.\n> `customfield_10014` is the Epic Link (classic projects). For next-gen projects, the epic is the `parent` field. Use whichever is populated to resolve the epic name — this is displayed as the **project name** for each issue.\n\n### Step 3 — Deduplicate\n\nMerge the two result sets using the Jira issue key as the unique identifier. Sprint issues take precedence — the Recently Updated section only shows issues **not** already captured in the sprint list.\n\n### Step 4 — Derive signals\n\nBefore generating any output, compute the following from the raw data. These signals drive the recommendations in Step 6.\n\n| Signal                  | How to detect                                                                                                                     |\n| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n| **Sprint end date**     | Find the sprint object in `customfield_10020` where `state = \"active\"` → read its `endDate`. Calculate days remaining from today. |\n| **Review bottleneck**   | Count issues with status `\"Ready to Review\"`.                                                                                     |\n| **Carry-over items**    | Issues where `customfield_10020` array length ≥ 3 (has been in 3 or more sprints).                                                |\n| **Stalled In Progress** | Issues with status `\"In Progress\"` whose `updated` field is more than 3 days ago.                                                 |\n| **Blocker signal**      | Issues whose `summary` or `description` contains the word \"blocked\" or \"block\".                                                   |\n\n### Step 5 — Present the task summary\n\nOutput a Markdown summary with these sections, omitting any that have no issues:\n\n```\n## 🗓️ My Jira Tasks — [Today's date]\n\n### 🔴 In Progress\n- **[KEY-123]** Summary · *Priority* · `Epic Name` · [link]\n\n### 🟠 Ready to Review\n- **[KEY-456]** Summary · *Priority* · `Epic Name` · [link]\n\n### 🟡 To Do\n- **[KEY-789]** Summary · *Priority* · `Epic Name` · [link]\n\n### ✅ Done\n- **[KEY-000]** Summary · *Priority* · `Epic Name` · [link]\n\n### 🔵 Recently Updated (outside sprint)\n- **[KEY-999]** Summary · *Priority* · `Epic Name` · [link]\n```\n\n- Link each issue key to its Jira URL\n- Show priority in italics\n- Show the epic name (resolved from `customfield_10014` or `parent`) as a `code span` label — this serves as the project name for each issue. Omit if no epic is set.\n- If no issues are found in any section, say so clearly\n\n### Step 6 — Recommendations\n\nImmediately after the task summary, generate a `## 📋 Recommendations` section. This is **automatic** — do not wait for the user to ask.\n\nUse the signals from Step 4. Omit any sub-section that has no relevant findings.\n\n```\n---\n\n## 📋 Recommendations\n\n### ⚠️ Sprint health\n- Sprint ends in N days (DATE) — X items are not yet Done\n- N items in Ready to Review — consider pinging reviewers today\n\n### 🔁 Carry-overs to address\n- **KEY-XXX** has been carried across N sprints — start, re-scope, or defer before the sprint closes\n- **KEY-YYY** has no description — fill it in or remove it from the sprint\n\n### 🔵 Stalled items\n- **KEY-XXX** has been In Progress for N days without an update — is it blocked?\n\n### 🎯 Suggested focus for today\n1. [highest-urgency action]\n2. ...\n3. ...\n```\n\n**Rules for generating the focus order:**\n\n1. If Ready to Review count ≥ 3 and sprint ends in ≤ 5 days → \"Chase reviews: ping reviewers for KEY-X, KEY-Y, …\" is item 1\n2. Any In Progress items → \"Wrap up and move to Ready to Review\" comes next\n3. Carry-over To Do items with no description → \"Add description or defer KEY-X before sprint closes\"\n4. Carry-over To Do items with a description → \"Start KEY-X (carried N sprints — now or never)\"\n5. Remaining To Do items → list in order of apparent urgency from their summaries\n\n### Step 7 — Optional follow-up\n\nAfter the recommendations, briefly offer:\n\n> \"Want me to look into any of these in more detail, or update a status?\"\n\nDo not write anything to any file unless the user explicitly asks.",
+  "createdAt": "2026-05-23T16:06:01.926Z",
+  "description": "Query Jira for a start-of-day summary of your tasks. Use when the user says \"start of day\", \"morning standup\", \"what are my tasks today\", \"what's on my plate\", \"daily summary\", or asks for a Jira task overview.",
+  "github": {
+    "forks": 0,
+    "fullName": "chuan-khuna/altr-skills",
+    "openIssues": 0,
+    "stars": 0,
+    "url": "https://github.com/chuan-khuna/altr-skills",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/chuan-khuna/altr-skills/tree/main/skills/work/jira-standup-meeting",
+  "icon": "https://github.com/chuan-khuna.png",
+  "identifier": "chuan-khuna-altr-skills-jira-standup-meeting",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "jira-daily-standup-meeting",
+    "sourceUrl": "https://github.com/chuan-khuna/altr-skills/tree/main/skills/work/jira-standup-meeting",
+    "repository": "https://github.com/chuan-khuna/altr-skills",
+    "description": "Query Jira for a start-of-day summary of your tasks. Use when the user says \"start of day\", \"morning standup\", \"what are my tasks today\", \"what's on my plate\", \"daily summary\", or asks for a Jira task overview."
+  },
+  "myRating": null,
+  "name": "jira-daily-standup-meeting",
+  "overview": {
+    "summary": "This Skill produces a structured morning standup summary of a user’s Jira work and automatic recommendations, using the Atlassian Rovo MCP Server. It first prompts for the user’s Jira username or email, resolves the canonical accountId via lookupJiraAccountId, and then runs two JQL searches in parallel (active-sprint and recently-updated in the last 7 days) with precise fields: summary, status, priority, description, updated, customfield_10020 (sprint array), customfield_10014 (Epic Link), and parent. Results are deduplicated by issue key (sprint issues take precedence). The Skill derives signals such as in-sprint vs. backlog, high priority, recently changed, stale or overdue items, epic/project context, and potential blockers, and returns a prioritized morning briefing plus concrete recommendations (what to work on, blockers to remove, quick wins, and sprint focus). Requires OAuth-configured Rovo MCP tools and stops with a clear message if unavailable."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/chuan-khuna/altr-skills",
+  "resources": {},
+  "updatedAt": "2026-05-23T16:06:02.187Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:01.953Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

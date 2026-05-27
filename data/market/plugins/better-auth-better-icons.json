@@ -1,0 +1,432 @@
+{
+  "artifacts": {
+    "npm": {
+      "version": "1.0.5",
+      "packageName": "better-icons"
+    }
+  },
+  "author": {
+    "name": "better-auth",
+    "url": "https://github.com/better-auth"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "developer",
+  "connectionType": "local",
+  "createdAt": "2026-04-02T16:01:51.593Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "better-icons"]
+      },
+      "description": "Recommended deployment using npx to run the MCP server directly without global installation.",
+      "installationDetails": {
+        "packageName": "better-icons"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "better-icons",
+        "args": []
+      },
+      "description": "Global installation via npm allows direct CLI usage and MCP server execution.",
+      "installationDetails": {
+        "packageName": "better-icons"
+      },
+      "installationMethod": "npm",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "bun",
+        "args": ["run", "dev"]
+      },
+      "description": "Manual setup using Bun runtime for development or local testing. Requires user to clone and install dependencies.",
+      "installationDetails": {
+        "setupSteps": [
+          "Clone the repository from https://github.com/better-auth/better-icons",
+          "Install dependencies using 'bun install'",
+          "Run the server locally with 'bun run dev' or build with 'bun run build'"
+        ],
+        "repositoryUrlToClone": "https://github.com/better-auth/better-icons"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        },
+        {
+          "checkCommand": "bun --version",
+          "installInstructions": {
+            "macos": "Install via 'curl -fsSL https://bun.sh/install | bash'",
+            "manual": "Install Bun from https://bun.sh/"
+          },
+          "name": "bun",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    }
+  ],
+  "description": "MCP server for searching and retrieving icons from 200+ icon libraries powered by Iconify. No external data files required.",
+  "github": {
+    "url": "https://github.com/better-auth/better-icons",
+    "stars": 865,
+    "license": "MIT License",
+    "language": "TypeScript"
+  },
+  "haveCloudEndpoint": false,
+  "homepage": "https://github.com/better-auth/better-icons",
+  "icon": "https://github.com/better-auth.png",
+  "identifier": "better-auth-better-icons",
+  "installCount": 53,
+  "isClaimed": false,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": true,
+  "name": "Better Icons",
+  "overview": {
+    "readme": "# Better Icons\n\nSearch and retrieve 200,000+ icons from 150+ icon collections. Works as an MCP server for AI agents or CLI tool.\n\n## Quick Start\n\n### Add Skills\n\nEnable the `better-icons` CLI features in your agent environment (matches all examples below):\n\n```bash\nnpx skills add better-auth/better-icons\n```\n\n### Direct CLI Installation\n\nAlternatively, install the CLI globally for direct non-agent use:\n\n```bash\n# Using npm\nnpm install -g better-icons\n\n# Using Bun (faster)\nbun add -g better-icons\n```\n\n---\n\n### MCP Server (AI Agents)\n\nConfigure the MCP server to enable icon tools in your AI coding agents.\n\n```bash\nnpx better-icons setup\n```\n\nThis interactively configures the MCP server for:\n- **Cursor**\n- **Claude Code**\n- **OpenCode**\n- **Windsurf**\n- **VS Code (Copilot)**\n- **Google Antigravity**\n\nOr [configure manually](#manual-installation).\n\n### CLI (Direct Usage)\n\nUse the CLI to search and retrieve icons directly from your terminal.\n\n```bash\n# 1. Search for icons (finds icons across 150+ collections)\nnpx better-icons search arrow --limit 10\nnpx better-icons search home --prefix lucide\n\n# 2. Get icon SVG (outputs raw code or saves to file)\nnpx better-icons get lucide:home > icon.svg\nnpx better-icons get mdi:account --color '#333' --size 24\n\n# 3. JSON output for scripting\nnpx better-icons search settings --json | jq '.icons[:5]'\nnpx better-icons get heroicons:check --json\n```\n\n\n\n## Why?\n\nIcons are a common pain point in AI-assisted coding. Models often struggle to know which icons are available, generate correct SVG code, maintain consistent styles, and organize icons properly. Inline SVGs also consume unnecessary tokens.\n\n## Features\n\n- **200,000+ Icons** - Search across 150+ icon collections (Lucide, Heroicons, Material Design, etc.)\n- **Auto-Learning** - Remembers which icon collections you use and prioritizes them in future searches\n- **Project Sync** - Icons are written directly to your icons file (`.tsx`, `.ts`, `.js`) instead of pasting SVG into chat (saves tokens!)\n- **Batch Retrieval** - Get multiple icons at once\n- **Similar Icons** - Find the same icon across different collections and styles\n- **Recent Icons** - Quick access to icons you've used before\n- **Multi-Framework** - React, Vue, Svelte, Solid, and raw SVG exports\n\n## Manual Installation\n\n### Cursor\n\nAdd to `~/.cursor/mcp.json`:\n\n```json\n{\n  \"mcpServers\": {\n    \"better-icons\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"better-icons\"]\n    }\n  }\n}\n```\n\n### Claude Code (CLI)\n\nAdd to `~/.claude/settings.json`:\n\n```json\n{\n  \"mcpServers\": {\n    \"better-icons\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"better-icons\"]\n    }\n  }\n}\n```\n\n### Google Antigravity\n\nAdd to `~/.gemini/antigravity/mcp_config.json`:\n\n```json\n{\n  \"mcpServers\": {\n    \"better-icons\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"better-icons\"]\n    }\n  }\n}\n```\n\n## MCP Tools\n\nThe following tools are available when using the MCP server with AI agents.\n\n### `search_icons`\n\nSearch for icons across 150+ icon collections.\n\n```\nSearch for \"arrow\" icons\nSearch for \"home\" icons in the lucide collection\n```\n\n**Parameters:**\n- `query` (required): Search query (e.g., 'arrow', 'home', 'user')\n- `limit` (optional): Maximum results (1-999, default: 32)\n- `prefix` (optional): Filter by collection (e.g., 'mdi', 'lucide')\n- `category` (optional): Filter by category\n\n### `get_icon`\n\nGet the SVG code for a specific icon with multiple usage formats.\n\n```\nGet the SVG for mdi:home\nGet a URL for mdi:home\nGet lucide:arrow-right with size 24\n```\n\n**Parameters:**\n- `icon_id` (required): Icon ID in format 'prefix:name' (e.g., 'mdi:home')\n- `color` (optional): Icon color (e.g., '#ff0000', 'currentColor')\n- `size` (optional): Icon size in pixels\n- `format` (optional): 'svg' (default) or 'url'\n\n**Returns:**\n- Raw SVG code\n- React/JSX component code\n- Iconify component usage\n- Direct SVG URL (when `format: \"url\"`)\n\n### `list_collections`\n\nList available icon collections/libraries.\n\n```\nList all icon collections\nSearch for \"material\" collections\n```\n\n**Parameters:**\n- `category` (optional): Filter by category\n- `search` (optional): Search collections by name\n\n### `recommend_icons`\n\nGet icon recommendations for a specific use case.\n\n```\nWhat icon should I use for a settings button?\nRecommend icons for user authentication\n```\n\n**Parameters:**\n- `use_case` (required): Describe what you need\n- `style` (optional): 'solid', 'outline', or 'any'\n- `limit` (optional): Number of recommendations (1-20)\n\n### `get_icon_preferences`\n\nView your learned icon collection preferences with usage statistics.\n\n```\nShow my icon preferences\nWhat icon collections do I use most?\n```\n\n### `clear_icon_preferences`\n\nReset all learned icon preferences to start fresh.\n\n```\nClear my icon preferences\nReset icon preferences\n```\n\n### `find_similar_icons`\n\nFind similar icons or variations of a given icon across different collections and styles.\n\n```\nFind icons similar to lucide:home\nWhat other arrow icons are there like mdi:arrow-right?\n```\n\n**Parameters:**\n- `icon_id` (required): Icon ID to find variations of\n- `limit` (optional): Maximum number of similar icons (1-50, default: 10)\n\n### `get_icons`\n\nGet multiple icons at once (batch retrieval). More efficient than multiple `get_icon` calls.\n\n```\nGet these icons: lucide:home, lucide:settings, lucide:user\n```\n\n**Parameters:**\n- `icon_ids` (required): Array of icon IDs (max 20)\n- `color` (optional): Color for all icons\n- `size` (optional): Size in pixels for all icons\n\n### `get_recent_icons`\n\nView your recently used icons for quick reuse.\n\n```\nShow my recent icons\nWhat icons have I used recently?\n```\n\n**Parameters:**\n- `limit` (optional): Number of recent icons to show (1-50, default: 20)\n\n### `sync_icon`\n\nGet an icon AND automatically add it to your project's icons file. The recommended way to add icons.\n\n```\nSync the lucide:home icon to my project\nAdd a settings icon to my icons file\n```\n\n**Parameters:**\n- `icons_file` (required): Absolute path to the icons file\n- `framework` (required): 'react', 'vue', 'svelte', 'solid', or 'svg'\n- `icon_id` (required): Icon ID in format 'prefix:name'\n- `component_name` (optional): Custom component name\n- `color` (optional): Icon color\n- `size` (optional): Icon size in pixels\n\n**Returns:**\n- Confirmation that icon was added (or already exists)\n- Import statement to use\n- Usage example\n\n### `scan_project_icons`\n\nScan an icons file to see what icons are already available.\n\n```\nWhat icons are already in my project?\nScan my icons file\n```\n\n**Parameters:**\n- `icons_file` (required): Absolute path to the icons file\n\n## Popular Icon Collections\n\n| Prefix | Name | Style | Icons |\n|--------|------|-------|-------|\n| `mdi` | Material Design Icons | Solid | 7,000+ |\n| `lucide` | Lucide Icons | Outline | 1,500+ |\n| `heroicons` | Heroicons | Both | 300+ |\n| `tabler` | Tabler Icons | Outline | 5,000+ |\n| `ph` | Phosphor Icons | Multiple | 9,000+ |\n| `ri` | Remix Icons | Both | 2,800+ |\n| `fa6-solid` | Font Awesome 6 | Solid | 2,000+ |\n| `simple-icons` | Simple Icons | Logos | 3,000+ |\n\n## CLI Reference\n\n### Search Icons\n\nSearch across 150+ icon collections.\n\n```bash\nbetter-icons search <query> [options]\n```\n\n| Option | Description |\n|--------|-------------|\n| `-p, --prefix <prefix>` | Filter by collection (e.g., `lucide`, `mdi`) |\n| `-l, --limit <number>` | Maximum results (default: 32) |\n| `--json` | Output as JSON for scripting |\n\n### Get Icon\n\nRetrieve a single icon's SVG code.\n\n```bash\nbetter-icons get <icon-id> [options]\n```\n\n| Option | Description |\n|--------|-------------|\n| `-c, --color <color>` | Icon color (e.g., `#ff0000`, `currentColor`) |\n| `-s, --size <pixels>` | Icon size in pixels |\n| `--json` | Output as JSON with metadata |\n\nThe icon ID format is `prefix:name` (e.g., `lucide:home`, `mdi:arrow-right`).\n\n### Setup Commands\n\n```bash\nbetter-icons setup              # Interactive setup wizard\nbetter-icons setup -y           # Auto-confirm (global scope)\nbetter-icons setup -s project   # Setup for current project only\nbetter-icons config             # Show manual config instructions\n```\n\n| Option | Description |\n|--------|-------------|\n| `-y, --yes` | Skip confirmation prompts |\n| `-a, --agent <agents...>` | Specify agents (cursor, claude-code, opencode, windsurf, vscode, antigravity) |\n| `-s, --scope <scope>` | Config scope: `global` (default) or `project` |\n\n## Development\n\n```bash\n# Install dependencies\nbun install\n\n# Run locally\nbun run dev\n\n# Build\nbun run build\n```\n\n## License\n\nMIT\n",
+    "summary": "The Better Icons MCP Server is a tool for searching, retrieving, and managing icons from over 200 icon libraries powered by Iconify. You can:\n\n- **Search and Discover Icons**: Find icons across multiple collections and get icon recommendations for specific use cases\n- **Retrieve SVGs**: Obtain SVG code for individual or multiple icons efficiently\n- **Manage Icon Collections**: List available collections, view recent icons, and scan project files for existing icons\n- **Personalize Icon Usage**: Access and reset learned icon preferences to tailor icon suggestions\n- **Find Variations**: Locate similar icons or different styles of a given icon\n- **Integrate Icons into Projects**: Automatically add icons to your project with import statements, ensuring seamless integration"
+  },
+  "promptsCount": 0,
+  "ratingAverage": 5,
+  "ratingCount": 1,
+  "resourcesCount": 0,
+  "tags": ["mcp", "icons", "iconify", "svg", "ai", "cursor", "claude", "model-context-protocol"],
+  "tools": [
+    {
+      "name": "search_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Search for icons across 200+ icon libraries powered by Iconify. Returns icon identifiers that can be used with get_icon.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["query"],
+        "properties": {
+          "limit": {
+            "type": "number",
+            "default": 32,
+            "maximum": 999,
+            "minimum": 1,
+            "description": "Maximum number of results (1-999, default: 32)"
+          },
+          "query": {
+            "type": "string",
+            "description": "Search query (e.g., 'arrow', 'home', 'user', 'check')"
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Filter by icon collection prefix (e.g., 'mdi', 'lucide', 'heroicons')"
+          },
+          "category": {
+            "type": "string",
+            "description": "Filter by category (e.g., 'General', 'Emoji', 'Thematic')"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_icon",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Get the SVG code for a specific icon. Use the icon ID from search_icons results.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["icon_id"],
+        "properties": {
+          "size": {
+            "type": "number",
+            "description": "Icon size in pixels"
+          },
+          "color": {
+            "type": "string",
+            "description": "Icon color (e.g., '#ff0000', 'currentColor')"
+          },
+          "icon_id": {
+            "type": "string",
+            "description": "Icon identifier in format 'prefix:name' (e.g., 'mdi:home', 'lucide:arrow-right')"
+          }
+        }
+      }
+    },
+    {
+      "name": "list_collections",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "List available icon collections/libraries.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "search": {
+            "type": "string",
+            "description": "Search collections by name"
+          },
+          "category": {
+            "type": "string",
+            "description": "Filter by category"
+          }
+        }
+      }
+    },
+    {
+      "name": "recommend_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Get icon recommendations for a specific use case.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["use_case"],
+        "properties": {
+          "limit": {
+            "type": "number",
+            "default": 10,
+            "maximum": 20,
+            "minimum": 1,
+            "description": "Number of recommendations"
+          },
+          "style": {
+            "enum": ["solid", "outline", "any"],
+            "type": "string",
+            "default": "any",
+            "description": "Preferred style"
+          },
+          "use_case": {
+            "type": "string",
+            "description": "Describe what you need (e.g., 'navigation menu', 'settings button')"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_icon_preferences",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "View your learned icon collection preferences. The server automatically learns which icon collections you use most frequently.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "clear_icon_preferences",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Reset all learned icon preferences. Use this if you want to start fresh with a different icon style.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "find_similar_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Find similar icons or variations of a given icon. Useful for finding the same icon in different styles (solid, outline) or from different collections.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["icon_id"],
+        "properties": {
+          "limit": {
+            "type": "number",
+            "default": 10,
+            "maximum": 50,
+            "minimum": 1,
+            "description": "Maximum number of similar icons to return"
+          },
+          "icon_id": {
+            "type": "string",
+            "description": "Icon identifier in format 'prefix:name' (e.g., 'lucide:home')"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Get multiple icons at once. More efficient than calling get_icon multiple times. Returns all SVGs together.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["icon_ids"],
+        "properties": {
+          "size": {
+            "type": "number",
+            "description": "Icon size in pixels for all icons"
+          },
+          "color": {
+            "type": "string",
+            "description": "Icon color for all icons (e.g., '#ff0000', 'currentColor')"
+          },
+          "icon_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "description": "Array of icon IDs in format 'prefix:name' (max 20)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_recent_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "View your recently used icons. Useful for quickly reusing icons you've already retrieved.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "default": 20,
+            "maximum": 50,
+            "minimum": 1,
+            "description": "Number of recent icons to show (default: 20)"
+          }
+        }
+      }
+    },
+    {
+      "name": "scan_project_icons",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Scan an icons file to see what icons are already available. Helps avoid duplicates.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["icons_file"],
+        "properties": {
+          "icons_file": {
+            "type": "string",
+            "description": "Absolute path to the icons file (e.g., '/Users/me/myapp/src/components/icons.tsx')"
+          }
+        }
+      }
+    },
+    {
+      "name": "sync_icon",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Get an icon AND automatically add it to your project's icons file. Returns the import statement to use. This is the recommended way to add icons to your project. The AI should provide the icons file path based on the project structure.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["icons_file", "framework", "icon_id"],
+        "properties": {
+          "size": {
+            "type": "number",
+            "description": "Icon size in pixels"
+          },
+          "color": {
+            "type": "string",
+            "description": "Icon color (e.g., 'currentColor')"
+          },
+          "icon_id": {
+            "type": "string",
+            "description": "Icon identifier in format 'prefix:name' (e.g., 'lucide:home')"
+          },
+          "framework": {
+            "enum": ["react", "vue", "svelte", "solid", "svg"],
+            "type": "string",
+            "description": "Framework for icon components"
+          },
+          "icons_file": {
+            "type": "string",
+            "description": "Absolute path to the icons file (e.g., '/Users/me/myapp/src/components/icons.tsx')"
+          },
+          "component_name": {
+            "type": "string",
+            "description": "Custom component name (optional - auto-generated from icon name if not provided)"
+          }
+        }
+      }
+    }
+  ],
+  "toolsCount": 11,
+  "updatedAt": "2026-05-21T22:50:17.116Z",
+  "validatedAt": "2026-04-02T16:01:40.265Z",
+  "version": "1.0.5",
+  "versions": [
+    {
+      "createdAt": "2026-04-02T16:01:51.593Z",
+      "isLatest": true,
+      "isValidated": true,
+      "version": "1.0.5"
+    }
+  ]
+}

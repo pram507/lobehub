@@ -1,0 +1,995 @@
+{
+  "artifacts": {
+    "npm": {
+      "version": "1.9.0",
+      "packageName": "@notionhq/notion-mcp-server"
+    },
+    "docker": {
+      "tag": "20-slim",
+      "imageName": "node"
+    }
+  },
+  "author": {
+    "name": "makenotion",
+    "url": "https://github.com/makenotion"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "developer",
+  "connectionType": "local",
+  "createdAt": "2025-06-20T02:30:50.490Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OPENAPI_MCP_HEADERS"],
+          "properties": {
+            "OPENAPI_MCP_HEADERS": {
+              "type": "string",
+              "description": "JSON string with Authorization and Notion-Version headers, e.g. '{\"Authorization\": \"Bearer ntn_****\", \"Notion-Version\": \"2022-06-28\"}'"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "@notionhq/notion-mcp-server"]
+      },
+      "description": "Run the MCP server using npx with the official package. Set the OPENAPI_MCP_HEADERS environment variable with your Notion integration token and version.",
+      "installationDetails": {
+        "packageName": "@notionhq/notion-mcp-server"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OPENAPI_MCP_HEADERS"],
+          "properties": {
+            "OPENAPI_MCP_HEADERS": {
+              "type": "string",
+              "description": "JSON string with Authorization and Notion-Version headers, e.g. '{\"Authorization\":\"Bearer ntn_****\",\"Notion-Version\":\"2022-06-28\"}'"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "docker",
+        "args": ["run", "--rm", "-i", "-e", "OPENAPI_MCP_HEADERS", "mcp/notion"]
+      },
+      "description": "Use the official Docker Hub image. Pass your Notion integration token via the OPENAPI_MCP_HEADERS environment variable.",
+      "installationDetails": {
+        "imageName": "mcp/notion",
+        "runCommandExample": "docker run --rm -i -e OPENAPI_MCP_HEADERS mcp/notion"
+      },
+      "installationMethod": "docker",
+      "isRecommended": true,
+      "systemDependencies": []
+    },
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "OPENAPI_MCP_HEADERS={\"Authorization\": \"Bearer ntn_****\", \"Notion-Version\": \"2022-06-28\"}",
+          "notion-mcp-server"
+        ]
+      },
+      "description": "Build the Docker image locally using 'docker-compose build' before running. Replace the token in OPENAPI_MCP_HEADERS with your integration secret.",
+      "installationDetails": {
+        "imageName": "notion-mcp-server",
+        "buildContext": ".",
+        "buildRequired": true,
+        "runCommandExample": "docker run --rm -i -e OPENAPI_MCP_HEADERS={\"Authorization\": \"Bearer ntn_****\", \"Notion-Version\": \"2022-06-28\"} notion-mcp-server"
+      },
+      "installationMethod": "docker",
+      "isRecommended": false,
+      "systemDependencies": []
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OPENAPI_MCP_HEADERS"],
+          "properties": {
+            "OPENAPI_MCP_HEADERS": {
+              "type": "string",
+              "description": "JSON string with Authorization and Notion-Version headers, e.g. '{\"Authorization\": \"Bearer ntn_****\", \"Notion-Version\": \"2022-06-28\"}'"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "--prefix",
+          "path/to/your/local/notion-mcp-server",
+          "@notionhq/notion-mcp-server"
+        ]
+      },
+      "description": "Manual setup requires cloning the repo, installing dependencies, building, and running locally. Replace 'path/to/your/local/notion-mcp-server' with your actual local path. Set OPENAPI_MCP_HEADERS environment variable with your integration token.",
+      "installationDetails": {
+        "setupSteps": [
+          "Clone the repository from https://github.com/makenotion/notion-mcp-server",
+          "Install dependencies using npm install",
+          "Build the project using npm run build",
+          "Run the server using npx -y --prefix /path/to/local/notion-mcp-server @notionhq/notion-mcp-server"
+        ],
+        "repositoryUrlToClone": "https://github.com/makenotion/notion-mcp-server"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    }
+  ],
+  "description": "Official MCP server for Notion API. Requires an integration token configured via environment variable OPENAPI_MCP_HEADERS containing JSON with Authorization and Notion-Version headers.",
+  "github": {
+    "url": "https://github.com/makenotion/notion-mcp-server",
+    "stars": 3376,
+    "license": "MIT License",
+    "language": "TypeScript"
+  },
+  "haveCloudEndpoint": false,
+  "homepage": "https://github.com/makenotion/notion-mcp-server",
+  "icon": "https://github.com/makenotion.png",
+  "identifier": "makenotion-notion-mcp-server",
+  "installCount": 328,
+  "isClaimed": false,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": true,
+  "name": "Notion MCP Server",
+  "overview": {
+    "readme": "# Notion MCP Server\n\n> [!NOTE] \n> \n> We’ve introduced **Notion MCP**, a remote MCP server with the following improvements:\n> - Easy installation via standard OAuth. No need to fiddle with JSON or API token anymore.\n> - Powerful tools tailored to AI agents. These tools are designed with optimized token consumption in mind.\n> \n> Learn more and try it out [here](https://developers.notion.com/docs/mcp)\n\n\n![notion-mcp-sm](https://github.com/user-attachments/assets/6c07003c-8455-4636-b298-d60ffdf46cd8)\n\nThis project implements an [MCP server](https://spec.modelcontextprotocol.io/) for the [Notion API](https://developers.notion.com/reference/intro). \n\n![mcp-demo](https://github.com/user-attachments/assets/e3ff90a7-7801-48a9-b807-f7dd47f0d3d6)\n\n### Installation\n\n#### 1. Setting up Integration in Notion:\nGo to [https://www.notion.so/profile/integrations](https://www.notion.so/profile/integrations) and create a new **internal** integration or select an existing one.\n\n![Creating a Notion Integration token](docs/images/integrations-creation.png)\n\nWhile we limit the scope of Notion API's exposed (for example, you will not be able to delete databases via MCP), there is a non-zero risk to workspace data by exposing it to LLMs. Security-conscious users may want to further configure the Integration's _Capabilities_. \n\nFor example, you can create a read-only integration token by giving only \"Read content\" access from the \"Configuration\" tab:\n\n![Notion Integration Token Capabilities showing Read content checked](docs/images/integrations-capabilities.png)\n\n#### 2. Connecting content to integration:\nEnsure relevant pages and databases are connected to your integration.\n\nTo do this, visit the **Access** tab in your internal integration settings. Edit access and select the pages you'd like to use.\n![Integration Access tab](docs/images/integration-access.png)\n\n![Edit integration access](docs/images/page-access-edit.png)\n\nAlternatively, you can grant page access individually. You'll need to visit the target page, and click on the 3 dots, and select \"Connect to integration\". \n\n![Adding Integration Token to Notion Connections](docs/images/connections.png)\n\n#### 3. Adding MCP config to your client:\n\n##### Using npm:\n\n**Cursor & Claude:**\n\nAdd the following to your `.cursor/mcp.json` or `claude_desktop_config.json` (MacOS: `~/Library/Application\\ Support/Claude/claude_desktop_config.json`)\n\n**Option 1: Using NOTION_TOKEN (recommended)**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@notionhq/notion-mcp-server\"],\n      \"env\": {\n        \"NOTION_TOKEN\": \"ntn_****\"\n      }\n    }\n  }\n}\n```\n\n**Option 2: Using OPENAPI_MCP_HEADERS (for advanced use cases)**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@notionhq/notion-mcp-server\"],\n      \"env\": {\n        \"OPENAPI_MCP_HEADERS\": \"{\\\"Authorization\\\": \\\"Bearer ntn_****\\\", \\\"Notion-Version\\\": \\\"2022-06-28\\\" }\"\n      }\n    }\n  }\n}\n```\n\n**Zed**\n\nAdd the following to your `settings.json`\n\n```json\n{\n  \"context_servers\": {\n    \"some-context-server\": {\n      \"command\": {\n        \"path\": \"npx\",\n        \"args\": [\"-y\", \"@notionhq/notion-mcp-server\"],\n        \"env\": {\n          \"OPENAPI_MCP_HEADERS\": \"{\\\"Authorization\\\": \\\"Bearer ntn_****\\\", \\\"Notion-Version\\\": \\\"2022-06-28\\\" }\"\n        }\n      },\n      \"settings\": {}\n    }\n  }\n}\n```\n\n##### Using Docker:\n\nThere are two options for running the MCP server with Docker:\n\n###### Option 1: Using the official Docker Hub image:\n\nAdd the following to your `.cursor/mcp.json` or `claude_desktop_config.json`:\n\n**Using NOTION_TOKEN (recommended):**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"docker\",\n      \"args\": [\n        \"run\",\n        \"--rm\",\n        \"-i\",\n        \"-e\", \"NOTION_TOKEN\",\n        \"mcp/notion\"\n      ],\n      \"env\": {\n        \"NOTION_TOKEN\": \"ntn_****\"\n      }\n    }\n  }\n}\n```\n\n**Using OPENAPI_MCP_HEADERS (for advanced use cases):**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"docker\",\n      \"args\": [\n        \"run\",\n        \"--rm\",\n        \"-i\",\n        \"-e\", \"OPENAPI_MCP_HEADERS\",\n        \"mcp/notion\"\n      ],\n      \"env\": {\n        \"OPENAPI_MCP_HEADERS\": \"{\\\"Authorization\\\":\\\"Bearer ntn_****\\\",\\\"Notion-Version\\\":\\\"2022-06-28\\\"}\"\n      }\n    }\n  }\n}\n```\n\nThis approach:\n- Uses the official Docker Hub image\n- Properly handles JSON escaping via environment variables\n- Provides a more reliable configuration method\n\n###### Option 2: Building the Docker image locally:\n\nYou can also build and run the Docker image locally. First, build the Docker image:\n\n```bash\ndocker compose build\n```\n\nThen, add the following to your `.cursor/mcp.json` or `claude_desktop_config.json`:\n\n**Using NOTION_TOKEN (recommended):**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"docker\",\n      \"args\": [\n        \"run\",\n        \"--rm\",\n        \"-i\",\n        \"-e\",\n        \"NOTION_TOKEN=ntn_****\",\n        \"notion-mcp-server\"\n      ]\n    }\n  }\n}\n```\n\n**Using OPENAPI_MCP_HEADERS (for advanced use cases):**\n```javascript\n{\n  \"mcpServers\": {\n    \"notionApi\": {\n      \"command\": \"docker\",\n      \"args\": [\n        \"run\",\n        \"--rm\",\n        \"-i\",\n        \"-e\",\n        \"OPENAPI_MCP_HEADERS={\\\"Authorization\\\": \\\"Bearer ntn_****\\\", \\\"Notion-Version\\\": \\\"2022-06-28\\\"}\",\n        \"notion-mcp-server\"\n      ]\n    }\n  }\n}\n```\n\nDon't forget to replace `ntn_****` with your integration secret. Find it from your integration configuration tab:\n\n![Copying your Integration token from the Configuration tab in the developer portal](https://github.com/user-attachments/assets/67b44536-5333-49fa-809c-59581bf5370a)\n\n\n#### Installing via Smithery\n\n[![smithery badge](https://smithery.ai/badge/@makenotion/notion-mcp-server)](https://smithery.ai/server/@makenotion/notion-mcp-server)\n\nTo install Notion API Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@makenotion/notion-mcp-server):\n\n```bash\nnpx -y @smithery/cli install @makenotion/notion-mcp-server --client claude\n```\n\n### Transport Options\n\nThe Notion MCP Server supports two transport modes:\n\n#### STDIO Transport (Default)\nThe default transport mode uses standard input/output for communication. This is the standard MCP transport used by most clients like Claude Desktop.\n\n```bash\n# Run with default stdio transport\nnpx @notionhq/notion-mcp-server\n\n# Or explicitly specify stdio\nnpx @notionhq/notion-mcp-server --transport stdio\n```\n\n#### Streamable HTTP Transport\nFor web-based applications or clients that prefer HTTP communication, you can use the Streamable HTTP transport:\n\n```bash\n# Run with Streamable HTTP transport on port 3000 (default)\nnpx @notionhq/notion-mcp-server --transport http\n\n# Run on a custom port\nnpx @notionhq/notion-mcp-server --transport http --port 8080\n\n# Run with a custom authentication token\nnpx @notionhq/notion-mcp-server --transport http --auth-token \"your-secret-token\"\n```\n\nWhen using Streamable HTTP transport, the server will be available at `http://0.0.0.0:<port>/mcp`.\n\n##### Authentication\nThe Streamable HTTP transport requires bearer token authentication for security. You have three options:\n\n**Option 1: Auto-generated token (recommended for development)**\n```bash\nnpx @notionhq/notion-mcp-server --transport http\n```\nThe server will generate a secure random token and display it in the console:\n```\nGenerated auth token: a1b2c3d4e5f6789abcdef0123456789abcdef0123456789abcdef0123456789ab\nUse this token in the Authorization header: Bearer a1b2c3d4e5f6789abcdef0123456789abcdef0123456789abcdef0123456789ab\n```\n\n**Option 2: Custom token via command line (recommended for production)**\n```bash\nnpx @notionhq/notion-mcp-server --transport http --auth-token \"your-secret-token\"\n```\n\n**Option 3: Custom token via environment variable (recommended for production)**\n```bash\nAUTH_TOKEN=\"your-secret-token\" npx @notionhq/notion-mcp-server --transport http\n```\n\nThe command line argument `--auth-token` takes precedence over the `AUTH_TOKEN` environment variable if both are provided.\n\n##### Making HTTP Requests\nAll requests to the Streamable HTTP transport must include the bearer token in the Authorization header:\n\n```bash\n# Example request\ncurl -H \"Authorization: Bearer your-token-here\" \\\n     -H \"Content-Type: application/json\" \\\n     -H \"mcp-session-id: your-session-id\" \\\n     -d '{\"jsonrpc\": \"2.0\", \"method\": \"initialize\", \"params\": {}, \"id\": 1}' \\\n     http://localhost:3000/mcp\n```\n\n**Note:** Make sure to set either the `NOTION_TOKEN` environment variable (recommended) or the `OPENAPI_MCP_HEADERS` environment variable with your Notion integration token when using either transport mode.\n\n### Examples\n\n1. Using the following instruction\n```\nComment \"Hello MCP\" on page \"Getting started\"\n```\n\nAI will correctly plan two API calls, `v1/search` and `v1/comments`, to achieve the task\n\n2. Similarly, the following instruction will result in a new page named \"Notion MCP\" added to parent page \"Development\"\n```\nAdd a page titled \"Notion MCP\" to page \"Development\"\n```\n\n3. You may also reference content ID directly\n```\nGet the content of page 1a6b35e6e67f802fa7e1d27686f017f2\n```\n\n### Development\n\nBuild\n\n```\nnpm run build\n```\n\nExecute\n\n```\nnpx -y --prefix /path/to/local/notion-mcp-server @notionhq/notion-mcp-server\n```\n\nPublish\n\n```\nnpm publish --access public\n```\n",
+    "summary": "The Notion MCP Server is a platform that enables interaction with the Notion API for content and database management. You can:\n\n- **User Management**: Retrieve user information and list all users\n- **Content Retrieval and Modification**: Access and update pages, blocks, and their properties\n- **Database Operations**: Create, retrieve, update, and query databases and database items\n- **Content Creation**: Create new pages, databases, and comments\n- **Content Structure Management**: Retrieve and append block children, delete blocks, and manage page properties"
+  },
+  "promptsCount": 0,
+  "ratingAverage": 5,
+  "ratingCount": 1,
+  "resourcesCount": 0,
+  "tags": ["notion", "api", "mcp", "server"],
+  "tools": [
+    {
+      "name": "API-get-user",
+      "description": "Notion | Retrieve a user",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["user_id"],
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    },
+    {
+      "name": "API-get-users",
+      "description": "Notion | List all users",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": [],
+        "properties": {
+          "page_size": {
+            "type": "integer",
+            "default": 100,
+            "description": "The number of items from the full list desired in the response. Maximum: 100"
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "If supplied, this endpoint will return a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-get-self",
+      "description": "Notion | Retrieve your token's bot user",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": [],
+        "properties": {}
+      }
+    },
+    {
+      "name": "API-post-database-query",
+      "description": "Notion | Query a database",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["database_id"],
+        "properties": {
+          "sorts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["property", "direction"],
+              "properties": {
+                "property": {
+                  "type": "string"
+                },
+                "direction": {
+                  "enum": ["ascending", "descending"],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "When supplied, orders the results based on the provided [sort criteria](ref:post-database-query-sort)."
+          },
+          "filter": {
+            "type": "object",
+            "description": "When supplied, limits which pages are returned based on the [filter conditions](ref:post-database-query-filter).",
+            "additionalProperties": true
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "in_trash": {
+            "type": "boolean"
+          },
+          "page_size": {
+            "type": "integer",
+            "default": 100,
+            "description": "The number of items from the full list desired in the response. Maximum: 100"
+          },
+          "database_id": {
+            "type": "string",
+            "description": "Identifier for a Notion database."
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "When supplied, returns a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results."
+          },
+          "filter_properties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of page property value IDs associated with the database. Use this param to limit the response to a specific page property value or values for pages that meet the `filter` criteria."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-post-search",
+      "description": "Notion | Search by title",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": [],
+        "properties": {
+          "sort": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "type": "string",
+                "description": "The direction to sort. Possible values include `ascending` and `descending`."
+              },
+              "timestamp": {
+                "type": "string",
+                "description": "The name of the timestamp to sort against. Possible values include `last_edited_time`."
+              }
+            },
+            "description": "A set of criteria, `direction` and `timestamp` keys, that orders the results. The **only** supported timestamp value is `\"last_edited_time\"`. Supported `direction` values are `\"ascending\"` and `\"descending\"`. If `sort` is not provided, then the most recently edited results are returned first.",
+            "additionalProperties": true
+          },
+          "query": {
+            "type": "string",
+            "description": "The text that the API compares page and database titles against."
+          },
+          "filter": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "The value of the property to filter the results by.  Possible values for object type include `page` or `database`.  **Limitation**: Currently the only filter allowed is `object` which will filter by type of object (either `page` or `database`)"
+              },
+              "property": {
+                "type": "string",
+                "description": "The name of the property to filter by. Currently the only property you can filter by is the object type.  Possible values include `object`.   Limitation: Currently the only filter allowed is `object` which will filter by type of object (either `page` or `database`)"
+              }
+            },
+            "description": "A set of criteria, `value` and `property` keys, that limits the results to either only pages or only databases. Possible `value` values are `\"page\"` or `\"database\"`. The only supported `property` value is `\"object\"`.",
+            "additionalProperties": true
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int32",
+            "default": 100,
+            "description": "The number of items from the full list to include in the response. Maximum: `100`."
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "A `cursor` value returned in a previous response that If supplied, limits the response to results starting after the `cursor`. If not supplied, then the first page of results is returned. Refer to [pagination](https://developers.notion.com/reference/intro#pagination) for more details."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-get-block-children",
+      "description": "Notion | Retrieve block children",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id"],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a [block](ref:block)"
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int32",
+            "default": 100,
+            "description": "The number of items from the full list desired in the response. Maximum: 100"
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "If supplied, this endpoint will return a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-patch-block-children",
+      "description": "Notion | Append block children",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id", "children"],
+        "properties": {
+          "after": {
+            "type": "string",
+            "description": "The ID of the existing block that the new block should be appended after."
+          },
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a [block](ref:block). Also accepts a [page](ref:page) ID."
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": ["paragraph", "bulleted_list_item"],
+                  "type": "string"
+                },
+                "paragraph": {
+                  "type": "object",
+                  "required": ["rich_text"],
+                  "properties": {
+                    "rich_text": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["text"],
+                        "properties": {
+                          "text": {
+                            "type": "object",
+                            "required": ["content"],
+                            "properties": {
+                              "link": {
+                                "type": ["object", "null"]
+                              },
+                              "content": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "type": {
+                            "enum": ["text"],
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "bulleted_list_item": {
+                  "type": "object",
+                  "required": ["rich_text"],
+                  "properties": {
+                    "rich_text": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["text"],
+                        "properties": {
+                          "text": {
+                            "type": "object",
+                            "required": ["content"],
+                            "properties": {
+                              "link": {
+                                "type": ["object", "null"]
+                              },
+                              "content": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "type": {
+                            "enum": ["text"],
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "Child content to append to a container block as an array of [block objects](ref:block)"
+          }
+        }
+      }
+    },
+    {
+      "name": "API-retrieve-a-block",
+      "description": "Notion | Retrieve a block",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id"],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a Notion block"
+          }
+        }
+      }
+    },
+    {
+      "name": "API-update-a-block",
+      "description": "Notion | Update a block",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id"],
+        "properties": {
+          "type": {
+            "type": "object",
+            "properties": {},
+            "description": "The [block object `type`](ref:block#block-object-keys) value with the properties to be updated. Currently only `text` (for supported block types) and `checked` (for `to_do` blocks) fields can be updated.",
+            "additionalProperties": true
+          },
+          "archived": {
+            "type": "boolean",
+            "default": true,
+            "description": "Set to true to archive (delete) a block. Set to false to un-archive (restore) a block."
+          },
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a Notion block"
+          }
+        }
+      }
+    },
+    {
+      "name": "API-delete-a-block",
+      "description": "Notion | Delete a block",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id"],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a Notion block"
+          }
+        }
+      }
+    },
+    {
+      "name": "API-retrieve-a-page",
+      "description": "Notion | Retrieve a page",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["page_id"],
+        "properties": {
+          "page_id": {
+            "type": "string",
+            "description": "Identifier for a Notion page"
+          },
+          "filter_properties": {
+            "type": "string",
+            "description": "A list of page property value IDs associated with the page. Use this param to limit the response to a specific page property value or values. To retrieve multiple properties, specify each page property ID. For example: `?filter_properties=iAk8&filter_properties=b7dh`."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-patch-page",
+      "description": "Notion | Update page properties",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["page_id"],
+        "properties": {
+          "icon": {
+            "type": "object",
+            "required": ["emoji"],
+            "properties": {
+              "emoji": {
+                "type": "string"
+              }
+            },
+            "description": "A page icon for the page. Supported types are [external file object](https://developers.notion.com/reference/file-object) or [emoji object](https://developers.notion.com/reference/emoji-object).",
+            "additionalProperties": false
+          },
+          "cover": {
+            "type": "object",
+            "required": ["external"],
+            "properties": {
+              "type": {
+                "enum": ["external"],
+                "type": "string"
+              },
+              "external": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "description": "A cover image for the page. Only [external file objects](https://developers.notion.com/reference/file-object) are supported.",
+            "additionalProperties": false
+          },
+          "page_id": {
+            "type": "string",
+            "description": "The identifier for the Notion page to be updated."
+          },
+          "archived": {
+            "type": "boolean"
+          },
+          "in_trash": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set to true to delete a block. Set to false to restore a block."
+          },
+          "properties": {
+            "type": "object",
+            "required": ["title"],
+            "properties": {
+              "type": {
+                "enum": ["title"],
+                "type": "string"
+              },
+              "title": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text"],
+                  "properties": {
+                    "text": {
+                      "type": "object",
+                      "required": ["content"],
+                      "properties": {
+                        "link": {
+                          "type": ["object", "null"]
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "type": {
+                      "enum": ["text"],
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "description": "The property values to update for the page. The keys are the names or IDs of the property and the values are property values. If a page property ID is not included, then it is not changed.",
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "name": "API-post-page",
+      "description": "Notion | Create a page",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["parent", "properties"],
+        "properties": {
+          "icon": {
+            "type": "string",
+            "format": "json",
+            "description": "The icon of the new page. Either an [emoji object](https://developers.notion.com/reference/emoji-object) or an [external file object](https://developers.notion.com/reference/file-object).."
+          },
+          "cover": {
+            "type": "string",
+            "format": "json",
+            "description": "The cover image of the new page, represented as a [file object](https://developers.notion.com/reference/file-object)."
+          },
+          "parent": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+              "page_id": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "additionalProperties": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The content to be rendered on the new page, represented as an array of [block objects](https://developers.notion.com/reference/block)."
+          },
+          "properties": {
+            "type": "object",
+            "required": ["title"],
+            "properties": {
+              "type": {
+                "enum": ["title"],
+                "type": "string"
+              },
+              "title": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text"],
+                  "properties": {
+                    "text": {
+                      "type": "object",
+                      "required": ["content"],
+                      "properties": {
+                        "content": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "name": "API-create-a-database",
+      "description": "Notion | Create a database",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["parent", "properties"],
+        "properties": {
+          "title": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "required": ["content"],
+                  "properties": {
+                    "link": {
+                      "type": ["object", "null"]
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "type": {
+                  "enum": ["text"],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "parent": {
+            "type": "object",
+            "required": ["type", "page_id"],
+            "properties": {
+              "type": {
+                "enum": ["page_id"],
+                "type": "string"
+              },
+              "page_id": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "additionalProperties": true
+          },
+          "properties": {
+            "type": "object",
+            "description": "Property schema of database. The keys are the names of properties as they appear in Notion and the values are [property schema objects](https://developers.notion.com/reference/property-schema-object).",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["title"],
+                  "properties": {
+                    "title": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": false
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "API-update-a-database",
+      "description": "Notion | Update a database",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["database_id"],
+        "properties": {
+          "title": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "required": ["content"],
+                  "properties": {
+                    "link": {
+                      "type": ["object", "null"]
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "type": {
+                  "enum": ["text"],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "An array of [rich text objects](https://developers.notion.com/reference/rich-text) that represents the title of the database that is displayed in the Notion UI. If omitted, then the database title remains unchanged."
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "description": "Property schema of database. The keys are the names of properties as they appear in Notion and the values are [property schema objects](https://developers.notion.com/reference/property-schema-object).",
+            "additionalProperties": true
+          },
+          "database_id": {
+            "type": "string",
+            "description": "identifier for a Notion database"
+          },
+          "description": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "required": ["content"],
+                  "properties": {
+                    "link": {
+                      "type": ["object", "null"]
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "type": {
+                  "enum": ["text"],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "An array of [rich text objects](https://developers.notion.com/reference/rich-text) that represents the description of the database that is displayed in the Notion UI. If omitted, then the database description remains unchanged."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-retrieve-a-database",
+      "description": "Notion | Retrieve a database",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["database_id"],
+        "properties": {
+          "database_id": {
+            "type": "string",
+            "description": "An identifier for the Notion database."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-retrieve-a-page-property",
+      "description": "Notion | Retrieve a page property item",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["page_id", "property_id"],
+        "properties": {
+          "page_id": {
+            "type": "string",
+            "description": "Identifier for a Notion page"
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int32",
+            "description": "For paginated properties. The max number of property item objects on a page. The default size is 100"
+          },
+          "property_id": {
+            "type": "string",
+            "description": "Identifier for a page [property](https://developers.notion.com/reference/page#all-property-values)"
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "For paginated properties."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-retrieve-a-comment",
+      "description": "Notion | Retrieve comments",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["block_id"],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "description": "Identifier for a Notion block or page"
+          },
+          "page_size": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of items from the full list desired in the response. Maximum: 100"
+          },
+          "start_cursor": {
+            "type": "string",
+            "description": "If supplied, this endpoint will return a page of results starting after the cursor provided. If not supplied, this endpoint will return the first page of results."
+          }
+        }
+      }
+    },
+    {
+      "name": "API-create-a-comment",
+      "description": "Notion | Create comment",
+      "inputSchema": {
+        "type": "object",
+        "$defs": {},
+        "required": ["parent", "rich_text"],
+        "properties": {
+          "parent": {
+            "type": "object",
+            "required": ["page_id"],
+            "properties": {
+              "page_id": {
+                "type": "string",
+                "description": "the page ID"
+              }
+            },
+            "description": "The page that contains the comment",
+            "additionalProperties": true
+          },
+          "rich_text": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text"],
+              "properties": {
+                "text": {
+                  "type": "object",
+                  "required": ["content"],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "description": "The content of the comment"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "toolsCount": 19,
+  "updatedAt": "2026-05-23T07:11:56.412Z",
+  "validatedAt": "2025-10-28T15:45:13.729Z",
+  "version": "1.8.1",
+  "versions": [
+    {
+      "createdAt": "2025-06-20T02:30:50.490Z",
+      "isLatest": true,
+      "isValidated": true,
+      "version": "1.8.1"
+    }
+  ]
+}

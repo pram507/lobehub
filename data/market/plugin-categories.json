@@ -1,0 +1,178 @@
+[
+  {
+    "category": "business",
+    "count": 3971
+  },
+  {
+    "category": "cloud",
+    "count": 3
+  },
+  {
+    "category": "communication",
+    "count": 4
+  },
+  {
+    "category": "developer",
+    "count": 30310
+  },
+  {
+    "category": "education",
+    "count": 16
+  },
+  {
+    "category": "education-science",
+    "count": 54
+  },
+  {
+    "category": "education-science-education",
+    "count": 2
+  },
+  {
+    "category": "entertainment-gaming",
+    "count": 1
+  },
+  {
+    "category": "finance",
+    "count": 84
+  },
+  {
+    "category": "finance-stocks",
+    "count": 4
+  },
+  {
+    "category": "finance-stocks-finance",
+    "count": 4
+  },
+  {
+    "category": "gaming-entertainment",
+    "count": 1688
+  },
+  {
+    "category": "government",
+    "count": 12
+  },
+  {
+    "category": "hardware",
+    "count": 1
+  },
+  {
+    "category": "health-wellness",
+    "count": 689
+  },
+  {
+    "category": "home-assistant",
+    "count": 1
+  },
+  {
+    "category": "home-automation",
+    "count": 1
+  },
+  {
+    "category": "legal",
+    "count": 1
+  },
+  {
+    "category": "lifestyle",
+    "count": 345
+  },
+  {
+    "category": "media-generate",
+    "count": 2585
+  },
+  {
+    "category": "news",
+    "count": 389
+  },
+  {
+    "category": "productivity",
+    "count": 2920
+  },
+  {
+    "category": "science-education",
+    "count": 3532
+  },
+  {
+    "category": "security",
+    "count": 74
+  },
+  {
+    "category": "security-education",
+    "count": 18
+  },
+  {
+    "category": "security-operations",
+    "count": 1
+  },
+  {
+    "category": "security-tools",
+    "count": 4
+  },
+  {
+    "category": "security-wellness",
+    "count": 15
+  },
+  {
+    "category": "services",
+    "count": 1
+  },
+  {
+    "category": "shopping",
+    "count": 23
+  },
+  {
+    "category": "shopping-assistant",
+    "count": 2
+  },
+  {
+    "category": "shopping-entertainment",
+    "count": 59
+  },
+  {
+    "category": "shopping-finance",
+    "count": 1
+  },
+  {
+    "category": "social",
+    "count": 1495
+  },
+  {
+    "category": "sports",
+    "count": 10
+  },
+  {
+    "category": "sports-data",
+    "count": 1
+  },
+  {
+    "category": "sports-entertainment",
+    "count": 3
+  },
+  {
+    "category": "sports-finance",
+    "count": 2
+  },
+  {
+    "category": "stocks-finance",
+    "count": 2373
+  },
+  {
+    "category": "tools",
+    "count": 6760
+  },
+  {
+    "category": "travel-transport",
+    "count": 505
+  },
+  {
+    "category": "utility",
+    "count": 2
+  },
+  {
+    "category": "weather",
+    "count": 468
+  },
+  {
+    "category": "web-search",
+    "count": 910
+  }
+]

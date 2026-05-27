@@ -65,7 +65,6 @@ import debug from 'debug';
 import { cloneDeep, countBy, isString, merge, uniq, uniqBy } from 'es-toolkit/compat';
 import matter from 'gray-matter';
 import { isAiModelVisible } from 'model-bank';
-import urlJoin from 'url-join';
 
 import { type TrustedClientUserInfo } from '@/libs/trusted-client';
 import { normalizeLocale } from '@/locales/resources';
@@ -1292,6 +1291,28 @@ export class DiscoverService {
 
   private _getProviderList = async (): Promise<DiscoverProviderItem[]> => {
     log('_getProviderList: fetching provider list');
+
+    const MARKET_BASE_URL = process.env.MARKET_BASE_URL;
+    if (MARKET_BASE_URL) {
+      try {
+        const url = `${MARKET_BASE_URL}/api/v1/providers`;
+        log('_getProviderList: fetching from %s', url);
+        const res = await fetch(url);
+        if (res.ok) {
+          const json = await res.json();
+          const items = json.items || json.providers || json;
+          log('_getProviderList: returning %d providers from local market', items.length);
+          return items;
+        }
+      } catch (e) {
+        log(
+          '_getProviderList: failed to fetch from %s, falling back to static model-bank. Error: %O',
+          MARKET_BASE_URL,
+          e,
+        );
+      }
+    }
+
     const [{ LOBE_DEFAULT_MODEL_LIST }, { DEFAULT_MODEL_PROVIDER_LIST }] = await Promise.all([
       import('model-bank'),
       import('model-bank/modelProviders'),
@@ -1340,18 +1361,15 @@ export class DiscoverService {
       log('getProviderDetail: fetching readme for provider=%s', identifier);
       try {
         const normalizedLocale = normalizeLocale(locale);
-        const readmeUrl = urlJoin(
-          'https://raw.githubusercontent.com/lobehub/lobe-chat/refs/heads/main/docs/usage/providers',
-          normalizedLocale === 'zh-CN' ? `${identifier}.zh-CN.mdx` : `${identifier}.mdx`,
-        );
-        log('getProviderDetail: readme URL=%s', readmeUrl);
-        const res = await fetch(readmeUrl, {
-          next: {
-            tags: [CacheTag.Discover, CacheTag.Providers],
-          },
-        });
+        const fileName =
+          normalizedLocale === 'zh-CN' ? `${identifier}.zh-CN.mdx` : `${identifier}.mdx`;
+        const path = await import('node:path');
+        const fs = await import('node:fs/promises');
 
-        const data = await res.text();
+        const filePath = path.join(process.cwd(), 'docs/usage/providers', fileName);
+        log('getProviderDetail: reading local readme file=%s', filePath);
+
+        const data = await fs.readFile(filePath, 'utf8');
         const { content } = matter(data);
         readme = content.trimEnd();
         log('getProviderDetail: readme loaded successfully, length=%d', readme.length);

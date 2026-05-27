@@ -1,0 +1,175 @@
+{
+  "author": {
+    "name": "idosal",
+    "url": "https://github.com/idosal"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "developer",
+  "createdAt": "2025-06-24T18:51:12.870Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "http"
+      },
+      "description": "Use the hosted GitMCP server via HTTPS URL with placeholders {owner} and {repo} replaced by the target GitHub repository owner and name.",
+      "installationDetails": null,
+      "installationMethod": "none",
+      "isRecommended": true,
+      "systemDependencies": []
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OWNER", "REPO"],
+          "properties": {
+            "REPO": {
+              "type": "string",
+              "description": "GitHub repository name"
+            },
+            "OWNER": {
+              "type": "string",
+              "description": "GitHub repository owner or organization name"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["mcp-remote", "https://gitmcp.io/{{config.OWNER}}/{{config.REPO}}"]
+      },
+      "description": "Run the MCP server client using npx with the mcp-remote package. Replace OWNER and REPO in the URL with the target GitHub repository details.",
+      "installationDetails": {
+        "packageName": "mcp-remote"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs npm"
+          },
+          "name": "nodejs",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    }
+  ],
+  "description": "GitMCP is a free, open-source MCP server that transforms any GitHub project into a documentation hub, enabling AI tools to access up-to-date documentation and code to reduce hallucinations. It runs in the cloud with zero setup required.",
+  "homepage": "https://github.com/idosal/git-mcp",
+  "icon": "https://github.com/idosal.png",
+  "identifier": "idosal-git-mcp",
+  "name": "GitMCP",
+  "tools": [
+    {
+      "name": "fetch__7Brepo_7D_documentation",
+      "annotations": {
+        "_def": {
+          "options": [
+            {
+              "_def": {
+                "catchall": {
+                  "_def": {
+                    "typeName": "ZodNever"
+                  },
+                  "~standard": {
+                    "vendor": "zod",
+                    "version": 1
+                  }
+                },
+                "typeName": "ZodObject",
+                "unknownKeys": "strip"
+              },
+              "_cached": null,
+              "~standard": {
+                "vendor": "zod",
+                "version": 1
+              }
+            },
+            {
+              "_def": {
+                "typeName": "ZodNull"
+              },
+              "~standard": {
+                "vendor": "zod",
+                "version": 1
+              }
+            }
+          ],
+          "typeName": "ZodUnion"
+        },
+        "~standard": {
+          "vendor": "zod",
+          "version": 1
+        }
+      },
+      "description": "Fetch entire documentation file from GitHub repository: %7Bowner%7D/%7Brepo%7D. Useful for general questions. Always call this tool first if asked about %7Bowner%7D/%7Brepo%7D.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "search__7Brepo_7D_documentation",
+      "description": "Semantically search within the fetched documentation from GitHub repository: %7Bowner%7D/%7Brepo%7D. Useful for specific queries.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query to find relevant documentation"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search__7Brepo_7D_code",
+      "description": "Search for code within the GitHub repository: \"%7Bowner%7D/%7Brepo%7D\" using the GitHub Search API (exact match). Returns matching files for you to query further if relevant.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["query"],
+        "properties": {
+          "page": {
+            "type": "number",
+            "description": "Page number to retrieve (starting from 1). Each page contains 30 results."
+          },
+          "query": {
+            "type": "string",
+            "description": "The search query to find relevant code files"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "fetch_generic_url_content",
+      "description": "Generic tool to fetch content from any absolute URL, respecting robots.txt rules. Use this to retrieve referenced urls (absolute urls) that were mentioned in previously fetched documentation.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL of the document or page to fetch"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "updatedAt": "2026-05-23T09:01:12.806Z",
+  "version": "1.0.0"
+}

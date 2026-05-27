@@ -1,0 +1,399 @@
+{
+  "artifacts": {
+    "pypi": {
+      "version": "0.2.1",
+      "packageName": "mcp-obsidian"
+    }
+  },
+  "author": {
+    "name": "MarkusPfundstein",
+    "url": "https://github.com/MarkusPfundstein"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "productivity",
+  "connectionType": "local",
+  "createdAt": "2026-04-24T02:53:47.259Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OBSIDIAN_API_KEY"],
+          "properties": {
+            "OBSIDIAN_HOST": {
+              "type": "string",
+              "description": "Hostname or IP address where the Obsidian REST API plugin is running"
+            },
+            "OBSIDIAN_PORT": {
+              "type": "string",
+              "description": "Port number for the Obsidian REST API plugin"
+            },
+            "OBSIDIAN_API_KEY": {
+              "type": "string",
+              "description": "API key for the Obsidian REST API plugin"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "uvx",
+        "args": ["mcp-obsidian"]
+      },
+      "description": "Run the server using the 'uvx mcp-obsidian' command. Requires environment variables OBSIDIAN_API_KEY (mandatory), OBSIDIAN_HOST (default 127.0.0.1), and OBSIDIAN_PORT (default 27124).",
+      "installationDetails": {
+        "packageName": "mcp-obsidian"
+      },
+      "installationMethod": "python",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "python --version",
+          "installInstructions": {
+            "macos": "brew install python",
+            "manual": "Install Python 3.11 or higher from https://www.python.org/downloads/",
+            "windows": "Download and install from https://www.python.org/downloads/windows/",
+            "linux_debian": "sudo apt-get install python3"
+          },
+          "name": "python",
+          "requiredVersion": ">=3.11",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["OBSIDIAN_API_KEY"],
+          "properties": {
+            "OBSIDIAN_HOST": {
+              "type": "string",
+              "description": "Hostname or IP address where the Obsidian REST API plugin is running"
+            },
+            "OBSIDIAN_PORT": {
+              "type": "string",
+              "description": "Port number for the Obsidian REST API plugin"
+            },
+            "OBSIDIAN_API_KEY": {
+              "type": "string",
+              "description": "API key for the Obsidian REST API plugin"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "uv",
+        "args": ["--directory", "<dir_to>/mcp-obsidian", "run", "mcp-obsidian"]
+      },
+      "description": "Run the server from source by cloning the repo and running 'uv run mcp-obsidian'. Replace '<dir_to>/mcp-obsidian' with the actual local path to the cloned repository. Requires environment variables OBSIDIAN_API_KEY (mandatory), OBSIDIAN_HOST (default 127.0.0.1), and OBSIDIAN_PORT (default 27124).",
+      "installationDetails": {
+        "setupSteps": [
+          "Clone the repository from https://github.com/MarkusPfundstein/mcp-obsidian",
+          "Install dependencies and sync lockfile using 'uv sync'",
+          "Run the server with 'uv run mcp-obsidian' in the repository directory"
+        ],
+        "repositoryUrlToClone": "https://github.com/MarkusPfundstein/mcp-obsidian"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "python --version",
+          "installInstructions": {
+            "macos": "brew install python",
+            "manual": "Install Python 3.11 or higher from https://www.python.org/downloads/",
+            "windows": "Download and install from https://www.python.org/downloads/windows/",
+            "linux_debian": "sudo apt-get install python3"
+          },
+          "name": "python",
+          "requiredVersion": ">=3.11",
+          "type": "runtime",
+          "versionParsingRequired": true
+        },
+        {
+          "checkCommand": "uv --version",
+          "installInstructions": {
+            "manual": "Install 'uv' tool as per https://github.com/uv-org/uv"
+          },
+          "name": "uv",
+          "type": "executable",
+          "versionParsingRequired": false
+        }
+      ]
+    }
+  ],
+  "description": "用于与 Obsidian 通过本地 REST API 社区插件交互的 MCP 服务器。需要预先安装并运行 Obsidian REST API 社区插件。通过环境变量或服务器配置，使用 Obsidian API 密钥、主机和端口来配置服务器。",
+  "github": {
+    "url": "https://github.com/MarkusPfundstein/mcp-obsidian",
+    "stars": 2959,
+    "license": "MIT License",
+    "language": "Python"
+  },
+  "haveCloudEndpoint": false,
+  "homepage": "https://github.com/MarkusPfundstein/mcp-obsidian",
+  "icon": "https://github.com/MarkusPfundstein.png",
+  "identifier": "markuspfundstein-mcp-obsidian",
+  "installCount": 102,
+  "isClaimed": false,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": true,
+  "name": "Obsidian 的 MCP 服务器",
+  "overview": {
+    "readme": "# MCP server for Obsidian\n\nMCP server to interact with Obsidian via the Local REST API community plugin.\n\n<a href=\"https://glama.ai/mcp/servers/3wko1bhuek\"><img width=\"380\" height=\"200\" src=\"https://glama.ai/mcp/servers/3wko1bhuek/badge\" alt=\"server for Obsidian MCP server\" /></a>\n\n## Components\n\n### Tools\n\nThe server implements multiple tools to interact with Obsidian:\n\n- list_files_in_vault: Lists all files and directories in the root directory of your Obsidian vault\n- list_files_in_dir: Lists all files and directories in a specific Obsidian directory\n- get_file_contents: Return the content of a single file in your vault.\n- search: Search for documents matching a specified text query across all files in the vault\n- patch_content: Insert content into an existing note relative to a heading, block reference, or frontmatter field.\n- append_content: Append content to a new or existing file in the vault.\n- delete_file: Delete a file or directory from your vault.\n\n### Example prompts\n\nIts good to first instruct Claude to use Obsidian. Then it will always call the tool.\n\nThe use prompts like this:\n- Get the contents of the last architecture call note and summarize them\n- Search for all files where Azure CosmosDb is mentioned and quickly explain to me the context in which it is mentioned\n- Summarize the last meeting notes and put them into a new note 'summary meeting.md'. Add an introduction so that I can send it via email.\n\n## Configuration\n\n### Obsidian REST API Key\n\nThere are two ways to configure the environment with the Obsidian REST API Key. \n\n1. Add to server config (preferred)\n\n```json\n{\n  \"mcp-obsidian\": {\n    \"command\": \"uvx\",\n    \"args\": [\n      \"mcp-obsidian\"\n    ],\n    \"env\": {\n      \"OBSIDIAN_API_KEY\": \"<your_api_key_here>\",\n      \"OBSIDIAN_HOST\": \"<your_obsidian_host>\",\n      \"OBSIDIAN_PORT\": \"<your_obsidian_port>\"\n    }\n  }\n}\n```\nSometimes Claude has issues detecting the location of uv / uvx. You can use `which uvx` to find and paste the full path in above config in such cases.\n\n2. Create a `.env` file in the working directory with the following required variables:\n\n```\nOBSIDIAN_API_KEY=your_api_key_here\nOBSIDIAN_HOST=your_obsidian_host\nOBSIDIAN_PORT=your_obsidian_port\n```\n\nNote:\n- You can find the API key in the Obsidian plugin config\n- Default port is 27124 if not specified\n- Default host is 127.0.0.1 if not specified\n\n## Quickstart\n\n### Install\n\n#### Obsidian REST API\n\nYou need the Obsidian REST API community plugin running: https://github.com/coddingtonbear/obsidian-local-rest-api\n\nInstall and enable it in the settings and copy the api key.\n\n#### Claude Desktop\n\nOn MacOS: `~/Library/Application\\ Support/Claude/claude_desktop_config.json`\n\nOn Windows: `%APPDATA%/Claude/claude_desktop_config.json`\n\n<details>\n  <summary>Development/Unpublished Servers Configuration</summary>\n  \n```json\n{\n  \"mcpServers\": {\n    \"mcp-obsidian\": {\n      \"command\": \"uv\",\n      \"args\": [\n        \"--directory\",\n        \"<dir_to>/mcp-obsidian\",\n        \"run\",\n        \"mcp-obsidian\"\n      ],\n      \"env\": {\n        \"OBSIDIAN_API_KEY\": \"<your_api_key_here>\",\n        \"OBSIDIAN_HOST\": \"<your_obsidian_host>\",\n        \"OBSIDIAN_PORT\": \"<your_obsidian_port>\"\n      }\n    }\n  }\n}\n```\n</details>\n\n<details>\n  <summary>Published Servers Configuration</summary>\n  \n```json\n{\n  \"mcpServers\": {\n    \"mcp-obsidian\": {\n      \"command\": \"uvx\",\n      \"args\": [\n        \"mcp-obsidian\"\n      ],\n      \"env\": {\n        \"OBSIDIAN_API_KEY\": \"<YOUR_OBSIDIAN_API_KEY>\",\n        \"OBSIDIAN_HOST\": \"<your_obsidian_host>\",\n        \"OBSIDIAN_PORT\": \"<your_obsidian_port>\"\n      }\n    }\n  }\n}\n```\n</details>\n\n## Development\n\n### Building\n\nTo prepare the package for distribution:\n\n1. Sync dependencies and update lockfile:\n```bash\nuv sync\n```\n\n### Debugging\n\nSince MCP servers run over stdio, debugging can be challenging. For the best debugging\nexperience, we strongly recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector).\n\nYou can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:\n\n```bash\nnpx @modelcontextprotocol/inspector uv --directory /path/to/mcp-obsidian run mcp-obsidian\n```\n\nUpon launching, the Inspector will display a URL that you can access in your browser to begin debugging.\n\nYou can also watch the server logs with this command:\n\n```bash\ntail -n 20 -f ~/Library/Logs/Claude/mcp-server-mcp-obsidian.log\n```\n"
+  },
+  "promptsCount": 0,
+  "ratingAverage": 0,
+  "ratingCount": 0,
+  "resourcesCount": 0,
+  "tags": [],
+  "tools": [
+    {
+      "name": "obsidian_list_files_in_dir",
+      "description": "Lists all files and directories that exist in a specific Obsidian directory.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["dirpath"],
+        "properties": {
+          "dirpath": {
+            "type": "string",
+            "description": "Path to list files from (relative to your vault root). Note that empty directories will not be returned."
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_list_files_in_vault",
+      "description": "Lists all files and directories in the root directory of your Obsidian vault.",
+      "inputSchema": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      }
+    },
+    {
+      "name": "obsidian_get_file_contents",
+      "description": "Return the content of a single file in your vault.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["filepath"],
+        "properties": {
+          "filepath": {
+            "type": "string",
+            "format": "path",
+            "description": "Path to the relevant file (relative to your vault root)."
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_simple_search",
+      "description": "Simple search for documents matching a specified text query across all files in the vault. \n            Use this tool when you want to do a simple text search",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Text to a simple search for in the vault."
+          },
+          "context_length": {
+            "type": "integer",
+            "default": 100,
+            "description": "How much context to return around the matching string (default: 100)"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_patch_content",
+      "description": "Insert content into an existing note relative to a heading, block reference, or frontmatter field.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["filepath", "operation", "target_type", "target", "content"],
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target identifier (heading path, block reference, or frontmatter field)"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content to insert"
+          },
+          "filepath": {
+            "type": "string",
+            "format": "path",
+            "description": "Path to the file (relative to vault root)"
+          },
+          "operation": {
+            "enum": ["append", "prepend", "replace"],
+            "type": "string",
+            "description": "Operation to perform (append, prepend, or replace)"
+          },
+          "target_type": {
+            "enum": ["heading", "block", "frontmatter"],
+            "type": "string",
+            "description": "Type of target to patch"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_append_content",
+      "description": "Append content to a new or existing file in the vault.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["filepath", "content"],
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "Content to append to the file"
+          },
+          "filepath": {
+            "type": "string",
+            "format": "path",
+            "description": "Path to the file (relative to vault root)"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_delete_file",
+      "description": "Delete a file or directory from the vault.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["filepath", "confirm"],
+        "properties": {
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "Confirmation to delete the file (must be true)"
+          },
+          "filepath": {
+            "type": "string",
+            "format": "path",
+            "description": "Path to the file or directory to delete (relative to vault root)"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_complex_search",
+      "description": "Complex search for documents using a JsonLogic query. \n           Supports standard JsonLogic operators plus 'glob' and 'regexp' for pattern matching. Results must be non-falsy.\n\n           Use this tool when you want to do a complex search, e.g. for all documents with certain tags etc.\n           ",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "object",
+            "description": "JsonLogic query object. Example: {\"glob\": [\"*.md\", {\"var\": \"path\"}]} matches all markdown files"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_batch_get_file_contents",
+      "description": "Return the contents of multiple files in your vault, concatenated with headers.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["filepaths"],
+        "properties": {
+          "filepaths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "path",
+              "description": "Path to a file (relative to your vault root)"
+            },
+            "description": "List of file paths to read"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_get_periodic_note",
+      "description": "Get current periodic note for the specified period.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["period"],
+        "properties": {
+          "period": {
+            "enum": ["daily", "weekly", "monthly", "quarterly", "yearly"],
+            "type": "string",
+            "description": "The period type (daily, weekly, monthly, quarterly, yearly)"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_get_recent_periodic_notes",
+      "description": "Get most recent periodic notes for the specified period type.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["period"],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 5,
+            "maximum": 50,
+            "minimum": 1,
+            "description": "Maximum number of notes to return (default: 5)"
+          },
+          "period": {
+            "enum": ["daily", "weekly", "monthly", "quarterly", "yearly"],
+            "type": "string",
+            "description": "The period type (daily, weekly, monthly, quarterly, yearly)"
+          },
+          "include_content": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include note content (default: false)"
+          }
+        }
+      }
+    },
+    {
+      "name": "obsidian_get_recent_changes",
+      "description": "Get recently modified files in the vault.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "default": 90,
+            "minimum": 1,
+            "description": "Only include files modified within this many days (default: 90)"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10,
+            "maximum": 100,
+            "minimum": 1,
+            "description": "Maximum number of files to return (default: 10)"
+          }
+        }
+      }
+    }
+  ],
+  "toolsCount": 12,
+  "updatedAt": "2026-05-23T07:15:09.146Z",
+  "validatedAt": "2026-04-24T02:53:47.302Z",
+  "version": "1.27.0",
+  "versions": [
+    {
+      "createdAt": "2026-04-24T02:53:47.267Z",
+      "isLatest": false,
+      "isValidated": false,
+      "version": "0.2.1"
+    },
+    {
+      "createdAt": "2026-04-24T02:53:47.259Z",
+      "isLatest": true,
+      "isValidated": true,
+      "version": "1.27.0"
+    }
+  ]
+}

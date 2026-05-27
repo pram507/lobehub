@@ -1,0 +1,51 @@
+{
+  "author": {
+    "name": "Lifecycle-Innovations-Limited",
+    "url": "https://github.com/Lifecycle-Innovations-Limited"
+  },
+  "category": "cli-utilities",
+  "content": "# ops-leadgen\n\nWraps `healify-leadgen` CLI for the daily leadgen review-and-send loop.\n\n**Repo:** `~/Projects/healify-b2b-leadgen`\n**DB:** `~/Projects/healify-b2b-leadgen/leads.db` (gitignored)\n**Run with Doppler:** `doppler run --project healify-b2b-leadgen --config dev -- healify-leadgen <cmd>`\n\n## Argument routing\n\n| Argument | Action |\n|---|---|\n| `review` (default) | Show pending drafts one-by-one, approve or skip |\n| `send --draft-id N` | Send a single approved draft (Rule-6 gated) |\n| `usage` | Print today's Apollo reveals + Apify runs |\n| `scrape [--limit N]` | Discover new NL HR contacts via Apollo |\n| `enrich` | Run Apify enrichment on unenriched leads |\n| `draft` | Generate Claude NL/EN drafts for undrafted leads |\n\n## Review + send flow (Rule 6)\n\n**NEVER send multiple drafts in one turn. Each send is a separate staged-draft → approval → send cycle.**\n\n1. Run `healify-leadgen review` (or fetch pending drafts from DB directly)\n2. For each pending draft, show the user:\n   - Lead: name, title, company, email\n   - Language, subject, full body\n3. Ask: `[Send]` / `[Skip]` / `[Stop review]`\n4. On `[Send]`:\n   a. Show complete draft one final time\n   b. Wait for Sam to type `ok` / `send` / `ship it` — this creates `/tmp/.claude-send-ok`\n   c. Run: `doppler run --project healify-b2b-leadgen --config dev -- healify-leadgen send --draft-id N`\n   d. Confirm output shows `Sent OK. Gmail message ID: <id>`\n5. Move to the next draft only after the current one is fully resolved.\n\n## Scrape → enrich → draft (pipeline)\n\n```bash\n# Step 1: discover contacts (costs Apollo reveals — check usage first)\ndoppler run --project healify-b2b-leadgen --config dev -- \\\n  healify-leadgen usage\n\ndoppler run --project healify-b2b-leadgen --config dev -- \\\n  healify-leadgen scrape --limit 50\n\n# Step 2: enrich with Apify website crawler\ndoppler run --project healify-b2b-leadgen --config dev -- \\\n  healify-leadgen enrich\n\n# Step 3: generate Claude drafts\ndoppler run --project healify-b2b-leadgen --config dev -- \\\n  healify-leadgen draft\n\n# Step 4: review + send (Rule-6 gated, one at a time)\ndoppler run --project healify-b2b-leadgen --config dev -- \\\n  healify-leadgen review\n```\n\n## Daily usage cap\n\n- Apollo reveals: **200/day** max (tracked in `leads.db daily_usage`)\n- Apify runs: ~$0.02/run (3 pages per domain)\n- Always run `usage` first to check remaining reveals before scraping\n\n## DB queries (read-only diagnostics)\n\n```bash\n# Pending drafts count\nsqlite3 ~/Projects/healify-b2b-leadgen/leads.db \\\n  \"SELECT count(*) FROM drafts WHERE status='pending';\"\n\n# Today's sends\nsqlite3 ~/Projects/healify-b2b-leadgen/leads.db \\\n  \"SELECT d.subject, l.email, s.sent_at FROM sends s\n   JOIN drafts d ON d.id=s.draft_id\n   JOIN leads l ON l.id=d.lead_id\n   WHERE date(s.sent_at)=date('now');\"\n```\n\n## Rule 6 — no exceptions\n\nPer CLAUDE.md Rule 6: every outbound send requires individual staging + approval.\nThe `healify-leadgen send` command physically blocks unless `/tmp/.claude-send-ok` exists.\nSam creates this token by typing `ok` / `send it` / `ship it` in the chat.\nToken is one-shot — consumed on send. Next send needs a new approval.",
+  "createdAt": "2026-05-23T16:06:04.013Z",
+  "description": "Healify B2B wholesale leadgen review and send flow. Shows pending cold-email drafts from healify-b2b-leadgen, lets you approve/skip each one, and fires approved drafts one-at-a-time via Rule-6-gated `healify-leadgen send`. Never batches sends.",
+  "github": {
+    "forks": 4,
+    "fullName": "Lifecycle-Innovations-Limited/claude-ops",
+    "openIssues": 1,
+    "stars": 11,
+    "url": "https://github.com/Lifecycle-Innovations-Limited/claude-ops",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/Lifecycle-Innovations-Limited/claude-ops/tree/main/claude-ops/skills/ops-leadgen",
+  "icon": "https://github.com/Lifecycle-Innovations-Limited.png",
+  "identifier": "lifecycle-innovations-limited-claude-ops-ops-leadgen",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "ops-leadgen",
+    "sourceUrl": "https://github.com/Lifecycle-Innovations-Limited/claude-ops/tree/main/claude-ops/skills/ops-leadgen",
+    "repository": "https://github.com/Lifecycle-Innovations-Limited/claude-ops",
+    "description": "Healify B2B wholesale leadgen review and send flow. Shows pending cold-email drafts from healify-b2b-leadgen, lets you approve/skip each one, and fires approved drafts one-at-a-time via Rule-6-gated `healify-leadgen send`. Never batches sends."
+  },
+  "myRating": null,
+  "name": "ops-leadgen",
+  "overview": {
+    "summary": "ops-leadgen is an operational CLI wrapper for the healify-leadgen pipeline that streamlines safe daily B2B cold-email review, enrichment, and send cycles. It orchestrates environment-protected execution via Doppler, manages a local leads.db, and exposes commands: review (default), send --draft-id, usage, scrape, enrich, and draft. Key features include one-by-one interactive review of pending drafts (lead metadata, language, subject, full body), Rule-6 gating that forces single-draft approval and manual confirmation before any send, and a scrape→enrich→draft pipeline using Apollo reveals and Apify enrichment with Claude-generated NL/EN drafts. Use cases: daily lead vetting, controlled cold outreach, audit trails, and cost-aware discovery. Core advantages are safety (no batched sends), reproducibility, visibility into reveal/enrich usage, and integration with existing Doppler secrets."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/Lifecycle-Innovations-Limited/claude-ops",
+  "resources": {},
+  "updatedAt": "2026-05-23T16:06:04.325Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:04.042Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

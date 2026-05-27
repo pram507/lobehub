@@ -1,0 +1,51 @@
+{
+  "author": {
+    "name": "dceoy",
+    "url": "https://github.com/dceoy"
+  },
+  "category": "self-hosted-automation",
+  "content": "# Spec-Kit Implement\n\nExecute the implementation by processing tasks from tasks.md in phases. Fourth step in spec-kit workflow.\n\n## When to Use\n\n- After creating tasks.md with `speckit-tasks`\n- Ready to start implementation\n- Want to execute tasks systematically\n\n## Execution Workflow\n\n1. **Setup**: Run `.specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks` to get FEATURE_DIR and AVAILABLE_DOCS\n2. **Check checklists status** (if FEATURE_DIR/checklists/ exists):\n   - **VALIDATION GATE**: Scan all checklist files and count total, completed, incomplete items\n   - Create status table showing pass/fail for each checklist\n   - **If any checklist incomplete**: STOP and ask user if they want to proceed anyway\n     - User must explicitly approve to continue\n   - **If all complete**: Automatically proceed to implementation\n3. **Load implementation context**:\n   - **REQUIRED**: tasks.md (complete task list), plan.md (tech stack, architecture)\n   - **IF EXISTS**: data-model.md, contracts/, research.md, quickstart.md\n4. **Project setup verification**:\n   - Create/verify ignore files based on actual project setup (gitignore, dockerignore, eslintignore, etc.)\n   - Detect technology from plan.md and add appropriate patterns\n   - Only append missing critical patterns to existing ignore files\n5. **Parse tasks.md structure**:\n   - Extract task phases, dependencies, details (ID, description, file paths)\n   - Identify parallel markers `[P]` and sequential vs parallel execution rules\n6. **Execute implementation** following task plan:\n   - Phase-by-phase execution (complete each phase before next)\n   - Respect dependencies (sequential tasks in order, parallel tasks `[P]` can run together)\n   - Follow TDD approach if tests exist (execute test tasks before implementation)\n   - File-based coordination (tasks on same files run sequentially)\n   - Validation checkpoints after each phase\n7. **Implementation execution order**:\n   - Setup first (initialize structure, dependencies, configuration)\n   - Tests before code (if test tasks exist)\n   - Core development (models, services, CLI commands, endpoints)\n   - Integration work (database, middleware, logging, external services)\n   - Polish and validation (unit tests, optimization, documentation)\n8. **Progress tracking and task completion**:\n   - Report progress after each completed task\n   - Halt execution if non-parallel task fails\n   - For parallel tasks, continue with successful ones, report failures\n   - **CRITICAL**: Mark completed tasks **immediately** with `[X]` in tasks.md\n     - Change `- [ ] T001` to `- [X] T001` after completion\n     - Do NOT batch task updates - mark each one as you complete it\n\n## Key Points\n\n- **Load only required context** - Don't read every artifact, only what's needed\n- **Respect task dependencies** - Sequential vs parallel execution\n- **Mark tasks complete** immediately with `[X]` in tasks.md\n- **Create ignore files** based on detected technology (from plan.md)\n- **Phase-by-phase execution** - Complete each phase before moving to next\n- **Error handling** - Halt on critical failures, report parallel task failures\n- **Checklist validation** - Warn if checklists incomplete before starting\n\n## Next Steps\n\nAfter implementation:\n\n- Manual testing and QA\n- Code review\n- Deployment planning\n\n## See Also\n\n- `speckit-tasks` - Break plan into actionable tasks\n- `speckit-checklist` - Generate custom validation checklists\n- `speckit-analyze` - Validate cross-artifact consistency",
+  "createdAt": "2026-05-23T16:06:01.453Z",
+  "description": "Execute the implementation plan by processing and executing all tasks defined in tasks.md",
+  "github": {
+    "forks": 0,
+    "fullName": "dceoy/mt5api",
+    "openIssues": 1,
+    "stars": 3,
+    "url": "https://github.com/dceoy/mt5api",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/dceoy/mt5api/tree/main/.agents/skills/speckit-implement",
+  "icon": "https://github.com/dceoy.png",
+  "identifier": "dceoy-mt5api-speckit-implement",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "speckit-implement",
+    "sourceUrl": "https://github.com/dceoy/mt5api/tree/main/.agents/skills/speckit-implement",
+    "repository": "https://github.com/dceoy/mt5api",
+    "description": "Execute the implementation plan by processing and executing all tasks defined in tasks.md"
+  },
+  "myRating": null,
+  "name": "speckit-implement",
+  "overview": {
+    "summary": "speckit-implement automates and enforces a phased, reproducible implementation workflow by processing tasks.md and related spec-kit artifacts. Use it after tasks.md is created and you are ready to execute the implementation plan. Key features include: running a prerequisite checker to surface FEATURE_DIR and available docs; a validation gate that scans checklist files and requires explicit user approval if any items are incomplete; loading required context (tasks.md, plan.md) and optional artifacts (data-model.md, contracts/, research.md); verifying and appending only missing critical entries to project ignore files based on detected tech; parsing task phases, dependencies and parallel markers ([P]); enforcing phase-by-phase execution with file-based coordination, TDD-first execution for test tasks, and validation checkpoints after each phase. The skill provides structured, safe, and auditable execution to reduce errors and accelerate disciplined implementations."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/dceoy/mt5api",
+  "resources": {},
+  "updatedAt": "2026-05-23T16:06:01.776Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:01.509Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

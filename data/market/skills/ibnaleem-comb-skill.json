@@ -1,0 +1,70 @@
+{
+  "author": {
+    "name": "ibnaleem",
+    "url": "https://github.com/ibnaleem"
+  },
+  "category": "security-passwords",
+  "content": "# COMB\n\nOne primary service, no API keys needed.\n\nThe COMB API allows you to search emails, usernames, and passwords.\n\nRequired arg: email, username, or password.\n\nAppend `?query=` with the supplied email, username, or password.\n\nSimple request:\n```bash\ncurl 'https://api.proxynova.com/comb?query=jrubin'\n# Output:\n# {\n#    \"count\": 795,\n#    \"lines\": [\n#        \"jrubin@247callcapture.com:IUSPgL1T\",\n#        \"jrubin@247callcapture.com:michelle\",\n#        \"jrubin@QandRFS.com:wayne9\",\n#        \"jrubin@absc.net:jake14\",\n#        \"jrubin@absc.net:maomao\",\n#        \"jrubin@academicplanet.com:jacky\",\n#        \"jrubin@acamedicplanet.com:jerry\",\n#        \"jrubin@activevoice.com:jr2203\",\n#        \"jrubin@adsutton.com:jr147369\",\n#        \"jrubin@agtlawyers.com:divorce\",\n#        \"jrubin@agtlawyers.com:divorce1\",\n#        \"jrubin@americanportfolios.com:vizsla123\",\n#        \"jrubin@americaworks.com:hammer316\",\n#        \"jrubin@aol.com:msierk05\",\n#        \"jrubin@apmadvertising.com:sasha2\",\n#        \"jrubin@archideas.com:muaddib16\",\n#        \"jrubin@athensadmin.com:stab8ler\",\n#        \"jrubin@atsautomation.com:slower\",\n#        \"jrubin@bcps.org:lacrosse\",\n#        \"jrubin@bear.com:pizza99\"\n#    ]\n# }\n```\n\n## Rate Limits\nThe API will only return 100 results max. The API will also limit you to about 100 requests per minute.\n\n## References\nhttps://www.proxynova.com/tools/comb/\n\nhttps://cybernews.com/news/largest-compilation-of-emails-and-passwords-leaked-free/",
+  "createdAt": "2026-05-23T16:06:04.276Z",
+  "description": "Search 3.2 billion leaked credentials in the COMB dataset via ProxyNova API (no API key required).",
+  "github": {
+    "forks": 0,
+    "fullName": "ibnaleem/comb-skill",
+    "openIssues": 0,
+    "stars": 1,
+    "url": "https://github.com/ibnaleem/comb-skill",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/ibnaleem/comb-skill",
+  "icon": "https://github.com/ibnaleem.png",
+  "identifier": "ibnaleem-comb-skill",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "license": {
+    "name": "GPL-3.0",
+    "url": "https://github.com/ibnaleem/comb-skill/blob/main/LICENSE"
+  },
+  "manifest": {
+    "name": "comb",
+    "author": {
+      "name": "ibnaleem"
+    },
+    "license": "GPL-3.0",
+    "version": "1.0.0",
+    "sourceUrl": "https://github.com/ibnaleem/comb-skill",
+    "licenseUrl": "https://github.com/ibnaleem/comb-skill/blob/main/LICENSE",
+    "repository": "https://github.com/ibnaleem/comb-skill",
+    "description": "Search 3.2 billion leaked credentials in the COMB dataset via ProxyNova API (no API key required)."
+  },
+  "myRating": null,
+  "name": "comb",
+  "overview": {
+    "summary": "The COMB skill provides access to the ProxyNova COMB dataset — a 3.2 billion-entry compilation of leaked emails, usernames, and passwords — via a single no‑API‑key HTTP endpoint. Query by appending ?query= with an email, username, or password; responses return JSON with a count and up to 100 matching \"email:password\" lines. Rate limits are approximately 100 requests per minute. Use cases include breach lookups, automated account‑compromise detection, password‑reuse checks, incident response triage, and integration into security pipelines or monitoring tools. Because results contain raw leaked credentials, incorporate proper access controls, logging, and legal review before use. Example: curl 'https://api.proxynova.com/comb?query=jrubin' returns matches for that identifier."
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/ibnaleem/comb-skill",
+  "resources": {
+    "LICENSE": {
+      "size": 35149,
+      "fileHash": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "README.md": {
+      "size": 761,
+      "fileHash": "509702ea8c54337689c2819e8924926f3a623238b6e3a7a62a7eb9e9152b047e"
+    }
+  },
+  "updatedAt": "2026-05-23T16:06:04.506Z",
+  "version": "1.0.0",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:04.311Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.0",
+      "versionNumber": 1
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "author": {
+    "name": "aAAaqwq",
+    "url": "https://github.com/aAAaqwq"
+  },
+  "category": "self-hosted-automation",
+  "content": "# juejin-publisher-custom\n> 掘金自定义发布——掘金平台内容创作与发布\n\n**状态**: TODO — 目录结构已创建（references/scripts/templates），待实现核心功能\n\n## 计划功能\n- 掘金文章格式适配（Markdown）\n- 自动发布流程\n- 排版与标签管理\n\n## 相关文件\n- `references/` — 参考资料\n- `scripts/` — 发布脚本（待实现）\n- `templates/` — 输出模板\n- `output/demo/` — 示例输出（含多平台分发模板）",
+  "createdAt": "2026-05-23T16:06:02.228Z",
+  "description": "> 掘金自定义发布——掘金平台内容创作与发布",
+  "github": {
+    "forks": 13,
+    "fullName": "aAAaqwq/AGI-Super-Team",
+    "openIssues": 1,
+    "stars": 63,
+    "url": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "watchers": 0
+  },
+  "homepage": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/juejin-publisher-custom",
+  "icon": "https://github.com/aAAaqwq.png",
+  "identifier": "aaaaqwq-agi-super-team-juejin-publisher-custom",
+  "installCount": 0,
+  "isFeatured": false,
+  "isOfficial": false,
+  "isValidated": false,
+  "manifest": {
+    "name": "juejin",
+    "sourceUrl": "https://github.com/aAAaqwq/AGI-Super-Team/tree/master/skills/juejin-publisher-custom",
+    "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+    "description": "> 掘金自定义发布——掘金平台内容创作与发布"
+  },
+  "myRating": null,
+  "name": "juejin",
+  "overview": {
+    "summary": "juejin-publisher-custom 是面向掘金平台的内容发布自动化工具，旨在将本地 Markdown 内容适配为掘金文章并支持自动发布与多平台分发。计划功能包括掘金文章格式适配与排版规范化、自动发布流程（通过可扩展脚本实现 CLI/CI 集成）、标签与分类管理、以及可复用的输出模板与多平台分发模板示例。适用场景：个人或团队的技术博客写作、批量或定时发布、统一排版与标签策略、本地预览与示例输出生成。核心优势在于节省重复劳动、保证内容格式一致性、提供模板化与脚本化扩展能力，便于与现有写作仓库和持续集成流程集成。项目结构包含 references（参考资料）、scripts（发布脚本）、templates（输出模板）与 output/demo（示例输出）。"
+  },
+  "ratingCount": 0,
+  "repository": "https://github.com/aAAaqwq/AGI-Super-Team",
+  "resources": {},
+  "updatedAt": "2026-05-23T16:06:02.459Z",
+  "version": "1.0.1",
+  "versionNumber": 1,
+  "versions": [
+    {
+      "createdAt": "2026-05-23T16:06:02.262Z",
+      "isLatest": true,
+      "isValidated": false,
+      "version": "1.0.1",
+      "versionNumber": 1
+    }
+  ]
+}

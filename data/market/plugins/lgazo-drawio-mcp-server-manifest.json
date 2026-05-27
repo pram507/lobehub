@@ -1,0 +1,576 @@
+{
+  "author": {
+    "name": "Ladislav Gazo",
+    "url": "https://github.com/lgazo"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": false
+  },
+  "category": "developer",
+  "createdAt": "2026-03-07T00:01:02.950Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "drawio-mcp-server"]
+      },
+      "description": "Run the server using npx without global installation. Requires Node.js v18 or higher.",
+      "installationDetails": {
+        "packageName": "drawio-mcp-server"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node@18",
+            "manual": "Install Node.js version 18 or higher from https://nodejs.org/en/download/",
+            "windows": "Download and install Node.js 18+ from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm (then use NodeSource for v18+)"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "pnpm",
+        "args": ["dlx", "drawio-mcp-server"]
+      },
+      "description": "Run the server using pnpm dlx without global installation. Requires Node.js v18 or higher.",
+      "installationDetails": {
+        "packageName": "drawio-mcp-server"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node@18",
+            "manual": "Install Node.js version 18 or higher from https://nodejs.org/en/download/",
+            "windows": "Download and install Node.js 18+ from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt install nodejs npm (then use NodeSource for v18+)"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    }
+  ],
+  "description": "Draw.io MCP 服务器是一个符合 MCP（模型上下文协议）标准的工具，集成了 Draw.io 的图表绘制能力与 AI 代理系统，支持通过程序控制图表和智能分析图表。需要安装 Draw.io MCP 浏览器扩展以实现 Draw.io 与 MCP 服务器之间的通信。",
+  "homepage": "https://github.com/lgazo/drawio-mcp-server",
+  "icon": "https://github.com/lgazo.png",
+  "identifier": "lgazo-drawio-mcp-server",
+  "name": "Draw.io MCP 服务器",
+  "tools": [
+    {
+      "name": "get-selected-cell",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "This tool allows you to retrieve selected cell (whether vertex or edge) on the current page of a Draw.io diagram. The response is a JSON containing attributes of the cell.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "add-rectangle",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "This tool allows you to add new Rectangle vertex cell (object) on the current page of a Draw.io diagram. It accepts multiple optional input parameter.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "x": {
+            "type": "number",
+            "default": 100,
+            "description": "X-axis position of the Rectangle vertex cell"
+          },
+          "y": {
+            "type": "number",
+            "default": 100,
+            "description": "Y-axis position of the Rectangle vertex cell"
+          },
+          "text": {
+            "type": "string",
+            "default": "New Cell",
+            "description": "Text content placed inside of the Rectangle vertex cell"
+          },
+          "style": {
+            "type": "string",
+            "default": "whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+            "description": "Semi-colon separated list of Draw.io visual styles, in the form of `key=value`. Example: `whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;`"
+          },
+          "width": {
+            "type": "number",
+            "default": 200,
+            "description": "Width of the Rectangle vertex cell"
+          },
+          "height": {
+            "type": "number",
+            "default": 100,
+            "description": "Height of the Rectangle vertex cell"
+          }
+        }
+      }
+    },
+    {
+      "name": "add-edge",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "This tool creates an edge, sometimes called also a relation, between two vertexes (cells).",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["source_id", "target_id"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text content placed over the edge cell"
+          },
+          "style": {
+            "type": "string",
+            "default": "edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+            "description": "Semi-colon separated list of Draw.io visual styles, in the form of `key=value`. Example: `edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;`"
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Source ID of a cell. It is represented by `id` attribute."
+          },
+          "target_id": {
+            "type": "string",
+            "description": "Target ID of a cell. It is represented by `id` attribute."
+          }
+        }
+      }
+    },
+    {
+      "name": "delete-cell-by-id",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Deletes a cell, whether it is a vertex or edge.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id"],
+        "properties": {
+          "cell_id": {
+            "type": "string",
+            "description": "The ID of a cell to delete. The cell can be either vertex or edge. The ID is located in `id` attribute."
+          }
+        }
+      }
+    },
+    {
+      "name": "get-shape-categories",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Retrieves available shape categories from the diagram's library. Library is split into multiple categories.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get-shapes-in-category",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Retrieve all shapes in the provided category from the diagram's library. A shape primarily contains `style` based on which you can create new vertex cells.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["category_id"],
+        "properties": {
+          "category_id": {
+            "type": "string",
+            "description": "Identifier (ID / key) of the category from which all the shapes should be retrieved."
+          }
+        }
+      }
+    },
+    {
+      "name": "get-shape-by-name",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Retrieve a specific shape by its name from all available shapes in the diagram's library. It returns the shape and also the category it belongs.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["shape_name"],
+        "properties": {
+          "shape_name": {
+            "type": "string",
+            "description": "Name of the shape to retrieve from the shape library of the current diagram."
+          }
+        }
+      }
+    },
+    {
+      "name": "add-cell-of-shape",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "This tool allows you to add new vertex cell (object) on the current page of a Draw.io diagram by its shape name. It accepts multiple optional input parameter.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["shape_name"],
+        "properties": {
+          "x": {
+            "type": "number",
+            "default": 100,
+            "description": "X-axis position of the vertex cell of the shape"
+          },
+          "y": {
+            "type": "number",
+            "default": 100,
+            "description": "Y-axis position of the vertex cell of the shape"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text content placed inside of the vertex cell of the shape"
+          },
+          "style": {
+            "type": "string",
+            "description": "Semi-colon separated list of Draw.io visual styles, in the form of `key=value`. Example: `whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;`"
+          },
+          "width": {
+            "type": "number",
+            "default": 200,
+            "description": "Width of the vertex cell of the shape"
+          },
+          "height": {
+            "type": "number",
+            "default": 100,
+            "description": "Height of the vertex cell of the shape"
+          },
+          "shape_name": {
+            "type": "string",
+            "description": "Name of the shape to retrieved from the shape library of the current diagram."
+          }
+        }
+      }
+    },
+    {
+      "name": "set-cell-shape",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Updates the visual style of an existing vertex cell to match a library shape by name.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id", "shape_name"],
+        "properties": {
+          "cell_id": {
+            "type": "string",
+            "description": "Identifier (`id` attribute) of the cell whose shape should change."
+          },
+          "shape_name": {
+            "type": "string",
+            "description": "Name of the library shape whose style should be applied to the existing cell."
+          }
+        }
+      }
+    },
+    {
+      "name": "set-cell-data",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Sets or updates a custom attribute on an existing cell.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id", "key", "value"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Name of the attribute to set on the cell."
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ],
+            "description": "Value to store for the attribute. Non-string values are stringified before storage."
+          },
+          "cell_id": {
+            "type": "string",
+            "description": "Identifier (`id` attribute) of the cell to update with custom data."
+          }
+        }
+      }
+    },
+    {
+      "name": "edit-cell",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Update properties of an existing vertex/shape cell by its ID. Only provided fields are modified; unspecified properties remain unchanged.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id"],
+        "properties": {
+          "x": {
+            "type": "number",
+            "description": "Set a new X-axis position for the cell."
+          },
+          "y": {
+            "type": "number",
+            "description": "Set a new Y-axis position for the cell."
+          },
+          "text": {
+            "type": "string",
+            "description": "Replace the cell's text/label content."
+          },
+          "style": {
+            "type": "string",
+            "description": "Replace the cell's style string (semi-colon separated `key=value` pairs)."
+          },
+          "width": {
+            "type": "number",
+            "description": "Set a new width for the cell."
+          },
+          "height": {
+            "type": "number",
+            "description": "Set a new height for the cell."
+          },
+          "cell_id": {
+            "type": "string",
+            "description": "Identifier (`id` attribute) of the cell to update. Applies to vertex/shape cells."
+          }
+        }
+      }
+    },
+    {
+      "name": "edit-edge",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Update properties of an existing edge by its ID. Only provided fields are modified; unspecified properties remain unchanged.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Replace the edge's label text."
+          },
+          "style": {
+            "type": "string",
+            "description": "Replace the edge's style string (semi-colon separated `key=value` pairs)."
+          },
+          "cell_id": {
+            "type": "string",
+            "description": "Identifier (`id` attribute) of the edge cell to update. The ID must reference an edge."
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Reassign the edge's source terminal to a different cell ID."
+          },
+          "target_id": {
+            "type": "string",
+            "description": "Reassign the edge's target terminal to a different cell ID."
+          }
+        }
+      }
+    },
+    {
+      "name": "list-paged-model",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Retrieves a paginated view of all cells (vertices and edges) in the current Draw.io diagram. This tool provides access to the complete model data with essential fields only, sanitized to remove circular dependencies and excessive data. It allows to filter based on multiple criteria and attribute boolean logic. Useful for programmatic inspection of diagram structure without overwhelming response sizes.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+          "page": {
+            "type": "number",
+            "default": 0,
+            "description": "Zero-based page number for pagination. Page 0 returns the first batch of cells, page 1 returns the next batch, etc. Default is 0."
+          },
+          "filter": {
+            "type": "object",
+            "default": {},
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Filter cells to only those whose ID is one of the specified IDs."
+              },
+              "cell_type": {
+                "enum": ["edge", "vertex", "object", "layer", "group"],
+                "type": "string",
+                "description": "Filter by cell type: 'edge' for connection lines, 'vertex' for vertices/shapes, 'object' for any cell type, 'layer' for layer cells, 'group' for grouped cells"
+              },
+              "layer_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Filter cells to only those whose parent is one of the specified layer IDs. Alias for parent_ids."
+              },
+              "attributes": {
+                "allOf": [
+                  {
+                    "$ref": "#/definitions/__schema0"
+                  }
+                ],
+                "description": "Boolean logic array expressions for filtering cell attributes. Format: [\"and\" | \"or\", ...expressions] or [\"equal\", key, value]. Matches against cell attributes and parsed style properties."
+              },
+              "parent_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Filter cells to only those whose parent is one of the specified parent IDs."
+              }
+            },
+            "description": "Optional filter criteria to apply to cells before pagination"
+          },
+          "page_size": {
+            "type": "number",
+            "default": 50,
+            "description": "Maximum number of cells to return in a single page. Controls response size and performance. Must be between 1 and 1000. Default is 50."
+          }
+        },
+        "definitions": {
+          "__schema0": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/__schema0"
+                }
+              ]
+            },
+            "default": []
+          }
+        }
+      }
+    },
+    {
+      "name": "list-layers",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Lists all available layers in the diagram with their IDs and names.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "set-active-layer",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Sets the active layer for creating new elements. All subsequent element creation will happen in this layer.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["layer_id"],
+        "properties": {
+          "layer_id": {
+            "type": "string",
+            "description": "ID of the layer to set as active"
+          }
+        }
+      }
+    },
+    {
+      "name": "move-cell-to-layer",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Moves a cell from its current layer to a target layer.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["cell_id", "target_layer_id"],
+        "properties": {
+          "cell_id": {
+            "type": "string",
+            "description": "ID of the cell to move"
+          },
+          "target_layer_id": {
+            "type": "string",
+            "description": "ID of the target layer where the cell will be moved"
+          }
+        }
+      }
+    },
+    {
+      "name": "get-active-layer",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Gets the currently active layer information.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {}
+      }
+    },
+    {
+      "name": "create-layer",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "description": "Creates a new layer in the diagram.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name for the new layer"
+          }
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-05-22T01:42:51.164Z",
+  "version": "1.0.3"
+}

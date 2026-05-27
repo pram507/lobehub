@@ -1,0 +1,5224 @@
+[
+  {
+    "chatModels": [],
+    "checkModel": "claude-opus-4-5-20251101",
+    "description": "Anthropic builds advanced language models like Claude 3.5 Sonnet, Claude 3 Sonnet, Claude 3 Opus, and Claude 3 Haiku, balancing intelligence, speed, and cost for workloads from enterprise to rapid-response use cases.",
+    "enabled": true,
+    "id": "anthropic",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://docs.anthropic.com/en/docs/about-claude/models#model-names",
+    "name": "Anthropic",
+    "proxyUrl": {
+      "placeholder": "https://api.anthropic.com"
+    },
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.anthropic.com"
+      },
+      "responseAnimation": "smooth",
+      "sdkType": "anthropic",
+      "showModelFetcher": true
+    },
+    "url": "https://anthropic.com",
+    "identifier": "anthropic",
+    "modelCount": 9,
+    "models": [
+      "claude-opus-4-7",
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "claude-opus-4-5-20251101",
+      "claude-sonnet-4-5-20250929",
+      "claude-haiku-4-5-20251001",
+      "claude-opus-4-1-20250805",
+      "claude-opus-4-20250514",
+      "claude-sonnet-4-20250514"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gemini-3-flash-preview",
+    "description": "Google's Gemini family is its most advanced general-purpose AI, built by Google DeepMind for multimodal use across text, code, images, audio, and video. It scales from data centers to mobile devices with strong efficiency and reach.",
+    "enabled": true,
+    "id": "google",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://ai.google.dev/gemini-api/docs/models/gemini",
+    "name": "Google",
+    "proxyUrl": {
+      "placeholder": "https://generativelanguage.googleapis.com"
+    },
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://generativelanguage.googleapis.com"
+      },
+      "responseAnimation": {
+        "speed": 50,
+        "text": "smooth"
+      },
+      "sdkType": "google",
+      "showModelFetcher": true
+    },
+    "url": "https://ai.google.dev",
+    "identifier": "google",
+    "modelCount": 30,
+    "models": [
+      "gemini-pro-latest",
+      "gemini-flash-latest",
+      "gemini-flash-lite-latest",
+      "gemma-4-26b-a4b-it",
+      "gemma-4-31b-it",
+      "gemini-3.1-flash-image-preview",
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-flash-lite",
+      "gemini-3.1-flash-lite-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-pro-image-preview",
+      "gemini-2.5-pro",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-image",
+      "gemini-2.5-flash-lite",
+      "gemini-2.0-flash",
+      "gemini-2.0-flash-001",
+      "gemini-2.0-flash-lite",
+      "gemini-2.0-flash-lite-001",
+      "gemini-3.1-flash-image-preview:image",
+      "gemini-3-pro-image-preview:image",
+      "gemini-2.5-flash-image:image",
+      "imagen-4.0-generate-001",
+      "imagen-4.0-ultra-generate-001",
+      "imagen-4.0-fast-generate-001",
+      "veo-3.1-generate-preview",
+      "veo-3.1-fast-generate-preview",
+      "veo-3.0-generate-001",
+      "veo-3.0-fast-generate-001",
+      "veo-2.0-generate-001"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "GLM-4.7",
+    "description": "GLM Coding Plan provides access to Zhipu AI models including GLM-5 and GLM-4.7 for coding tasks via a fixed-fee subscription.",
+    "disableBrowserRequest": true,
+    "id": "glmcodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://docs.z.ai/devpack/overview",
+    "name": "GLM Coding Plan",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://open.bigmodel.cn/api/coding/paas/v4"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": false
+    },
+    "url": "https://z.ai/subscribe",
+    "identifier": "glmcodingplan",
+    "modelCount": 7,
+    "models": ["GLM-5.1", "GLM-5", "GLM-5-Turbo", "GLM-4.7", "GLM-4.6", "GLM-4.5", "GLM-4.5-Air"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "kimi-k2.5",
+    "description": "Kimi Code from Moonshot AI provides access to Kimi models including K2.5 for coding tasks.",
+    "disableBrowserRequest": true,
+    "id": "kimicodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://platform.moonshot.ai/docs",
+    "name": "Kimi Code",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.kimi.com/coding"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "anthropic",
+      "showDeployName": true,
+      "showModelFetcher": false
+    },
+    "url": "https://platform.moonshot.ai",
+    "identifier": "kimicodingplan",
+    "modelCount": 2,
+    "models": ["kimi-k2.5", "kimi-k2-thinking"]
+  },
+  {
+    "apiKeyUrl": "https://platform.openai.com/api-keys?utm_source=lobehub",
+    "chatModels": [],
+    "checkModel": "gpt-5.2",
+    "description": "OpenAI is a leading AI research lab whose GPT models advanced natural language processing, delivering high performance and strong value across research, business, and innovation.",
+    "enabled": true,
+    "id": "openai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.openai.com/docs/models",
+    "name": "OpenAI",
+    "settings": {
+      "responseAnimation": "smooth",
+      "showModelFetcher": true,
+      "supportResponsesApi": true
+    },
+    "url": "https://openai.com",
+    "identifier": "openai",
+    "modelCount": 74,
+    "models": [
+      "chat-latest",
+      "gpt-5.5",
+      "gpt-5.5-pro",
+      "gpt-5.4",
+      "gpt-5.4-pro",
+      "gpt-5.4-mini",
+      "gpt-5.4-nano",
+      "gpt-5.3-chat-latest",
+      "gpt-5.3-codex",
+      "gpt-5.2",
+      "gpt-5.2-codex",
+      "gpt-5.2-pro",
+      "gpt-5.2-chat-latest",
+      "gpt-5.1",
+      "gpt-5.1-chat-latest",
+      "gpt-5.1-codex-max",
+      "gpt-5.1-codex",
+      "gpt-5.1-codex-mini",
+      "gpt-5-pro",
+      "gpt-5-codex",
+      "gpt-5",
+      "gpt-5-mini",
+      "gpt-5-nano",
+      "gpt-5-chat-latest",
+      "o4-mini",
+      "o4-mini-deep-research",
+      "o3-pro",
+      "o3",
+      "o3-deep-research",
+      "o3-mini",
+      "o1-pro",
+      "o1",
+      "gpt-4.1",
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "gpt-4o-mini",
+      "gpt-4o-mini-search-preview",
+      "gpt-4o",
+      "gpt-4o-search-preview",
+      "gpt-4o-2024-11-20",
+      "gpt-4o-2024-05-13",
+      "gpt-audio",
+      "gpt-4o-audio-preview",
+      "gpt-4o-mini-audio-preview",
+      "gpt-4-turbo",
+      "gpt-4-turbo-2024-04-09",
+      "gpt-4",
+      "gpt-4-0613",
+      "gpt-3.5-turbo",
+      "gpt-3.5-turbo-0125",
+      "gpt-3.5-turbo-1106",
+      "gpt-3.5-turbo-instruct",
+      "computer-use-preview",
+      "text-embedding-3-large",
+      "text-embedding-3-small",
+      "tts-1",
+      "tts-1-hd",
+      "gpt-4o-mini-tts",
+      "whisper-1",
+      "gpt-4o-transcribe",
+      "gpt-4o-mini-transcribe",
+      "gpt-image-2",
+      "gpt-image-1.5",
+      "gpt-image-1",
+      "gpt-image-1-mini",
+      "dall-e-3",
+      "dall-e-2",
+      "gpt-realtime",
+      "gpt-4o-realtime-preview",
+      "gpt-4o-realtime-preview-2025-06-03",
+      "gpt-4o-realtime-preview-2024-10-01",
+      "gpt-4o-mini-realtime-preview",
+      "sora-2",
+      "sora-2-pro"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek-v4-flash",
+    "description": "DeepSeek focuses on AI research and applications. Its latest DeepSeek V4 family ships in Flash and Pro variants with a 1M context window and hybrid thinking — competitive with leading closed frontier models on reasoning and agent benchmarks.",
+    "enabled": true,
+    "id": "deepseek",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.deepseek.com/api-docs/zh-cn/quick_start/pricing",
+    "name": "DeepSeek",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.deepseek.com"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://deepseek.com",
+    "identifier": "deepseek",
+    "modelCount": 2,
+    "models": ["deepseek-v4-flash", "deepseek-v4-pro"]
+  },
+  {
+    "chatModels": [],
+    "description": "Xorbits Inference (Xinference) is an open-source platform that simplifies running and integrating AI models. It lets you run open-source LLMs, embedding models, and multimodal models locally or in the cloud to build powerful AI apps.",
+    "id": "xinference",
+    "modelsUrl": "https://inference.readthedocs.io/zh-cn/latest/models/builtin/index.html",
+    "name": "Xinference",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "http://localhost:9997/v1"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://inference.readthedocs.io/zh-cn/v0.12.3/index.html",
+    "identifier": "xinference",
+    "modelCount": 14,
+    "models": [
+      "deepseek-v3",
+      "deepseek-r1",
+      "deepseek-r1-distill-llama",
+      "deepseek-r1-distill-qwen",
+      "qwq-32b",
+      "qvq-72b-preview",
+      "qwen2.5-instruct",
+      "qwen2.5-coder-instruct",
+      "qwen2.5-vl-instruct",
+      "mistral-nemo-instruct",
+      "mistral-large-instruct",
+      "llama-3.3-instruct",
+      "llama-3.2-vision-instruct",
+      "llama-3.1-instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "kimi-k2.5",
+    "description": "Moonshot, from Moonshot AI (Beijing Moonshot Technology), offers multiple NLP models for use cases like content creation, research, recommendations, and medical analysis, with strong long-context and complex generation support.",
+    "id": "moonshot",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.moonshot.ai/docs/pricing/chat",
+    "name": "Moonshot",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.moonshot.cn/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://www.moonshot.ai/",
+    "identifier": "moonshot",
+    "modelCount": 13,
+    "models": [
+      "kimi-k2.6",
+      "kimi-k2.5",
+      "kimi-k2-thinking",
+      "kimi-k2-thinking-turbo",
+      "kimi-k2-0905-preview",
+      "kimi-k2-0711-preview",
+      "kimi-k2-turbo-preview",
+      "moonshot-v1-8k",
+      "moonshot-v1-32k",
+      "moonshot-v1-128k",
+      "moonshot-v1-8k-vision-preview",
+      "moonshot-v1-32k-vision-preview",
+      "moonshot-v1-128k-vision-preview"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "anthropic.claude-instant-v1",
+    "description": "Amazon Bedrock provides enterprises with advanced language and vision models, including Anthropic Claude and Meta Llama 3.1, spanning lightweight to high-performance options for text, chat, and image tasks.",
+    "id": "bedrock",
+    "modelsUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html",
+    "name": "Bedrock",
+    "settings": {
+      "sdkType": "bedrock"
+    },
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+    "identifier": "bedrock",
+    "modelCount": 21,
+    "models": [
+      "global.anthropic.claude-opus-4-7",
+      "global.anthropic.claude-opus-4-6-v1",
+      "global.anthropic.claude-sonnet-4-6",
+      "global.anthropic.claude-opus-4-5-20251101-v1:0",
+      "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+      "anthropic.claude-3-5-sonnet-20241022-v2:0",
+      "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+      "anthropic.claude-3-5-sonnet-20240620-v1:0",
+      "anthropic.claude-3-haiku-20240307-v1:0",
+      "anthropic.claude-3-sonnet-20240229-v1:0",
+      "anthropic.claude-3-opus-20240229-v1:0",
+      "anthropic.claude-v2:1",
+      "anthropic.claude-v2",
+      "anthropic.claude-instant-v1",
+      "meta.llama3-1-8b-instruct-v1:0",
+      "meta.llama3-1-70b-instruct-v1:0",
+      "meta.llama3-1-405b-instruct-v1:0",
+      "meta.llama3-8b-instruct-v1:0",
+      "meta.llama3-70b-instruct-v1:0"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "qwen3-coder-plus",
+    "description": "Aliyun Bailian Coding Plan is a specialized AI coding service providing access to coding-optimized models from Qwen, GLM, Kimi, and MiniMax via a dedicated endpoint.",
+    "disableBrowserRequest": true,
+    "id": "bailiancodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://help.aliyun.com/zh/model-studio/coding-plan-overview",
+    "name": "Aliyun Bailian Coding Plan",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://coding.dashscope.aliyuncs.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": false
+    },
+    "url": "https://help.aliyun.com/zh/model-studio/coding-plan-overview",
+    "identifier": "bailiancodingplan",
+    "modelCount": 8,
+    "models": [
+      "qwen3.5-plus",
+      "qwen3-coder-plus",
+      "qwen3-max-2026-01-23",
+      "qwen3-coder-next",
+      "glm-5",
+      "glm-4.7",
+      "kimi-k2.5",
+      "MiniMax-M2.5"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gemini-3-flash-preview",
+    "description": "Google's Gemini family is its most advanced general-purpose AI, built by Google DeepMind for multimodal use across text, code, images, audio, and video. It scales from data centers to mobile devices, improving efficiency and deployment flexibility.",
+    "id": "vertexai",
+    "modelsUrl": "https://console.cloud.google.com/vertex-ai/model-garden",
+    "name": "Vertex AI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "responseAnimation": "smooth",
+      "showModelFetcher": false
+    },
+    "url": "https://cloud.google.com/vertex-ai",
+    "identifier": "vertexai",
+    "modelCount": 23,
+    "models": [
+      "gemini-3.1-flash-image-preview",
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-flash-lite",
+      "gemini-3.1-flash-lite-preview",
+      "gemini-3-pro-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-pro-image-preview",
+      "gemini-2.5-pro",
+      "gemini-2.5-pro-preview-05-06",
+      "gemini-2.5-pro-preview-03-25",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-preview-04-17",
+      "gemini-2.5-flash-image",
+      "gemini-2.5-flash-lite",
+      "gemini-2.5-flash-lite-preview-06-17",
+      "gemini-2.0-flash",
+      "gemini-2.0-flash-lite",
+      "gemini-1.5-flash-002",
+      "gemini-1.5-pro-002",
+      "gemini-2.5-flash-image:image",
+      "imagen-4.0-generate-001",
+      "imagen-4.0-ultra-generate-001",
+      "imagen-4.0-fast-generate-001"
+    ]
+  },
+  {
+    "chatModels": [],
+    "defaultShowBrowserRequest": true,
+    "description": "Azure offers advanced AI models, including GPT-3.5 and GPT-4 series, for diverse data types and complex tasks with a focus on safe, reliable, and sustainable AI.",
+    "id": "azure",
+    "modelsUrl": "https://learn.microsoft.com/azure/ai-services/openai/concepts/models",
+    "name": "Azure OpenAI",
+    "settings": {
+      "defaultShowBrowserRequest": true,
+      "sdkType": "azure",
+      "showDeployName": true
+    },
+    "url": "https://azure.microsoft.com",
+    "identifier": "azure",
+    "modelCount": 28,
+    "models": [
+      "gpt-5.4",
+      "gpt-5.4-pro",
+      "gpt-5.4-mini",
+      "gpt-5.4-nano",
+      "gpt-5.2",
+      "gpt-5.1",
+      "gpt-5-pro",
+      "gpt-5-codex",
+      "gpt-5",
+      "gpt-5-mini",
+      "gpt-5-nano",
+      "gpt-5-chat",
+      "o3",
+      "o4-mini",
+      "gpt-4.1",
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "o3-mini",
+      "o1-mini",
+      "o1",
+      "o1-preview",
+      "gpt-4o",
+      "gpt-4",
+      "gpt-4o-mini",
+      "gpt-image-1",
+      "dall-e-3",
+      "FLUX.1-Kontext-pro",
+      "FLUX-1.1-pro"
+    ]
+  },
+  {
+    "chatModels": [],
+    "description": "Azure provides advanced AI models, including GPT-3.5 and GPT-4 series, for diverse data types and complex tasks with a focus on safe, reliable, and sustainable AI.",
+    "id": "azureai",
+    "modelsUrl": "https://ai.azure.com/explore/models",
+    "name": "Azure AI",
+    "settings": {
+      "defaultShowBrowserRequest": true,
+      "sdkType": "azureai",
+      "showDeployName": true
+    },
+    "url": "https://ai.azure.com",
+    "identifier": "azureai",
+    "modelCount": 13,
+    "models": [
+      "DeepSeek-R1",
+      "DeepSeek-V3",
+      "o3",
+      "o4-mini",
+      "gpt-4.1",
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "gpt-4.5-preview",
+      "o3-mini",
+      "o1-mini",
+      "o1",
+      "gpt-4o",
+      "gpt-4o-mini"
+    ]
+  },
+  {
+    "apiKeyUrl": "https://lobe.li/9mZhb4T",
+    "chatModels": [],
+    "checkModel": "gpt-4.1-nano",
+    "description": "AiHubMix provides access to multiple AI models through a unified API.",
+    "id": "aihubmix",
+    "modelsUrl": "https://docs.aihubmix.com/cn/api/Model-List",
+    "name": "AiHubMix",
+    "settings": {
+      "sdkType": "router",
+      "showModelFetcher": true,
+      "supportResponsesApi": true
+    },
+    "url": "https://aihubmix.com?utm_source=lobehub",
+    "identifier": "aihubmix",
+    "modelCount": 68,
+    "models": [
+      "gpt-5.5",
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "gpt-5.4-nano",
+      "gpt-5.4-pro",
+      "gpt-5.3-chat-latest",
+      "gpt-5.2",
+      "gpt-5.2-pro",
+      "gpt-5.2-chat-latest",
+      "gpt-5.1",
+      "gpt-5.1-chat-latest",
+      "gpt-5.1-codex",
+      "gpt-5.1-codex-mini",
+      "gpt-5-pro",
+      "gpt-5-codex",
+      "gpt-5",
+      "gpt-5-mini",
+      "gpt-5-nano",
+      "gpt-5-chat-latest",
+      "o4-mini",
+      "o4-mini-deep-research",
+      "o3-pro",
+      "o3",
+      "o3-deep-research",
+      "gpt-4.1",
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "chatgpt-4o-latest",
+      "grok-4-20-non-reasoning",
+      "grok-4-20-reasoning",
+      "grok-4.20-multi-agent-0309",
+      "grok-4-fast-non-reasoning",
+      "grok-4-fast-reasoning",
+      "grok-4",
+      "grok-3",
+      "grok-3-mini",
+      "claude-opus-4-7",
+      "claude-opus-4-6",
+      "claude-opus-4-5-20251101",
+      "claude-opus-4-1-20250805",
+      "claude-opus-4-20250514",
+      "claude-sonnet-4-6",
+      "claude-sonnet-4-5-20250929",
+      "claude-sonnet-4-20250514",
+      "claude-3-7-sonnet-20250219",
+      "claude-haiku-4-5-20251001",
+      "claude-3-5-haiku-20241022",
+      "DeepSeek-V3.1-Think",
+      "DeepSeek-V3.1-Fast",
+      "DeepSeek-R1",
+      "azure-DeepSeek-R1-0528",
+      "DeepSeek-V3",
+      "DeepSeek-V3-Fast",
+      "gemini-3.1-flash-image-preview",
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-flash-lite-preview",
+      "gemini-3-pro-preview",
+      "gemini-3-flash-preview",
+      "gemini-3-pro-image-preview",
+      "gemini-2.5-pro",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-image",
+      "gemini-2.5-flash-lite",
+      "qwen3-235b-a22b-thinking-2507",
+      "qwen3-235b-a22b-instruct-2507",
+      "qwen3-30b-a3b-thinking-2507",
+      "qwen3-30b-a3b-instruct-2507",
+      "gpt-image-2"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "google/gemma-2-9b-it:free",
+    "description": "OpenRouter provides access to many frontier models from OpenAI, Anthropic, LLaMA, and more, letting users pick the best model and price for their use case.",
+    "id": "openrouter",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://openrouter.ai/models",
+    "name": "OpenRouter",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://openrouter.ai/api/v1"
+      },
+      "sdkType": "openai",
+      "searchMode": "params",
+      "showModelFetcher": true
+    },
+    "url": "https://openrouter.ai",
+    "identifier": "openrouter",
+    "modelCount": 37,
+    "models": [
+      "openrouter/auto",
+      "deepseek/deepseek-chat-v3.1",
+      "google/gemini-3.1-flash-image-preview",
+      "google/gemini-3-pro-image-preview",
+      "google/gemini-2.5-flash-image",
+      "qwen/qwen3-30b-a3b",
+      "qwen/qwen3-14b",
+      "qwen/qwen3-32b",
+      "qwen/qwen3-235b-a22b",
+      "thudm/glm-4-32b",
+      "google/gemini-2.5-pro",
+      "google/gemini-2.5-pro-preview",
+      "google/gemini-2.5-flash",
+      "openai/o3",
+      "openai/o4-mini-high",
+      "openai/o4-mini",
+      "openai/gpt-4.1",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "openai/o3-mini-high",
+      "openai/o3-mini",
+      "openai/gpt-4o-mini",
+      "openai/gpt-4o",
+      "deepseek/deepseek-r1-0528",
+      "deepseek/deepseek-r1",
+      "deepseek/deepseek-chat-v3-0324",
+      "anthropic/claude-opus-4.5",
+      "anthropic/claude-sonnet-4.5",
+      "anthropic/claude-3-haiku",
+      "anthropic/claude-3.5-haiku",
+      "anthropic/claude-3.7-sonnet",
+      "anthropic/claude-sonnet-4",
+      "anthropic/claude-opus-4",
+      "google/gemini-2.0-flash-001",
+      "meta-llama/llama-3.2-11b-vision-instruct",
+      "meta-llama/llama-3.3-70b-instruct",
+      "meta-llama/llama-3.3-70b-instruct:free"
+    ]
+  },
+  {
+    "chatModels": [],
+    "description": "A generative media platform built for developers.",
+    "id": "fal",
+    "name": "Fal",
+    "settings": {
+      "disableBrowserRequest": true,
+      "showAddNewModel": false,
+      "showChecker": false,
+      "showModelFetcher": false
+    },
+    "url": "https://fal.ai",
+    "identifier": "fal",
+    "modelCount": 10,
+    "models": [
+      "fal-ai/nano-banana",
+      "fal-ai/bytedance/seedream/v4",
+      "fal-ai/hunyuan-image/v3",
+      "fal-ai/flux-kontext/dev",
+      "fal-ai/flux-pro/kontext",
+      "fal-ai/flux/schnell",
+      "fal-ai/flux/krea",
+      "fal-ai/imagen4/preview",
+      "fal-ai/qwen-image-edit",
+      "fal-ai/qwen-image"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek-r1",
+    "defaultShowBrowserRequest": true,
+    "description": "Ollama offers models across code generation, math, multilingual processing, and chat, supporting both enterprise and local deployments.",
+    "id": "ollama",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://ollama.com/library",
+    "name": "Ollama",
+    "settings": {
+      "defaultShowBrowserRequest": true,
+      "sdkType": "ollama",
+      "showApiKey": false,
+      "showModelFetcher": true
+    },
+    "showApiKey": false,
+    "url": "https://ollama.com",
+    "identifier": "ollama",
+    "modelCount": 52,
+    "models": [
+      "deepseek-v3.1:671b",
+      "gpt-oss:20b",
+      "gpt-oss:120b",
+      "qwen3-coder:480b",
+      "deepseek-r1",
+      "deepseek-v3",
+      "llama3.1",
+      "llama3.1:70b",
+      "llama3.1:405b",
+      "codellama",
+      "codellama:13b",
+      "codellama:34b",
+      "codellama:70b",
+      "qwq",
+      "qwen3",
+      "qwen2.5:0.5b",
+      "qwen2.5:1.5b",
+      "qwen2.5",
+      "qwen2.5:72b",
+      "codeqwen",
+      "qwen2:0.5b",
+      "qwen2:1.5b",
+      "qwen2",
+      "qwen2:72b",
+      "gemma2:2b",
+      "gemma2",
+      "gemma2:27b",
+      "codegemma:2b",
+      "codegemma",
+      "phi3",
+      "phi3:14b",
+      "wizardlm2",
+      "wizardlm2:8x22b",
+      "mathstral",
+      "mistral",
+      "mixtral",
+      "mixtral:8x22b",
+      "mistral-large",
+      "mistral-nemo",
+      "codestral",
+      "aya",
+      "aya:35b",
+      "command-r",
+      "command-r-plus",
+      "deepseek-v2",
+      "deepseek-v2:236b",
+      "deepseek-coder-v2",
+      "deepseek-coder-v2:236b",
+      "llava",
+      "llava:13b",
+      "llava:34b",
+      "minicpm-v"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gpt-oss:20b",
+    "description": "Ollama Cloud provides managed inference with out-of-the-box access to the Ollama model library and OpenAI-compatible APIs.",
+    "id": "ollamacloud",
+    "modelsUrl": "https://ollama.com/library",
+    "name": "Ollama Cloud",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://ollama.com/cloud",
+    "identifier": "ollamacloud",
+    "modelCount": 28,
+    "models": [
+      "kimi-k2.6",
+      "glm-5.1",
+      "gemma4:31b",
+      "minimax-m2.7",
+      "qwen3.5:397b",
+      "qwen3-coder-next",
+      "minimax-m2.5",
+      "kimi-k2-thinking",
+      "glm-5",
+      "kimi-k2.5",
+      "devstral-2:123b",
+      "cogito-2.1:671b",
+      "gemini-3-flash-preview",
+      "minimax-m2.1",
+      "minimax-m2",
+      "glm-4.7",
+      "glm-4.6",
+      "deepseek-v3.1:671b",
+      "gpt-oss:20b",
+      "gpt-oss:120b",
+      "kimi-k2:1t",
+      "qwen3-coder:480b",
+      "qwen3-vl:235b-instruct",
+      "qwen3-vl:235b",
+      "ministral-3:3b",
+      "ministral-3:8b",
+      "ministral-3:14b",
+      "mistral-large-3:675b"
+    ]
+  },
+  {
+    "chatModels": [],
+    "description": "vLLM is a fast, easy-to-use library for LLM inference and serving.",
+    "id": "vllm",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://docs.vllm.ai/en/latest/models/supported_models.html#supported-models",
+    "name": "vLLM",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "http://localhost:8000/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://docs.vllm.ai",
+    "identifier": "vllm",
+    "modelCount": 9,
+    "models": [
+      "meta-llama/Meta-Llama-3.1-70B",
+      "meta-llama/Meta-Llama-3.1-405B-Instruct",
+      "google/gemma-2-9b",
+      "google/gemma-2-27b",
+      "mistralai/Mistral-7B-Instruct-v0.1",
+      "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "deepseek-ai/DeepSeek-V3",
+      "Qwen/QwQ-32B-Preview",
+      "Qwen/Qwen2-7B-Instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "description": "A powerful open-source workflow engine for image, video, and audio generation, supporting models like SD, FLUX, Qwen, Hunyuan, and WAN with node-based editing and private deployment.",
+    "id": "comfyui",
+    "name": "ComfyUI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "comfyui",
+      "showAddNewModel": false,
+      "showApiKey": true,
+      "showChecker": false,
+      "showModelFetcher": false
+    },
+    "url": "https://www.comfy.org/",
+    "identifier": "comfyui",
+    "modelCount": 11,
+    "models": [
+      "comfyui/flux-schnell",
+      "comfyui/flux-dev",
+      "comfyui/flux-krea-dev",
+      "comfyui/flux-kontext-dev",
+      "comfyui/stable-diffusion-35",
+      "comfyui/stable-diffusion-35-inclclip",
+      "comfyui/stable-diffusion-15",
+      "comfyui/stable-diffusion-xl",
+      "comfyui/stable-diffusion-refiner",
+      "comfyui/stable-diffusion-custom",
+      "comfyui/stable-diffusion-custom-refiner"
+    ]
+  },
+  {
+    "apiKeyUrl": "https://huggingface.co/settings/tokens",
+    "chatModels": [],
+    "checkModel": "mistralai/Mistral-7B-Instruct-v0.2",
+    "description": "The Hugging Face Inference API offers a fast way to explore thousands of models for many tasks, giving instant access to high-performance models for prototyping and ML experimentation.",
+    "disableBrowserRequest": true,
+    "id": "huggingface",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://huggingface.co/docs/api-inference/en/supported-models",
+    "name": "HuggingFace",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "huggingface",
+      "showModelFetcher": true
+    },
+    "url": "https://huggingface.co",
+    "identifier": "huggingface",
+    "modelCount": 9,
+    "models": [
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-2b-it",
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/QwQ-32B-Preview",
+      "microsoft/Phi-3.5-mini-instruct",
+      "NousResearch/Hermes-3-Llama-3.1-8B",
+      "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "deepseek-ai/DeepSeek-R1"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "@hf/meta-llama/meta-llama-3-8b-instruct",
+    "description": "Run serverless GPU-powered ML models across Cloudflare’s global network.",
+    "disableBrowserRequest": true,
+    "id": "cloudflare",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "name": "Cloudflare Workers AI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "cloudflare",
+      "showModelFetcher": true
+    },
+    "url": "https://developers.cloudflare.com/workers-ai/models",
+    "identifier": "cloudflare",
+    "modelCount": 10,
+    "models": [
+      "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "@cf/qwen/qwq-32b",
+      "@cf/qwen/qwen2.5-coder-32b-instruct",
+      "@cf/google/gemma-3-12b-it",
+      "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "@cf/meta/llama-4-scout-17b-16e-instruct",
+      "@cf/mistralai/mistral-small-3.1-24b-instruct",
+      "@cf/openchat/openchat-3.5-0106",
+      "@cf/qwen/qwen1.5-14b-chat-awq",
+      "@cf/meta/llama-3.1-8b-instruct-fast"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "microsoft/Phi-3-mini-4k-instruct",
+    "description": "With GitHub Models, developers can build as AI engineers using industry-leading models.",
+    "id": "github",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "name": "GitHub",
+    "settings": {
+      "sdkType": "azure",
+      "showModelFetcher": true
+    },
+    "url": "https://github.com/marketplace/models",
+    "identifier": "github",
+    "modelCount": 44,
+    "models": [
+      "openai/o3",
+      "openai/o4-mini",
+      "openai/gpt-4.1",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "openai/o3-mini",
+      "openai/o1-mini",
+      "openai/o1",
+      "openai/o1-preview",
+      "openai/gpt-4o-mini",
+      "openai/gpt-4o",
+      "xai/grok-3",
+      "xai/grok-3-mini",
+      "microsoft/MAI-DS-R1",
+      "deepseek/DeepSeek-R1",
+      "deepseek/DeepSeek-V3-0324",
+      "ai21-labs/AI21-Jamba-1.5-Mini",
+      "ai21-labs/AI21-Jamba-1.5-Large",
+      "cohere/Cohere-command-r",
+      "cohere/Cohere-command-r-plus",
+      "mistral-ai/Mistral-Nemo",
+      "mistral-ai/mistral-small-2503",
+      "mistral-ai/Mistral-Large-2411",
+      "mistral-ai/Codestral-2501",
+      "meta/Llama-3.2-11B-Vision-Instruct",
+      "meta/Llama-3.2-90B-Vision-Instruct",
+      "meta/Llama-3.3-70B-Instruct",
+      "llama-4-Scout-17B-16E-Instruct",
+      "meta/Llama-4-Maverick-17B-128E-Instruct-FP8",
+      "meta/Meta-Llama-3.1-8B-Instruct",
+      "meta/Meta-Llama-3.1-70B-Instruct",
+      "meta/Meta-Llama-3.1-405B-Instruct",
+      "meta/Meta-Llama-3-8B-Instruct",
+      "meta/Meta-Llama-3-70B-Instruct",
+      "microsoft/Phi-4",
+      "microsoft/Phi-3.5-MoE-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/Phi-3.5-vision-instruct",
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3-mini-128k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/Phi-3-small-128k-instruct",
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-medium-128k-instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gpt-5-mini",
+    "description": "Access Claude, GPT, and Gemini models through your GitHub Copilot subscription.",
+    "id": "githubcopilot",
+    "name": "GitHub Copilot",
+    "settings": {
+      "authType": "oauthDeviceFlow",
+      "oauthDeviceFlow": {
+        "clientId": "Iv1.b507a08c87ecfe98",
+        "defaultPollingInterval": 5,
+        "deviceCodeEndpoint": "https://github.com/login/device/code",
+        "scopes": ["read:user"],
+        "tokenEndpoint": "https://github.com/login/oauth/access_token",
+        "tokenExchangeEndpoint": "https://api.github.com/copilot_internal/v2/token"
+      },
+      "sdkType": "openai",
+      "showApiKey": false,
+      "showChecker": true,
+      "supportResponsesApi": true
+    },
+    "url": "https://github.com/features/copilot",
+    "identifier": "githubcopilot",
+    "modelCount": 21,
+    "models": [
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "gpt-5.3-codex",
+      "gpt-5.2",
+      "gpt-5.2-codex",
+      "gpt-5.1",
+      "gpt-5-mini",
+      "gpt-4.1",
+      "claude-opus-4.6",
+      "claude-opus-4.6-fast",
+      "claude-sonnet-4.6",
+      "claude-opus-4.5",
+      "claude-sonnet-4.5",
+      "claude-haiku-4.5",
+      "claude-sonnet-4",
+      "gemini-3.1-pro-preview",
+      "gemini-3-flash-preview",
+      "gemini-2.5-pro",
+      "grok-code-fast-1",
+      "oswe-vscode-prime",
+      "oswe-vscode-secondary"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gpt-4o-mini",
+    "description": "An open-source aggregation and routing platform for multiple AI services.",
+    "enabled": true,
+    "id": "newapi",
+    "name": "New API",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://your.new-api-provider.com"
+      },
+      "sdkType": "router",
+      "showModelFetcher": true,
+      "supportResponsesApi": true
+    },
+    "url": "https://github.com/Calcium-Ion/new-api",
+    "identifier": "newapi",
+    "modelCount": 0,
+    "models": []
+  },
+  {
+    "chatModels": [],
+    "description": "A leading frontier AI research lab building the visual infrastructure of tomorrow.",
+    "enabled": true,
+    "id": "bfl",
+    "name": "Black Forest Labs",
+    "settings": {
+      "disableBrowserRequest": true,
+      "showAddNewModel": false,
+      "showChecker": false,
+      "showModelFetcher": false
+    },
+    "url": "https://bfl.ai/",
+    "identifier": "bfl",
+    "modelCount": 6,
+    "models": [
+      "flux-kontext-pro",
+      "flux-kontext-max",
+      "flux-pro-1.1",
+      "flux-pro-1.1-ultra",
+      "flux-pro",
+      "flux-dev"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "meta-llama/llama-3.1-8b-instruct",
+    "description": "Novita AI offers flexible, reliable, cost-effective APIs for LLMs and image generation. It supports models like Llama 3 and Mistral and provides scalable, developer-friendly APIs for generative AI startups.",
+    "disableBrowserRequest": true,
+    "id": "novita",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://novita.ai/model-api/product/llm-api",
+    "name": "Novita",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.novita.ai/v3/openai"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://novita.ai",
+    "identifier": "novita",
+    "modelCount": 61,
+    "models": [
+      "qwen/qwen3-vl-235b-a22b-instruct",
+      "qwen/qwen3-vl-235b-a22b-thinking",
+      "qwen/qwen3-next-80b-a3b-thinking",
+      "qwen/qwen3-next-80b-a3b-instruct",
+      "qwen/qwen-mt-plus",
+      "moonshotai/kimi-k2-0905",
+      "deepseek/deepseek-v3.2-exp",
+      "deepseek/deepseek-v3.1-terminus",
+      "deepseek/deepseek-v3.1",
+      "qwen/qwen3-coder-480b-a35b-instruct",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "zai-org/glm-4.5v",
+      "zai-org/glm-4.5",
+      "qwen/qwen3-235b-a22b-instruct-2507",
+      "qwen/qwen3-235b-a22b-thinking-2507",
+      "baichuan/baichuan-m2-32b",
+      "moonshotai/kimi-k2-instruct",
+      "thudm/glm-4.1v-9b-thinking",
+      "baidu/ernie-4.5-21B-a3b",
+      "baidu/ernie-4.5-21B-a3b-thingking",
+      "baidu/ernie-4.5-300b-a47b-paddle",
+      "baidu/ernie-4.5-vl-28b-a3b",
+      "baidu/ernie-4.5-vl-424b-a47b",
+      "minimaxai/minimax-m1-80k",
+      "qwen/qwen3-4b-fp8",
+      "qwen/qwen3-235b-a22b-fp8",
+      "qwen/qwen3-30b-a3b-fp8",
+      "qwen/qwen3-32b-fp8",
+      "meta-llama/llama-3.3-70b-instruct",
+      "qwen/qwen3-8b-fp8",
+      "meta-llama/llama-4-scout-17b-16e-instruct",
+      "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
+      "meta-llama/llama-3.1-8b-instruct",
+      "meta-llama/llama-3-8b-instruct",
+      "meta-llama/llama-3-70b-instruct",
+      "google/gemma-3-27b-it",
+      "google/gemma-3-12b-it",
+      "mistralai/mistral-nemo",
+      "microsoft/wizardlm-2-8x22b",
+      "nousresearch/hermes-2-pro-llama-3-8b",
+      "gryphe/mythomax-l2-13b",
+      "deepseek/deepseek-prover-v2-671b",
+      "deepseek/deepseek-v3-turbo",
+      "deepseek/deepseek-v3-0324",
+      "deepseek/deepseek-r1-0528",
+      "deepseek/deepseek-r1-0528-qwen3-8b",
+      "deepseek/deepseek-r1-turbo",
+      "deepseek/deepseek-r1-distill-llama-70b",
+      "deepseek/deepseek-r1-distill-qwen-14b",
+      "deepseek/deepseek-r1-distill-qwen-32b",
+      "Sao10K/L3-8B-Stheno-v3.2",
+      "qwen/qwen-2.5-72b-instruct",
+      "sao10k/l3-70b-euryale-v2.1",
+      "sophosympatheia/midnight-rose-70b",
+      "sao10k/l3-8b-lunaris",
+      "qwen/qwen2.5-vl-72b-instruct",
+      "meta-llama/llama-3.2-3b-instruct",
+      "meta-llama/llama-3.1-8b-instruct-bf16",
+      "sao10k/l31-70b-euryale-v2.2",
+      "qwen/qwen2.5-7b-instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek/deepseek-r1-distill-qwen-32b",
+    "description": "PPIO provides reliable, cost-effective open-model APIs, including DeepSeek, Llama, Qwen, and other leading models.",
+    "disableBrowserRequest": true,
+    "id": "ppio",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://ppinfra.com/llm-api?utm_source=github_lobe-chat&utm_medium=github_readme&utm_campaign=link",
+    "name": "PPIO",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://ppinfra.com/user/register?invited_by=RQIMOC&utm_source=github_lobechat",
+    "identifier": "ppio",
+    "modelCount": 19,
+    "models": [
+      "deepseek/deepseek-r1/community",
+      "deepseek/deepseek-v3/community",
+      "deepseek/deepseek-r1",
+      "deepseek/deepseek-v3",
+      "deepseek/deepseek-r1-distill-llama-70b",
+      "deepseek/deepseek-r1-distill-qwen-32b",
+      "deepseek/deepseek-r1-distill-qwen-14b",
+      "deepseek/deepseek-r1-distill-llama-8b",
+      "qwen/qwen-2.5-72b-instruct",
+      "qwen/qwen-2-vl-72b-instruct",
+      "meta-llama/llama-3.2-3b-instruct",
+      "qwen/qwen2.5-32b-instruct",
+      "baichuan/baichuan2-13b-chat",
+      "meta-llama/llama-3.1-70b-instruct",
+      "meta-llama/llama-3.1-8b-instruct",
+      "01-ai/yi-1.5-34b-chat",
+      "01-ai/yi-1.5-9b-chat",
+      "thudm/glm-4-9b-chat",
+      "qwen/qwen-2-7b-instruct"
+    ]
+  },
+  {
+    "apiKeyUrl": "https://lobe.li/Oizw5sN",
+    "chatModels": [],
+    "checkModel": "gpt-4o",
+    "description": "302.AI is a pay-as-you-go AI platform offering a broad catalog of AI APIs and online AI apps.",
+    "id": "ai302",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://302.ai/pricing/",
+    "name": "302.AI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.302.ai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://302.ai",
+    "identifier": "ai302",
+    "modelCount": 20,
+    "models": [
+      "deepseek-chat",
+      "chatgpt-4o-latest",
+      "llama3.3-70b",
+      "deepseek-reasoner",
+      "gemini-2.0-flash",
+      "claude-3-7-sonnet-20250219",
+      "claude-3-7-sonnet-latest",
+      "grok-3-beta",
+      "grok-3-mini-beta",
+      "gpt-4.1",
+      "o3",
+      "o4-mini",
+      "qwen3-235b-a22b",
+      "qwen3-32b",
+      "gemini-2.5-pro-preview-05-06",
+      "llama-4-maverick",
+      "gemini-2.5-flash",
+      "claude-sonnet-4-20250514",
+      "claude-opus-4-20250514",
+      "gemini-2.5-pro"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "meta/llama-3.2-1b-instruct",
+    "description": "NVIDIA NIM provides containers for self-hosted, GPU-accelerated inference microservices across cloud, data centers, RTX AI PCs, and workstations for pre-trained and custom models.",
+    "id": "nvidia",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://build.nvidia.com/models",
+    "name": "Nvidia",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://integrate.api.nvidia.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://build.nvidia.com",
+    "identifier": "nvidia",
+    "modelCount": 20,
+    "models": [
+      "minimaxai/minimax-m2.7",
+      "minimaxai/minimax-m2.5",
+      "deepseek-ai/deepseek-v3.2",
+      "z-ai/glm4.7",
+      "z-ai/glm5",
+      "moonshotai/kimi-k2.5",
+      "deepseek-ai/deepseek-v3.1-terminus",
+      "meta/llama-3.3-70b-instruct",
+      "meta/llama-3.2-1b-instruct",
+      "meta/llama-3.2-3b-instruct",
+      "meta/llama-3.2-11b-vision-instruct",
+      "meta/llama-3.2-90b-vision-instruct",
+      "meta/llama-3.1-8b-instruct",
+      "meta/llama-3.1-70b-instruct",
+      "nvidia/llama-3.1-nemotron-51b-instruct",
+      "nvidia/llama-3.1-nemotron-70b-instruct",
+      "google/gemma-2-2b-it",
+      "qwen/qwen2.5-7b-instruct",
+      "qwen/qwen2.5-coder-7b-instruct",
+      "qwen/qwen2.5-coder-32b-instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "meta-llama/Llama-Vision-Free",
+    "description": "Together AI delivers leading performance with innovative models, broad customization, rapid scaling, and straightforward deployment for enterprise needs.",
+    "id": "togetherai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://docs.together.ai/docs/chat-models",
+    "name": "Together AI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.together.xyz/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://www.together.ai",
+    "identifier": "togetherai",
+    "modelCount": 45,
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+      "meta-llama/Llama-3.2-3B-Instruct-Turbo",
+      "meta-llama/Llama-Vision-Free",
+      "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
+      "meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo",
+      "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+      "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+      "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+      "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+      "meta-llama/Meta-Llama-3-8B-Instruct-Turbo",
+      "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
+      "meta-llama/Meta-Llama-3-8B-Instruct-Lite",
+      "meta-llama/Meta-Llama-3-70B-Instruct-Lite",
+      "meta-llama/Llama-3-8b-chat-hf",
+      "meta-llama/Llama-3-70b-chat-hf",
+      "meta-llama/Llama-2-13b-chat-hf",
+      "meta-llama/Llama-2-70b-hf",
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "google/gemma-2-9b-it",
+      "google/gemma-2-27b-it",
+      "google/gemma-2b-it",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "mistralai/Mistral-7B-Instruct-v0.2",
+      "mistralai/Mistral-7B-Instruct-v0.1",
+      "mistralai/Mistral-7B-v0.1",
+      "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "mistralai/Mixtral-8x7B-v0.1",
+      "mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "microsoft/WizardLM-2-8x22B",
+      "deepseek-ai/DeepSeek-R1",
+      "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "deepseek-ai/DeepSeek-V3",
+      "deepseek-ai/deepseek-llm-67b-chat",
+      "Qwen/QwQ-32B-Preview",
+      "Qwen/Qwen2.5-7B-Instruct-Turbo",
+      "Qwen/Qwen2.5-72B-Instruct-Turbo",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2-72B-Instruct",
+      "databricks/dbrx-instruct",
+      "upstage/SOLAR-10.7B-Instruct-v1.0",
+      "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
+      "Gryphe/MythoMax-L2-13b",
+      "togethercomputer/StripedHyena-Nous-7B"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "accounts/fireworks/models/llama-v3p2-3b-instruct",
+    "description": "Fireworks AI provides advanced language model services with function calling and multimodal processing. Firefunction V2 (based on Llama-3) is optimized for function calls, chat, and instruction following, while FireLLaVA-13B supports mixed image-text inputs. Other notable models include the Llama and Mixtral families.",
+    "id": "fireworksai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://fireworks.ai/models?show=Serverless",
+    "name": "Fireworks AI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.fireworks.ai/inference/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://fireworks.ai",
+    "identifier": "fireworksai",
+    "modelCount": 22,
+    "models": [
+      "accounts/fireworks/models/llama-v3p3-70b-instruct",
+      "accounts/fireworks/models/llama-v3p2-3b-instruct",
+      "accounts/fireworks/models/llama-v3p2-11b-vision-instruct",
+      "accounts/fireworks/models/llama-v3p2-90b-vision-instruct",
+      "accounts/fireworks/models/llama-v3p1-8b-instruct",
+      "accounts/fireworks/models/llama-v3p1-70b-instruct",
+      "accounts/fireworks/models/llama-v3p1-405b-instruct",
+      "accounts/fireworks/models/llama-v3-8b-instruct",
+      "accounts/fireworks/models/llama-v3-70b-instruct",
+      "accounts/fireworks/models/llama-v3-8b-instruct-hf",
+      "accounts/fireworks/models/mistral-small-24b-instruct-2501",
+      "accounts/fireworks/models/mixtral-8x7b-instruct",
+      "accounts/fireworks/models/mixtral-8x22b-instruct",
+      "accounts/fireworks/models/phi-3-vision-128k-instruct",
+      "accounts/fireworks/models/mythomax-l2-13b",
+      "accounts/fireworks/models/deepseek-v3",
+      "accounts/fireworks/models/deepseek-r1",
+      "accounts/fireworks/models/qwen-qwq-32b-preview",
+      "accounts/fireworks/models/qwen2p5-72b-instruct",
+      "accounts/fireworks/models/qwen2-vl-72b-instruct",
+      "accounts/fireworks/models/qwen2p5-coder-32b-instruct",
+      "accounts/yi-01-ai/models/yi-large"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "llama-3.1-8b-instant",
+    "description": "Groq’s LPU inference engine delivers standout benchmark performance with exceptional speed and efficiency, setting a high bar for low-latency, cloud-based LLM inference.",
+    "id": "groq",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://console.groq.com/docs/models",
+    "name": "Groq",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.groq.com/openai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://groq.com",
+    "identifier": "groq",
+    "modelCount": 10,
+    "models": [
+      "groq/compound",
+      "groq/compound-mini",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "meta-llama/llama-4-scout-17b-16e-instruct",
+      "qwen/qwen3-32b",
+      "llama-3.1-8b-instant",
+      "llama-3.3-70b-versatile",
+      "meta-llama/llama-prompt-guard-2-22m",
+      "meta-llama/llama-prompt-guard-2-86m"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "sonar",
+    "description": "Perplexity provides advanced chat models, including Llama 3.1 variants, for online and offline use and complex NLP workloads.",
+    "id": "perplexity",
+    "modelsUrl": "https://docs.perplexity.ai/guides/model-cards",
+    "name": "Perplexity",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.perplexity.ai"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://www.perplexity.ai",
+    "identifier": "perplexity",
+    "modelCount": 6,
+    "models": [
+      "sonar-deep-research",
+      "sonar-reasoning-pro",
+      "sonar-reasoning",
+      "sonar-pro",
+      "sonar",
+      "r1-1776"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "ministral-3b-latest",
+    "description": "Mistral offers advanced general, specialized, and research models for complex reasoning, multilingual tasks, and code generation, with function-calling for custom integrations.",
+    "id": "mistral",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://docs.mistral.ai/getting-started/models",
+    "name": "Mistral",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.mistral.ai"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://mistral.ai",
+    "identifier": "mistral",
+    "modelCount": 18,
+    "models": [
+      "mistral-medium-3.5",
+      "devstral-2512",
+      "labs-devstral-small-2512",
+      "mistral-medium-2508",
+      "magistral-medium-2509",
+      "magistral-small-2509",
+      "open-mistral-nemo",
+      "mistral-small-2603",
+      "mistral-small-2506",
+      "mistral-large-2512",
+      "mistral-large-2411",
+      "codestral-latest",
+      "pixtral-large-latest",
+      "pixtral-12b-2409",
+      "ministral-3b-latest",
+      "ministral-8b-latest",
+      "open-codestral-mamba",
+      "labs-leanstral-2603"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Qwen/Qwen3-4B",
+    "description": "ModelScope is Alibaba Cloud’s model-as-a-service platform, offering a wide range of AI models and inference services.",
+    "id": "modelscope",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "name": "ModelScope",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api-inference.modelscope.cn/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://modelscope.cn",
+    "identifier": "modelscope",
+    "modelCount": 8,
+    "models": [
+      "Qwen/Qwen3-Next-80B-A3B-Thinking",
+      "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "deepseek-ai/DeepSeek-V3.2",
+      "deepseek-ai/DeepSeek-V3.2-Exp",
+      "deepseek-ai/DeepSeek-V3.1",
+      "deepseek-ai/DeepSeek-R1-0528",
+      "Qwen/Qwen3-235B-A22B",
+      "Qwen/Qwen3-32B"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "jamba-mini",
+    "description": "AI21 Labs builds foundation models and AI systems for enterprises, accelerating generative AI in production.",
+    "id": "ai21",
+    "modelsUrl": "https://docs.ai21.com/reference",
+    "name": "Ai21Labs",
+    "settings": {
+      "sdkType": "openai"
+    },
+    "url": "https://studio.ai21.com",
+    "identifier": "ai21",
+    "modelCount": 2,
+    "models": ["jamba-mini", "jamba-large"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "solar-1-mini-chat",
+    "description": "Upstage builds AI models for business needs, including Solar LLM and Document AI, with chat APIs that support function calling, translation, embeddings, and domain-specific use cases.",
+    "id": "upstage",
+    "modelsUrl": "https://developers.upstage.ai/docs/getting-started/models",
+    "name": "Upstage",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.upstage.ai/v1/solar"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://upstage.ai",
+    "identifier": "upstage",
+    "modelCount": 3,
+    "models": ["solar-pro", "solar-mini", "solar-mini-ja"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "grok-4.3",
+    "description": "xAI builds AI to accelerate scientific discovery, with a mission to deepen humanity’s understanding of the universe.",
+    "id": "xai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://docs.x.ai/docs#models",
+    "name": "xAI (Grok)",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.x.ai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://x.ai/api",
+    "identifier": "xai",
+    "modelCount": 7,
+    "models": [
+      "grok-4.3",
+      "grok-4.20-0309-non-reasoning",
+      "grok-4.20-0309-reasoning",
+      "grok-4.20-multi-agent-0309",
+      "grok-imagine-image-quality",
+      "grok-imagine-image",
+      "grok-imagine-video"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "jina-deepsearch-v1",
+    "description": "Founded in 2020, Jina AI is a leading search AI company. Its search stack includes vector models, rerankers, and small language models to build reliable, high-quality generative and multimodal search apps.",
+    "id": "jina",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://jina.ai/models",
+    "name": "Jina AI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://deepsearch.jina.ai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://jina.ai",
+    "identifier": "jina",
+    "modelCount": 1,
+    "models": ["jina-deepsearch-v1"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Meta-Llama-3.2-1B-Instruct",
+    "description": "SambaNova Cloud lets developers use top open-source models with extremely fast inference.",
+    "disableBrowserRequest": true,
+    "id": "sambanova",
+    "modelsUrl": "https://cloud.sambanova.ai/plans/pricing",
+    "name": "SambaNova",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.sambanova.ai/v1"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://cloud.sambanova.ai",
+    "identifier": "sambanova",
+    "modelCount": 14,
+    "models": [
+      "Meta-Llama-3.3-70B-Instruct",
+      "Meta-Llama-3.2-1B-Instruct",
+      "Meta-Llama-3.2-3B-Instruct",
+      "Llama-3.2-11B-Vision-Instruct",
+      "Llama-3.2-90B-Vision-Instruct\t",
+      "Meta-Llama-3.1-8B-Instruct",
+      "Meta-Llama-3.1-70B-Instruct",
+      "Meta-Llama-3.1-405B-Instruct",
+      "Llama-3.1-Tulu-3-405B",
+      "DeepSeek-R1",
+      "DeepSeek-R1-Distill-Llama-70B",
+      "QwQ-32B-Preview",
+      "Qwen2.5-72B-Instruct",
+      "Qwen2.5-Coder-32B-Instruct"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "command-r7b-12-2024",
+    "description": "Cohere delivers cutting-edge multilingual models, advanced retrieval, and AI workspaces for modern enterprises—all in one secure platform.",
+    "id": "cohere",
+    "modelsUrl": "https://docs.cohere.com/v2/docs/models",
+    "name": "Cohere",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.cohere.ai/compatibility/v1"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://cohere.com",
+    "identifier": "cohere",
+    "modelCount": 14,
+    "models": [
+      "command-a-03-2025",
+      "command-r-plus-04-2024",
+      "command-r-plus-08-2024",
+      "command-r-03-2024",
+      "command-r-08-2024",
+      "command-r7b-12-2024",
+      "command",
+      "command-nightly",
+      "command-light",
+      "command-light-nightly",
+      "c4ai-aya-expanse-32b",
+      "c4ai-aya-expanse-8b",
+      "c4ai-aya-vision-32b",
+      "c4ai-aya-vision-8b"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "v0-1.5-md",
+    "description": "v0 is a pair-programming assistant that turns natural-language ideas into code and UI for your project.",
+    "id": "v0",
+    "modelsUrl": "https://vercel.com/docs/v0/api#models",
+    "name": "Vercel (v0)",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "openai"
+    },
+    "url": "https://v0.dev",
+    "identifier": "v0",
+    "modelCount": 3,
+    "models": ["v0-1.5-lg", "v0-1.5-md", "v0-1.0-md"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "qwen-flash",
+    "description": "Qwen is Alibaba Cloud's large-scale language model with strong understanding and generation, covering Q&A, writing, opinion expression, and code across many domains.",
+    "disableBrowserRequest": true,
+    "id": "qwen",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://help.aliyun.com/zh/dashscope/developer-reference/api-details",
+    "name": "Aliyun Bailian",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://dashscope.aliyuncs.com/compatible-mode/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": true
+    },
+    "url": "https://www.aliyun.com/product/bailian",
+    "identifier": "qwen",
+    "modelCount": 178,
+    "models": [
+      "kimi-k2.6",
+      "kimi-k2.5",
+      "MiniMax-M2.5",
+      "MiniMax-M2.1",
+      "qwen3-vl-plus",
+      "qwen3-vl-flash",
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
+      "deepseek-v3.2",
+      "deepseek-v3.2-exp",
+      "deepseek-v3.1",
+      "kimi-k2-thinking",
+      "Moonshot-Kimi-K2-Instruct",
+      "glm-5.1",
+      "glm-5",
+      "glm-4.7",
+      "glm-4.6",
+      "glm-4.5",
+      "glm-4.5-air",
+      "qwen3-coder-next",
+      "qwen3-coder-plus",
+      "qwen3-coder-flash",
+      "qwen3-coder-480b-a35b-instruct",
+      "qwen3-coder-30b-a3b-instruct",
+      "qwen3.6-27b",
+      "qwen3.6-35b-a3b",
+      "qwen3.5-397b-a17b",
+      "qwen3.5-122b-a10b",
+      "qwen3.5-27b",
+      "qwen3.5-35b-a3b",
+      "qwen3-235b-a22b-thinking-2507",
+      "qwen3-235b-a22b-instruct-2507",
+      "qwen3-30b-a3b-thinking-2507",
+      "qwen3-30b-a3b-instruct-2507",
+      "qwen3-next-80b-a3b-thinking",
+      "qwen3-next-80b-a3b-instruct",
+      "qwen3-235b-a22b",
+      "qwen3-32b",
+      "qwen3-30b-a3b",
+      "qwen3-14b",
+      "qwen3-8b",
+      "qwen3-4b",
+      "qwen3-1.7b",
+      "qwen3-0.6b",
+      "qwq-plus",
+      "qwen3.6-flash",
+      "qwen3.5-flash",
+      "qwen-flash",
+      "qwen-turbo",
+      "qwen3.6-plus",
+      "qwen3.5-plus-2026-04-20",
+      "qwen3.5-plus",
+      "qwen-plus",
+      "qwen3.6-max-preview",
+      "qwen3-max",
+      "qwen3-max-preview",
+      "qwen-max",
+      "qwen-long",
+      "qwen3.5-omni-plus",
+      "qwen3.5-omni-flash",
+      "qwen3-omni-flash",
+      "qwen-omni-turbo",
+      "qwen2.5-omni-7b",
+      "qwen-vl-plus",
+      "qwen-vl-max",
+      "qwen-vl-ocr",
+      "qwen3-vl-30b-a3b-thinking",
+      "qwen3-vl-30b-a3b-instruct",
+      "qwen3-vl-8b-thinking",
+      "qwen3-vl-8b-instruct",
+      "qwen3-vl-235b-a22b-thinking",
+      "qwen3-vl-235b-a22b-instruct",
+      "qwen3-vl-32b-thinking",
+      "qwen3-vl-32b-instruct",
+      "qwen-math-turbo",
+      "qwen-math-plus",
+      "qwen-coder-turbo",
+      "qwen-coder-plus",
+      "qwq-32b",
+      "qwq-32b-preview",
+      "qvq-max",
+      "qvq-plus",
+      "qvq-72b-preview",
+      "qwen2.5-7b-instruct",
+      "qwen2.5-14b-instruct",
+      "qwen2.5-32b-instruct",
+      "qwen2.5-72b-instruct",
+      "qwen2.5-14b-instruct-1m",
+      "qwen2.5-math-7b-instruct",
+      "qwen2.5-math-72b-instruct",
+      "qwen2.5-coder-7b-instruct",
+      "qwen2.5-coder-14b-instruct",
+      "qwen2.5-coder-32b-instruct",
+      "qwen2.5-vl-72b-instruct",
+      "qwen2.5-vl-32b-instruct",
+      "qwen2.5-vl-7b-instruct",
+      "deepseek-r1-0528",
+      "deepseek-v3",
+      "deepseek-r1-distill-qwen-1.5b",
+      "deepseek-r1-distill-qwen-7b",
+      "deepseek-r1-distill-qwen-14b",
+      "deepseek-r1-distill-qwen-32b",
+      "deepseek-r1-distill-llama-8b",
+      "deepseek-r1-distill-llama-70b",
+      "z-image-turbo",
+      "qwen-image-2.0-pro-2026-04-22",
+      "qwen-image-2.0-pro",
+      "qwen-image-2.0",
+      "qwen-image-edit-max",
+      "qwen-image-edit-plus",
+      "qwen-image-edit",
+      "qwen-image-max",
+      "qwen-image-plus",
+      "qwen-image",
+      "wan2.7-image-pro",
+      "wan2.7-image",
+      "wan2.6-image",
+      "wan2.6-t2i",
+      "wan2.5-i2i-preview",
+      "wan2.5-t2i-preview",
+      "wan2.2-t2i-flash",
+      "wan2.2-t2i-plus",
+      "wanx2.1-t2i-turbo",
+      "wanx2.1-t2i-plus",
+      "wanx2.0-t2i-turbo",
+      "wanx-v1",
+      "kling/kling-v3-image-generation",
+      "kling/kling-v3-omni-image-generation",
+      "happyhorse-1.0-i2v",
+      "happyhorse-1.0-r2v",
+      "happyhorse-1.0-t2v",
+      "wan2.7-i2v-2026-04-25",
+      "wan2.7-i2v",
+      "wan2.7-r2v",
+      "wan2.7-t2v-2026-04-25",
+      "wan2.7-t2v",
+      "wan2.6-i2v-flash",
+      "wan2.6-i2v",
+      "wan2.6-r2v-flash",
+      "wan2.6-r2v",
+      "wan2.6-t2v",
+      "wan2.5-i2v-preview",
+      "wan2.5-t2v-preview",
+      "wan2.2-kf2v-flash",
+      "wan2.2-kf2v-plus",
+      "wan2.2-i2v-flash",
+      "wan2.2-i2v-plus",
+      "wan2.2-t2v-plus",
+      "wanx2.1-i2v-turbo",
+      "wanx2.1-i2v-plus",
+      "wanx2.1-t2v-turbo",
+      "wanx2.1-t2v-plus",
+      "kling/kling-v3-video-generation",
+      "kling/kling-v3-omni-video-generation",
+      "vidu/viduq3-pro_text2video",
+      "vidu/viduq3-turbo_text2video",
+      "vidu/viduq2_text2video",
+      "vidu/viduq3-pro_img2video",
+      "vidu/viduq3-turbo_img2video",
+      "vidu/viduq2-pro_img2video",
+      "vidu/viduq2-turbo_img2video",
+      "vidu/viduq3-pro_start-end2video",
+      "vidu/viduq3-turbo_start-end2video",
+      "vidu/viduq2-pro_start-end2video",
+      "vidu/viduq2-turbo_start-end2video",
+      "vidu/viduq2-pro_reference2video",
+      "vidu/viduq2_reference2video",
+      "pixverse/pixverse-c1-t2v",
+      "pixverse/pixverse-v6-t2v",
+      "pixverse/pixverse-v5.6-t2v",
+      "pixverse/pixverse-c1-it2v",
+      "pixverse/pixverse-v6-it2v",
+      "pixverse/pixverse-v5.6-it2v",
+      "pixverse/pixverse-c1-kf2v",
+      "pixverse/pixverse-v6-kf2v",
+      "pixverse/pixverse-v5.6-kf2v",
+      "pixverse/pixverse-c1-r2v",
+      "pixverse/pixverse-v5.6-r2v"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "ernie-4.5-turbo-latest",
+    "description": "An enterprise all-in-one platform for foundation models and AI-native app development, offering end-to-end tooling for generative AI model and application workflows.",
+    "id": "wenxin",
+    "modelsUrl": "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list",
+    "name": "Wenxin",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://qianfan.baidubce.com/v2"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://cloud.baidu.com/wenxin.html",
+    "identifier": "wenxin",
+    "modelCount": 86,
+    "models": [
+      "ernie-5.0",
+      "ernie-5.0-thinking-latest",
+      "ernie-5.0-thinking-preview",
+      "ernie-4.5-turbo-20260402",
+      "ernie-4.5-turbo-128k",
+      "ernie-4.5-turbo-32k",
+      "ernie-4.5-turbo-latest",
+      "ernie-speed-pro-128k",
+      "ernie-lite-pro-128k",
+      "ernie-char-fiction-8k",
+      "ernie-char-fiction-8k-preview",
+      "ernie-novel-8k",
+      "ernie-4.5-0.3b",
+      "qianfan-8b",
+      "qianfan-70b",
+      "qianfan-agent-intent-32k",
+      "qianfan-agent-lite-8k",
+      "ernie-4.5-turbo-vl",
+      "ernie-4.5-turbo-vl-32k",
+      "ernie-4.5-turbo-vl-latest",
+      "ernie-4.5-8k-preview",
+      "ernie-x1.1",
+      "ernie-x1.1-preview",
+      "ernie-x1-turbo-32k",
+      "ernie-x1-turbo-32k-preview",
+      "qianfan-composition",
+      "qianfan-check-vl",
+      "qianfan-multipicocr",
+      "qianfan-vl-70b",
+      "qianfan-vl-8b",
+      "qianfan-qi-vl",
+      "qianfan-engcard-vl",
+      "qianfan-singlepicocr",
+      "internvl3-38b",
+      "internvl3-14b",
+      "internvl3-1b",
+      "internvl2.5-38b-mpo",
+      "qwen3-vl-32b-instruct",
+      "qwen3-vl-32b-thinking",
+      "qwen3-vl-8b-instruct",
+      "qwen3-vl-8b-thinking",
+      "qwen3-vl-30b-a3b-instruct",
+      "qwen3-vl-30b-a3b-thinking",
+      "qwen3-vl-235b-a22b-instruct",
+      "qwen3-vl-235b-a22b-thinking",
+      "qwen2.5-vl-32b-instruct",
+      "glm-4.5v",
+      "deepseek-vl2",
+      "deepseek-vl2-small",
+      "deepseek-v3.2-think",
+      "deepseek-v3.1-think-250821",
+      "deepseek-r1-250528",
+      "deepseek-r1-distill-qianfan-70b",
+      "deepseek-r1-distill-qianfan-8b",
+      "deepseek-r1-distill-qianfan-llama-70b",
+      "deepseek-r1-distill-llama-70b",
+      "deepseek-r1-distill-qwen-32b",
+      "deepseek-r1-distill-qwen-14b",
+      "deepseek-r1-distill-qwen-7b",
+      "deepseek-r1-distill-qwen-1.5b",
+      "qwen3-next-80b-a3b-thinking",
+      "qwen3-235b-a22b-thinking-2507",
+      "qwen3-30b-a3b-thinking-2507",
+      "kimi-k2-instruct",
+      "qwen3-coder-480b-a35b-instruct",
+      "qwen3-235b-a22b-instruct-2507",
+      "qwen3-30b-a3b-instruct-2507",
+      "qwen3-30b-a3b",
+      "qwen3-32b",
+      "qwen3-14b",
+      "qwen3-8b",
+      "qwen3-4b",
+      "qwen3-1.7b",
+      "qwen3-0.6b",
+      "musesteamer-air-image",
+      "ernie-image-turbo",
+      "irag-1.0",
+      "ernie-irag-edit",
+      "qwen-image",
+      "qwen-image-edit",
+      "flux.1-schnell",
+      "musesteamer-2.0-turbo-i2v-audio",
+      "musesteamer-2.0-turbo-i2v",
+      "musesteamer-2.0-pro-i2v",
+      "musesteamer-2.0-lite-i2v",
+      "musesteamer-air-i2v"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek-v3",
+    "description": "LLM Knowledge Engine Atomic Power provides end-to-end knowledge QA for enterprises and developers, with modular services like document parsing, chunking, embeddings, and multi-turn rewriting to assemble custom AI solutions.",
+    "id": "tencentcloud",
+    "modelsUrl": "https://cloud.tencent.com/document/api/1772/115963",
+    "name": "TencentCloud",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.lkeap.cloud.tencent.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://cloud.tencent.com/document/api/1772/115365",
+    "identifier": "tencentcloud",
+    "modelCount": 3,
+    "models": ["deepseek-r1", "deepseek-v3-0324", "deepseek-v3"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "hunyuan-role-latest",
+    "description": "A Tencent-developed LLM with strong Chinese writing, solid reasoning in complex contexts, and reliable task execution.",
+    "disableBrowserRequest": true,
+    "id": "hunyuan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://console.cloud.tencent.com/tokenhub/models",
+    "name": "Hunyuan",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://tokenhub.tencentmaas.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://hunyuan.tencent.com",
+    "identifier": "hunyuan",
+    "modelCount": 23,
+    "models": [
+      "hy3-preview",
+      "hunyuan-2.0-thinking-20251109",
+      "hunyuan-2.0-instruct-20251111",
+      "hunyuan-role-latest",
+      "glm-5.1",
+      "glm-5-turbo",
+      "glm-5",
+      "glm-5v-turbo",
+      "kimi-k2.6",
+      "kimi-k2.5",
+      "minimax-m2.7",
+      "minimax-m2.5",
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
+      "deepseek-v3.2",
+      "deepseek-v3.1",
+      "deepseek-r1-0528",
+      "deepseek-v3-0324",
+      "youtu-vita",
+      "hy-image-v3.0",
+      "hy-image-lite",
+      "hy-video-1.5",
+      "yt-video-2.0"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "glm-4.5-flash",
+    "description": "ZhiPu AI provides an open platform for multimodal and language models across text processing, image understanding, and coding assistance.",
+    "id": "zhipu",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://open.bigmodel.cn/dev/howuse/model",
+    "name": "ZhiPu",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://open.bigmodel.cn/api/paas/v4"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://zhipuai.cn",
+    "identifier": "zhipu",
+    "modelCount": 48,
+    "models": [
+      "glm-5.1",
+      "glm-5-turbo",
+      "glm-5",
+      "glm-4.7",
+      "glm-4.7-flash",
+      "glm-4.7-flashx",
+      "glm-5v-turbo",
+      "glm-4.6v",
+      "glm-4.6v-flashx",
+      "glm-4.6v-flash",
+      "glm-4.6",
+      "glm-4.5v",
+      "glm-4.5",
+      "glm-4.5-x",
+      "glm-4.5-air",
+      "glm-4.5-airx",
+      "glm-4.1v-thinking-flashx",
+      "glm-4.1v-thinking-flash",
+      "glm-zero-preview",
+      "glm-z1-air",
+      "glm-z1-airx",
+      "glm-z1-flashx",
+      "glm-z1-flash",
+      "glm-4-flash-250414",
+      "glm-4-flashx",
+      "glm-4-long",
+      "glm-4-air-250414",
+      "glm-4-airx",
+      "glm-4-plus",
+      "glm-4-0520",
+      "glm-4v-flash",
+      "glm-4v-plus-0111",
+      "glm-4v",
+      "codegeex-4",
+      "charglm-4",
+      "emohaa",
+      "glm-image",
+      "cogview-4",
+      "cogview-3-flash",
+      "vidu2-reference",
+      "vidu2-start-end",
+      "viduq1-start-end",
+      "vidu2-image",
+      "viduq1-image",
+      "viduq1-text",
+      "cogvideox-3",
+      "cogvideox-2",
+      "cogvideox-flash"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Pro/zai-org/GLM-4.7",
+    "description": "SiliconCloud is a cost-effective GenAI cloud service built on strong open-source base models.",
+    "id": "siliconcloud",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://siliconflow.cn/zh-cn/models",
+    "name": "SiliconCloud",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.siliconflow.cn/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://siliconflow.cn/zh-cn/siliconcloud",
+    "identifier": "siliconcloud",
+    "modelCount": 75,
+    "models": [
+      "deepseek-ai/DeepSeek-V4-Flash",
+      "Pro/moonshotai/Kimi-K2.6",
+      "Qwen/Qwen3.6-27B",
+      "Qwen/Qwen3.6-35B-A3B",
+      "Qwen/Qwen3.5-397B-A17B",
+      "Qwen/Qwen3.5-122B-A10B",
+      "Qwen/Qwen3.5-35B-A3B",
+      "Qwen/Qwen3.5-27B",
+      "Qwen/Qwen3.5-9B",
+      "Qwen/Qwen3.5-4B",
+      "MiniMaxAI/MiniMax-M2.5",
+      "Pro/MiniMaxAI/MiniMax-M2.5",
+      "Pro/zai-org/glm-5.1",
+      "Pro/zai-org/glm-5",
+      "Pro/zai-org/GLM-5.1",
+      "deepseek-ai/DeepSeek-V3.2",
+      "Pro/deepseek-ai/DeepSeek-V3.2",
+      "Pro/moonshotai/Kimi-K2.5",
+      "PaddlePaddle/PaddleOCR-VL-1.5",
+      "Pro/zai-org/GLM-4.7",
+      "moonshotai/Kimi-K2-Thinking",
+      "Pro/moonshotai/Kimi-K2-Thinking",
+      "Qwen/Qwen3-VL-32B-Instruct",
+      "Qwen/Qwen3-VL-32B-Thinking",
+      "deepseek-ai/DeepSeek-OCR",
+      "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+      "Qwen/Qwen3-Omni-30B-A3B-Thinking",
+      "Qwen/Qwen3-Omni-30B-A3B-Captioner",
+      "tencent/Hunyuan-MT-7B",
+      "zai-org/GLM-4.6",
+      "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "deepseek-ai/DeepSeek-V3.1-Terminus",
+      "Pro/deepseek-ai/DeepSeek-V3.1-Terminus",
+      "Qwen/Qwen3-VL-8B-Instruct",
+      "Qwen/Qwen3-VL-8B-Thinking",
+      "inclusionAI/Ring-flash-2.0",
+      "inclusionAI/Ling-flash-2.0",
+      "inclusionAI/Ling-mini-2.0",
+      "ByteDance-Seed/Seed-OSS-36B-Instruct",
+      "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "zai-org/GLM-4.5V",
+      "zai-org/GLM-4.5-Air",
+      "moonshotai/Kimi-K2-Instruct-0905",
+      "Pro/moonshotai/Kimi-K2-Instruct-0905",
+      "tencent/Hunyuan-A13B-Instruct",
+      "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "Qwen/Qwen3-30B-A3B-Thinking-2507",
+      "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "Qwen/Qwen3-32B",
+      "Qwen/Qwen3-14B",
+      "Qwen/Qwen3-8B",
+      "THUDM/GLM-4.1V-9B-Thinking",
+      "THUDM/GLM-Z1-32B-0414",
+      "THUDM/GLM-Z1-9B-0414",
+      "THUDM/GLM-4-32B-0414",
+      "THUDM/GLM-4-9B-0414",
+      "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "deepseek-ai/DeepSeek-R1",
+      "deepseek-ai/DeepSeek-V3",
+      "Pro/deepseek-ai/DeepSeek-R1",
+      "Pro/deepseek-ai/DeepSeek-V3",
+      "Qwen/Qwen2.5-7B-Instruct",
+      "Pro/Qwen/Qwen2.5-7B-Instruct",
+      "Qwen/Qwen2.5-14B-Instruct",
+      "Qwen/Qwen2.5-32B-Instruct",
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-72B-Instruct-128K",
+      "zai-org/GLM-4.6V",
+      "stepfun-ai/Step-3.5-Flash",
+      "Kwai-Kolors/Kolors",
+      "Qwen/Qwen-Image",
+      "Qwen/Qwen-Image-Edit-2509",
+      "Wan-AI/Wan2.2-I2V-A14B",
+      "Wan-AI/Wan2.2-T2V-A14B"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "yi-lightning",
+    "description": "01.AI drives a human-centered AI 2.0 revolution, using LLMs to create economic and social value and build new AI ecosystems and business models.",
+    "id": "zeroone",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.lingyiwanwu.com/docs#models-and-pricing",
+    "name": "01.AI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.lingyiwanwu.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://www.lingyiwanwu.com/",
+    "identifier": "zeroone",
+    "modelCount": 12,
+    "models": [
+      "yi-lightning",
+      "yi-vision-v2",
+      "yi-spark",
+      "yi-medium",
+      "yi-medium-200k",
+      "yi-large-turbo",
+      "yi-large-rag",
+      "yi-large-fc",
+      "yi-large",
+      "yi-vision",
+      "yi-large-preview",
+      "yi-lightning-lite"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "lite",
+    "description": "iFLYTEK Spark provides powerful multilingual AI across domains, enabling innovations in smart hardware, healthcare, finance, and other verticals.",
+    "id": "spark",
+    "modelsUrl": "https://xinghuo.xfyun.cn/spark",
+    "name": "Spark",
+    "settings": {
+      "disableBrowserRequest": true,
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://www.xfyun.cn",
+    "identifier": "spark",
+    "modelCount": 8,
+    "models": [
+      "spark-x",
+      "x1",
+      "lite",
+      "generalv3",
+      "pro-128k",
+      "generalv3.5",
+      "max-32k",
+      "4.0Ultra"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "SenseChat-Turbo",
+    "description": "SenseNova delivers efficient, easy-to-use full-stack LLM services backed by SenseTime infrastructure.",
+    "disableBrowserRequest": true,
+    "id": "sensenova",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.sensenova.cn/pricing",
+    "name": "SenseNova",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.sensenova.cn/compatible-mode/v2"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://platform.sensenova.cn/home",
+    "identifier": "sensenova",
+    "modelCount": 23,
+    "models": [
+      "SenseNova-V6-5-Pro",
+      "SenseNova-V6-5-Turbo",
+      "Qwen3-235B",
+      "Qwen3-32B",
+      "SenseNova-V6-Reasoner",
+      "SenseNova-V6-Turbo",
+      "SenseNova-V6-Pro",
+      "SenseChat-5-beta",
+      "SenseChat-5-1202",
+      "SenseChat-Turbo-1202",
+      "SenseChat-5",
+      "SenseChat-Vision",
+      "SenseChat-Turbo",
+      "SenseChat-128K",
+      "SenseChat-32K",
+      "SenseChat",
+      "SenseChat-5-Cantonese",
+      "SenseChat-Character",
+      "SenseChat-Character-Pro",
+      "DeepSeek-V3",
+      "DeepSeek-R1",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "step-2-mini",
+    "description": "Stepfun models offer leading multimodal and complex reasoning capabilities, with long-context understanding and powerful autonomous search orchestration.",
+    "disableBrowserRequest": true,
+    "id": "stepfun",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.stepfun.com/docs/llm/text",
+    "name": "Stepfun",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.stepfun.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://stepfun.com",
+    "identifier": "stepfun",
+    "modelCount": 18,
+    "models": [
+      "step-3.5-flash-2603",
+      "step-3.5-flash",
+      "step-3",
+      "step-r1-v-mini",
+      "step-1-8k",
+      "step-1-32k",
+      "step-1-256k",
+      "step-2-mini",
+      "step-2-16k",
+      "step-2-16k-exp",
+      "step-1v-8k",
+      "step-1v-32k",
+      "step-1o-vision-32k",
+      "step-1o-turbo-vision",
+      "step-image-edit-2",
+      "step-2x-large",
+      "step-1x-medium",
+      "step-1x-edit"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Baichuan3-Turbo",
+    "description": "Baichuan AI focuses on foundation models with strong performance on Chinese knowledge, long-context processing, and creative generation. Its models (Baichuan 4, Baichuan 3 Turbo, Baichuan 3 Turbo 128k) are optimized for different scenarios and offer strong value.",
+    "id": "baichuan",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://platform.baichuan-ai.com/price",
+    "name": "Baichuan",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.baichuan-ai.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://platform.baichuan-ai.com",
+    "identifier": "baichuan",
+    "modelCount": 10,
+    "models": [
+      "Baichuan-M3-Plus",
+      "Baichuan-M3",
+      "Baichuan-M2-Plus",
+      "Baichuan-M2",
+      "Baichuan4",
+      "Baichuan4-Turbo",
+      "Baichuan4-Air",
+      "Baichuan3-Turbo",
+      "Baichuan3-Turbo-128k",
+      "Baichuan2-Turbo"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "doubao-seed-1.8",
+    "description": "ByteDance’s model service platform offers secure, feature-rich, cost-competitive model access plus end-to-end tooling for data, fine-tuning, inference, and evaluation.",
+    "id": "volcengine",
+    "modelsUrl": "https://www.volcengine.com/docs/82379/1330310",
+    "name": "Volcengine",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://ark.cn-beijing.volces.com/api/v3"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": false,
+      "supportResponsesApi": true
+    },
+    "url": "https://www.volcengine.com/product/ark",
+    "identifier": "volcengine",
+    "modelCount": 32,
+    "models": [
+      "doubao-seed-2.0-pro",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.0-code",
+      "doubao-seed-1.8",
+      "doubao-seed-code",
+      "glm-4-7",
+      "deepseek-v3.2",
+      "deepseek-v3.1",
+      "doubao-seed-1.6-vision",
+      "doubao-seed-1.6",
+      "doubao-seed-1.6-lite",
+      "doubao-seed-1.6-flash",
+      "deepseek-r1",
+      "deepseek-v3",
+      "doubao-1.5-pro-32k",
+      "doubao-1.5-pro-256k",
+      "doubao-1.5-lite-32k",
+      "doubao-1.5-vision-pro-32k",
+      "doubao-lite-32k",
+      "doubao-pro-32k",
+      "doubao-seedream-5-0-260128",
+      "doubao-seedream-4-5-251128",
+      "doubao-seedream-4-0-250828",
+      "doubao-seedream-3-0-t2i-250415",
+      "doubao-seedance-2-0-260128",
+      "doubao-seedance-2-0-fast-260128",
+      "doubao-seedance-1-5-pro-251215",
+      "doubao-seedance-1-0-pro-fast-251015",
+      "doubao-seedance-1-0-pro-250528",
+      "doubao-seedance-1-0-lite-i2v-250428",
+      "doubao-seedance-1-0-lite-t2v-250428"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "doubao-seed-code",
+    "description": "Volcengine Coding Plan from ByteDance provides access to multiple coding models including Doubao-Seed-Code, GLM-4.7, DeepSeek-V3.2, and Kimi-K2.5 via a fixed-fee subscription.",
+    "disableBrowserRequest": true,
+    "id": "volcenginecodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://www.volcengine.com/docs/82379/1925114",
+    "name": "Volcengine Coding Plan",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://ark.cn-beijing.volces.com/api/coding/v3"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": false
+    },
+    "url": "https://www.volcengine.com/activity/codingplan",
+    "identifier": "volcenginecodingplan",
+    "modelCount": 8,
+    "models": [
+      "doubao-seed-code",
+      "doubao-seed-2.0-code",
+      "doubao-seed-2.0-pro",
+      "doubao-seed-2.0-lite",
+      "MiniMax-M2.5",
+      "glm-4.7",
+      "deepseek-v3.2",
+      "kimi-k2.5"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "MiniMax-M2.1",
+    "description": "Founded in 2021, MiniMax builds general-purpose AI with multimodal foundation models, including trillion-parameter MoE text models, speech models, and vision models, along with apps like Hailuo AI.",
+    "id": "minimax",
+    "modelsUrl": "https://platform.minimaxi.com/document/Models",
+    "name": "Minimax",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.minimaxi.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://www.minimaxi.com",
+    "identifier": "minimax",
+    "modelCount": 22,
+    "models": [
+      "MiniMax-M2.7",
+      "MiniMax-M2.7-highspeed",
+      "MiniMax-M2.5",
+      "MiniMax-M2.5-highspeed",
+      "M2-her",
+      "MiniMax-M2.1",
+      "MiniMax-M2.1-highspeed",
+      "MiniMax-M2",
+      "MiniMax-M2-Stable",
+      "MiniMax-M1",
+      "MiniMax-Text-01",
+      "image-01",
+      "image-01-live",
+      "MiniMax-Hailuo-2.3-Fast",
+      "MiniMax-Hailuo-2.3",
+      "MiniMax-Hailuo-02",
+      "I2V-01-Director",
+      "T2V-01-Director",
+      "I2V-01-live",
+      "I2V-01",
+      "S2V-01",
+      "T2V-01"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "MiniMax-M2.7",
+    "description": "MiniMax Token Plan provides access to MiniMax models including M2.7 for coding tasks via a fixed-fee subscription.",
+    "disableBrowserRequest": true,
+    "id": "minimaxcodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://platform.minimax.io/docs/coding-plan/intro",
+    "name": "MiniMax Token Plan",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.minimaxi.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showDeployName": true,
+      "showModelFetcher": false
+    },
+    "url": "https://platform.minimax.io/subscribe/token-plan",
+    "identifier": "minimaxcodingplan",
+    "modelCount": 6,
+    "models": [
+      "MiniMax-M2.7",
+      "MiniMax-M2.7-highspeed",
+      "MiniMax-M2.5",
+      "MiniMax-M2.5-highspeed",
+      "MiniMax-M2.1",
+      "MiniMax-M2"
+    ]
+  },
+  {
+    "chatModels": [],
+    "description": "LM Studio is a desktop app for developing and experimenting with LLMs on your computer.",
+    "id": "lmstudio",
+    "modelsUrl": "https://lmstudio.ai/models",
+    "name": "LM Studio",
+    "settings": {
+      "defaultShowBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "http://127.0.0.1:1234/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "showModelFetcher": true
+    },
+    "url": "https://lmstudio.ai",
+    "identifier": "lmstudio",
+    "modelCount": 2,
+    "models": ["llama3.1", "qwen2.5-14b-instruct"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "internlm2.5-latest",
+    "description": "An open-source organization focused on large-model research and tooling, providing an efficient, easy-to-use platform that makes cutting-edge models and algorithms accessible.",
+    "disableBrowserRequest": true,
+    "id": "internlm",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://internlm.intern-ai.org.cn/doc/docs/Models#%E8%8E%B7%E5%8F%96%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8",
+    "name": "InternLM",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://chat.intern-ai.org.cn/api/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://internlm.intern-ai.org.cn",
+    "identifier": "internlm",
+    "modelCount": 6,
+    "models": [
+      "intern-latest",
+      "intern-s1-pro",
+      "intern-s1",
+      "intern-s1-mini",
+      "internvl3.5-latest",
+      "internvl3.5-241b-a28b"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "qwen-max",
+    "description": "Higress is a cloud-native API gateway created inside Alibaba to address Tengine reload impact on long-lived connections and gaps in gRPC/Dubbo load balancing.",
+    "id": "higress",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://higress.cn/",
+    "name": "Higress",
+    "proxyUrl": {
+      "desc": "Enter the Higress AI Gateway endpoint.",
+      "placeholder": "https://127.0.0.1:8080/v1",
+      "title": "AI Gateway URL"
+    },
+    "settings": {
+      "proxyUrl": {
+        "desc": "Enter the Higress AI Gateway endpoint.",
+        "placeholder": "https://127.0.0.1:8080/v1",
+        "title": "AI Gateway URL"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://apig.console.aliyun.com/",
+    "identifier": "higress",
+    "modelCount": 201,
+    "models": [
+      "qwen-turbo",
+      "qwen-plus",
+      "qwen-max",
+      "qwen-long",
+      "qwen-vl-plus-latest",
+      "qwen-vl-max-latest",
+      "qwen-math-turbo-latest",
+      "qwen-math-plus-latest",
+      "qwen-coder-turbo-latest",
+      "qwen2.5-7b-instruct",
+      "qwen2.5-14b-instruct",
+      "qwen2.5-32b-instruct",
+      "qwen2.5-72b-instruct",
+      "qwen2.5-math-1.5b-instruct",
+      "qwen2.5-math-7b-instruct",
+      "qwen2.5-math-72b-instruct",
+      "qwen2.5-coder-1.5b-instruct",
+      "qwen2.5-coder-7b-instruct",
+      "qwen-vl-v1",
+      "qwen-vl-chat-v1",
+      "moonshot-v1-8k",
+      "moonshot-v1-32k",
+      "moonshot-v1-128k",
+      "Baichuan4",
+      "Baichuan4-Turbo",
+      "Baichuan4-Air",
+      "Baichuan3-Turbo",
+      "Baichuan3-Turbo-128k",
+      "Baichuan2-Turbo",
+      "yi-lightning",
+      "yi-spark",
+      "yi-medium",
+      "yi-medium-200k",
+      "yi-large-turbo",
+      "yi-large-rag",
+      "yi-large-fc",
+      "yi-large",
+      "yi-vision",
+      "yi-large-preview",
+      "yi-lightning-lite",
+      "glm-4-flash",
+      "glm-4-flashx",
+      "glm-4-long",
+      "glm-4-air",
+      "glm-4-airx",
+      "glm-4-alltools",
+      "glm-4-plus",
+      "glm-4-0520",
+      "glm-4",
+      "glm-4v-plus",
+      "glm-4v",
+      "charglm-3",
+      "emohaa",
+      "360gpt2-pro",
+      "360gpt-pro",
+      "360gpt-turbo",
+      "360gpt-turbo-responsibility-8k",
+      "ERNIE-3.5-8K",
+      "ERNIE-3.5-8K-Preview",
+      "ERNIE-3.5-128K",
+      "ERNIE-4.0-8K-Latest",
+      "ERNIE-4.0-8K-Preview",
+      "ERNIE-4.0-Turbo-8K-Latest",
+      "ERNIE-4.0-Turbo-8K-Preview",
+      "ERNIE-Lite-Pro-128K",
+      "ERNIE-Speed-Pro-128K",
+      "ERNIE-Speed-128K",
+      "ERNIE-Character-8K",
+      "hunyuan-lite",
+      "hunyuan-standard",
+      "hunyuan-standard-256K",
+      "hunyuan-turbo",
+      "hunyuan-pro",
+      "hunyuan-large",
+      "hunyuan-vision",
+      "hunyuan-code",
+      "hunyuan-functioncall",
+      "hunyuan-role",
+      "step-1-flash",
+      "step-1-8k",
+      "step-1-32k",
+      "step-1-128k",
+      "step-1-256k",
+      "step-2-16k",
+      "step-1v-8k",
+      "step-1v-32k",
+      "step-1.5v-mini",
+      "lite",
+      "generalv3",
+      "pro-128k",
+      "generalv3.5",
+      "max-32k",
+      "4.0Ultra",
+      "o1-mini",
+      "o1-preview",
+      "gpt-4o-mini",
+      "gpt-4o",
+      "gpt-4o-2024-08-06",
+      "gpt-4o-2024-05-13",
+      "chatgpt-4o-latest",
+      "gpt-4-turbo",
+      "gpt-4-turbo-2024-04-09",
+      "gpt-4-turbo-preview",
+      "gpt-4-0125-preview",
+      "gpt-4-1106-preview",
+      "gpt-4",
+      "gpt-4-0613",
+      "gpt-4-32k",
+      "gpt-4-32k-0613",
+      "gpt-3.5-turbo",
+      "gpt-3.5-turbo-0125",
+      "gpt-3.5-turbo-1106",
+      "gpt-3.5-turbo-instruct",
+      "gpt-35-turbo",
+      "gpt-35-turbo-16k",
+      "gpt-4-vision-preview",
+      "ai21-jamba-1.5-mini",
+      "ai21-jamba-1.5-large",
+      "cohere-command-r",
+      "cohere-command-r-plus",
+      "mistral-nemo",
+      "mistral-small",
+      "mistral-large",
+      "llama-3.2-11b-vision-instruct",
+      "llama-3.2-90b-vision-instruct",
+      "meta-llama-3.1-8b-instruct",
+      "meta-llama-3.1-70b-instruct",
+      "meta-llama-3.1-405b-instruct",
+      "meta-llama-3-8b-instruct",
+      "meta-llama-3-70b-instruct",
+      "Phi-3.5-mini-instruct",
+      "Phi-3.5-vision-instrust",
+      "Phi-3-mini-4k-instruct",
+      "Phi-3-mini-128k-instruct",
+      "Phi-3-small-8k-instruct",
+      "Phi-3-small-128k-instruct",
+      "Phi-3-medium-4k-instruct",
+      "Phi-3-medium-128k-instruct",
+      "llama-3.2-11b-vision-preview",
+      "llama-3.2-90b-vision-preview",
+      "llama-3.1-8b-instant",
+      "llama-3.1-70b-versatile",
+      "llama3-groq-8b-8192-tool-use-preview",
+      "llama3-groq-70b-8192-tool-use-preview",
+      "llama3-8b-8192",
+      "llama3-70b-8192",
+      "gemma2-9b-it",
+      "gemma-7b-it",
+      "mixtral-8x7b-32768",
+      "llava-v1.5-7b-4096-preview",
+      "deepseek-chat",
+      "claude-3-5-haiku-20241022",
+      "claude-3-haiku-20240307",
+      "claude-3-sonnet-20240229",
+      "claude-3-opus-20240229",
+      "claude-2.1",
+      "claude-2.0",
+      "gemini-1.5-flash-latest",
+      "gemini-1.5-flash-002",
+      "gemini-1.5-flash-001",
+      "gemini-1.5-flash-exp-0827",
+      "gemini-1.5-flash-8b",
+      "gemini-1.5-flash-8b-exp-0924",
+      "gemini-1.5-pro-latest",
+      "gemini-1.5-pro-002",
+      "gemini-1.5-pro-001",
+      "gemini-1.5-pro-exp-0827",
+      "gemini-1.5-pro-exp-0801",
+      "gemini-1.0-pro-latest",
+      "gemini-1.0-pro-001",
+      "gemini-1.0-pro-002",
+      "open-mistral-nemo",
+      "mistral-small-latest",
+      "mistral-large-latest",
+      "codestral-latest",
+      "pixtral-12b-2409",
+      "ministral-3b-latest",
+      "ministral-8b-latest",
+      "open-mistral-7b",
+      "open-mixtral-8x7b",
+      "open-mixtral-8x22b",
+      "open-codestral-mamba",
+      "abab6.5s-chat",
+      "abab6.5g-chat",
+      "abab6.5t-chat",
+      "abab5.5-chat",
+      "abab5.5s-chat",
+      "command-r",
+      "command-r-plus",
+      "command-light",
+      "Doubao-lite-4k",
+      "Doubao-lite-32k",
+      "Doubao-lite-128k",
+      "Doubao-pro-4k",
+      "Doubao-pro-32k",
+      "Doubao-pro-128k",
+      "Skylark2-pro-character-4k",
+      "Skylark2-pro-32k",
+      "Skylark2-pro-4k",
+      "Skylark2-pro-turbo-8k",
+      "Skylark2-lite-8k"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Qwen2.5-72B-Instruct",
+    "description": "Gitee AI Serverless APIs provide plug-and-play LLM inference services for developers.",
+    "disableBrowserRequest": true,
+    "id": "giteeai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://ai.gitee.com/docs/openapi/v1#tag/serverless/POST/chat/completions",
+    "name": "Gitee AI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://ai.gitee.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://ai.gitee.com",
+    "identifier": "giteeai",
+    "modelCount": 35,
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "QwQ-32B-Preview",
+      "Qwen2.5-72B-Instruct",
+      "Qwen2.5-32B-Instruct",
+      "Qwen2.5-14B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2-72B-Instruct",
+      "Qwen2-7B-Instruct",
+      "Qwen2.5-Coder-32B-Instruct",
+      "Qwen2.5-Coder-14B-Instruct",
+      "Qwen2-VL-72B",
+      "InternVL2.5-26B",
+      "InternVL2-8B",
+      "glm-4-9b-chat",
+      "Yi-34B-Chat",
+      "deepseek-coder-33B-instruct",
+      "codegeex4-all-9b",
+      "FLUX.1-dev",
+      "flux-1-schnell",
+      "FLUX.1-Kontext-dev",
+      "stable-diffusion-3.5-large-turbo",
+      "stable-diffusion-3-medium",
+      "stable-diffusion-xl-base-1.0",
+      "Kolors",
+      "HunyuanDiT-v1.2-Diffusers-Distilled",
+      "HiDream-I1-Full",
+      "HiDream-E1-Full",
+      "HelloMeme",
+      "OmniConsistency",
+      "InstantCharacter",
+      "DreamO",
+      "AnimeSharp"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "taichu_llm",
+    "description": "A next-generation multimodal model from CASIA and the Wuhan Institute of AI, supporting multi-turn QA, writing, image generation, 3D understanding, and signal analysis with stronger cognition and creativity.",
+    "id": "taichu",
+    "modelsUrl": "https://cloud.zidongtaichu.com/taichu/maas/#/modellist",
+    "name": "Taichu",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://cloud.zidongtaichu.com/maas/v1"
+      },
+      "sdkType": "openai"
+    },
+    "url": "https://cloud.zidongtaichu.com/taichu/maas",
+    "identifier": "taichu",
+    "modelCount": 13,
+    "models": [
+      "taichu_o1",
+      "taichu4_vl_2b_nothinking",
+      "taichu4_vl_3b",
+      "taichu4_vl_32b_nothinking",
+      "taichu4_vl_32b",
+      "taichu_llm_2b",
+      "taichu_llm_14b",
+      "taichu_llm",
+      "deepseek_r1",
+      "deepseek_r1_distill_qwen_14b",
+      "deepseek_r1_distill_qwen_32b",
+      "deepseek_r1_distill_llama_70b",
+      "qwq_32b"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "360gpt-turbo",
+    "description": "360 AI is a model and service platform from 360, offering NLP models like 360GPT2 Pro, 360GPT Pro, and 360GPT Turbo. The models combine large-scale parameters and multimodal capabilities for text generation, semantic understanding, chat, and code, with flexible pricing for diverse needs.",
+    "disableBrowserRequest": true,
+    "id": "ai360",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://ai.360.cn/platform/docs/overview",
+    "name": "360 AI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://ai.360.com",
+    "identifier": "ai360",
+    "modelCount": 20,
+    "models": [
+      "360zhinao3-o1.5",
+      "360zhinao2-o1.5",
+      "360zhinao2-o1",
+      "360zhinao-pro-32k-thinking-vision",
+      "360zhinao-turbo",
+      "360zhinao-turbo-qwen-plus",
+      "360gpt2-o1",
+      "360gpt2-pro",
+      "360gpt-pro",
+      "360gpt-pro-trans",
+      "360gpt-turbo",
+      "deepseek-v3.2",
+      "paratera/deepseek-v3.2",
+      "sophnet/deepseek-v3.2",
+      "deepseek-v3.2-speciale",
+      "360/deepseek-r1",
+      "volcengine/doubao-seed-2-0-lite",
+      "volcengine/doubao-seed-2-0-mini",
+      "volcengine/doubao-seed-2-0-pro",
+      "volcengine/doubao-seed-2-0-code"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek-r1-70b-fast-online",
+    "description": "Search1API provides access to DeepSeek models with optional web connectivity, including standard and fast variants across multiple parameter sizes.",
+    "id": "search1api",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "name": "Search1API",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.search1api.com/v1"
+      },
+      "responseAnimation": {
+        "speed": 2,
+        "text": "smooth"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://www.search1api.com",
+    "identifier": "search1api",
+    "modelCount": 4,
+    "models": [
+      "deepseek-r1-70b-online",
+      "deepseek-r1-online",
+      "deepseek-r1-70b-fast-online",
+      "deepseek-r1-fast-online"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "qwen3-8b",
+    "description": "Provides app developers with high-performance, easy-to-use, secure LLM services across the full workflow from model development to production deployment.",
+    "id": "infiniai",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://cloud.infini-ai.com/genstudio/model",
+    "name": "InfiniAI",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://cloud.infini-ai.com/maas/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://cloud.infini-ai.com/genstudio",
+    "identifier": "infiniai",
+    "modelCount": 42,
+    "models": [
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
+      "kimi-k2.6",
+      "kimi-k2.5",
+      "mimo-v2-pro",
+      "glm-5.1",
+      "minimax-m2.7",
+      "deepseek-v3.2",
+      "deepseek-v3.2-thinking",
+      "glm-4.6v",
+      "glm-5",
+      "minimax-m2.5",
+      "kimi-k2-thinking",
+      "minimax-m2.1",
+      "glm-4.7",
+      "glm-4.6",
+      "deepseek-v3.2-exp",
+      "qwen3-vl-235b-a22b-instruct",
+      "qwen3-vl-235b-a22b-thinking",
+      "deepseek-v3.1-terminus",
+      "qwen3-next-80b-a3b-thinking",
+      "qwen3-next-80b-a3b-instruct",
+      "deepseek-v3.1",
+      "baichuan-m2-32b",
+      "glm-4.5v",
+      "glm-4.5",
+      "glm-4.5-air",
+      "qwen3-coder-480b-a35b-instruct",
+      "qwen3-235b-a22b-instruct-2507",
+      "qwen3-8b",
+      "qwen3-14b",
+      "qwen3-32b",
+      "qwen3-30b-a3b",
+      "qwen3-235b-a22b",
+      "deepseek-v3",
+      "deepseek-r1",
+      "deepseek-r1-distill-qwen-32b",
+      "megrez-3b-instruct",
+      "gpt-oss-120b",
+      "gpt-oss-20b",
+      "pro-deepseek-r1",
+      "pro-deepseek-v3"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Meta-Llama-3-1-8B-Instruct-FP8",
+    "description": "Akash is a permissionless cloud resource marketplace with competitive pricing compared to traditional cloud providers.",
+    "id": "akashchat",
+    "modelsUrl": "https://chatapi.akash.network/documentation",
+    "name": "AkashChat",
+    "settings": {
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://chatapi.akash.network/",
+    "identifier": "akashchat",
+    "modelCount": 7,
+    "models": [
+      "DeepSeek-V3-1",
+      "gpt-oss-120b",
+      "Qwen3-235B-A22B-Instruct-2507-FP8",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "Meta-Llama-4-Maverick-17B-128E-Instruct-FP8",
+      "Meta-Llama-3-3-70B-Instruct",
+      "Meta-Llama-3-1-8B-Instruct-FP8"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "deepseek-r1",
+    "description": "Qiniu provides reliable, cost-effective real-time and batch AI inference services that are easy to use.",
+    "id": "qiniu",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://developer.qiniu.com/aitokenapi/12882/ai-inference-api",
+    "name": "Qiniu",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://openai.qiniu.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://www.qiniu.com",
+    "identifier": "qiniu",
+    "modelCount": 10,
+    "models": [
+      "deepseek-v3",
+      "deepseek-r1",
+      "minimax/minimax-m2.1",
+      "minimax/minimax-m2",
+      "deepseek/deepseek-math-v2",
+      "meituan/longcat-flash-chat",
+      "z-ai/glm-4.7",
+      "z-ai/glm-4.6",
+      "x-ai/grok-4-fast",
+      "x-ai/grok-code-fast-1"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "black-forest-labs/flux-1.1-pro",
+    "description": "Replicate runs open-source image models like FLUX and Stable Diffusion via a simple cloud API.",
+    "id": "replicate",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://replicate.com/explore",
+    "name": "Replicate",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.replicate.com"
+      },
+      "sdkType": "replicate",
+      "showModelFetcher": true
+    },
+    "url": "https://replicate.com",
+    "identifier": "replicate",
+    "modelCount": 4,
+    "models": [
+      "black-forest-labs/flux-1.1-pro",
+      "black-forest-labs/flux-schnell",
+      "black-forest-labs/flux-dev",
+      "black-forest-labs/flux-pro"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "Qwen/Qwen2.5-Coder-7B",
+    "description": "Nebius provides high-performance infrastructure for global AI innovators via large-scale GPU clusters and a vertically integrated cloud platform.",
+    "id": "nebius",
+    "modelsUrl": "https://studio.nebius.com/",
+    "name": "Nebius",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.studio.nebius.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://nebius.com/",
+    "identifier": "nebius",
+    "modelCount": 3,
+    "models": ["openai/gpt-oss-120b", "google/gemma-3-27b-it", "Qwen/Qwen2.5-VL-72B-Instruct"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "gpt-5-mini",
+    "description": "CometAPI provides access to frontier models from OpenAI, Anthropic, Google, and more, letting users choose the best model and pricing for diverse use cases.",
+    "enabled": true,
+    "id": "cometapi",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://api.cometapi.com/v1/models",
+    "name": "CometAPI",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.cometapi.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://cometapi.com",
+    "identifier": "cometapi",
+    "modelCount": 30,
+    "models": [
+      "gpt-5-chat-latest",
+      "gpt-5-mini",
+      "gpt-5-nano",
+      "gpt-5",
+      "gpt-4.1",
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "gpt-4o-mini",
+      "chatgpt-4o-latest",
+      "o4-mini-2025-04-16",
+      "o3-pro-2025-06-10",
+      "o3-2025-04-16",
+      "claude-opus-4-1-20250805",
+      "claude-opus-4-1-20250805-thinking",
+      "claude-sonnet-4-20250514",
+      "claude-sonnet-4-20250514-thinking",
+      "claude-3-7-sonnet-latest",
+      "claude-3-5-haiku-latest",
+      "gemini-2.5-pro",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite",
+      "gemini-2.0-flash",
+      "grok-4-0709",
+      "grok-3",
+      "grok-3-mini",
+      "deepseek-v3.1",
+      "deepseek-v3",
+      "deepseek-r1-0528",
+      "deepseek-reasoner",
+      "deepseek-chat"
+    ]
+  },
+  {
+    "apiKeyUrl": "https://vercel.com/dashboard/ai-gateway",
+    "chatModels": [],
+    "checkModel": "openai/gpt-5-nano",
+    "description": "Vercel AI Gateway provides a unified API for 100+ models across OpenAI, Anthropic, Google, and more, with budgeting, usage monitoring, load balancing, and failover.",
+    "id": "vercelaigateway",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://vercel.com/ai-gateway/models",
+    "name": "Vercel AI Gateway",
+    "settings": {
+      "disableBrowserRequest": true,
+      "responseAnimation": "smooth",
+      "showModelFetcher": true
+    },
+    "url": "https://vercel.com/ai-gateway",
+    "identifier": "vercelaigateway",
+    "modelCount": 91,
+    "models": [
+      "google/gemini-2.5-pro",
+      "anthropic/claude-opus-4.1",
+      "anthropic/claude-opus-4",
+      "anthropic/claude-sonnet-4",
+      "openai/gpt-5",
+      "openai/o3",
+      "openai/o1",
+      "anthropic/claude-3.7-sonnet",
+      "anthropic/claude-3.5-sonnet",
+      "anthropic/claude-3-opus",
+      "openai/gpt-4o",
+      "openai/gpt-5-mini",
+      "openai/gpt-5-nano",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "openai/o3-mini",
+      "openai/o4-mini",
+      "openai/gpt-4.1",
+      "moonshotai/kimi-k2",
+      "alibaba/qwen3-coder",
+      "alibaba/qwen-3-235b",
+      "zai/glm-4.5",
+      "zai/glm-4.5-air",
+      "zai/glm-4.5v",
+      "alibaba/qwen-3-32b",
+      "alibaba/qwen-3-30b",
+      "alibaba/qwen-3-14b",
+      "cohere/command-a",
+      "deepseek/deepseek-r1",
+      "deepseek/deepseek-v3",
+      "google/gemini-2.0-flash",
+      "google/gemini-2.0-flash-lite",
+      "google/gemini-2.5-flash",
+      "google/gemini-2.5-flash-lite",
+      "xai/grok-4",
+      "xai/grok-3-mini-fast",
+      "xai/grok-3-mini",
+      "xai/grok-3-fast",
+      "xai/grok-3",
+      "xai/grok-2-vision",
+      "xai/grok-2",
+      "meta/llama-3.1-70b",
+      "meta/llama-3.1-8b",
+      "meta/llama-3.2-11b",
+      "meta/llama-3.2-1b",
+      "meta/llama-3.2-3b",
+      "meta/llama-3.2-90b",
+      "meta/llama-3.3-70b",
+      "meta/llama-4-maverick",
+      "meta/llama-4-scout",
+      "mistral/codestral",
+      "mistral/devstral-small",
+      "mistral/magistral-medium",
+      "mistral/magistral-small",
+      "mistral/ministral-3b",
+      "mistral/ministral-8b",
+      "mistral/mistral-large",
+      "mistral/mistral-small",
+      "mistral/mixtral-8x22b-instruct",
+      "mistral/pixtral-12b",
+      "mistral/pixtral-large",
+      "inception/mercury-coder-small",
+      "morph/morph-v3-fast",
+      "morph/morph-v3-large",
+      "openai/gpt-3.5-turbo",
+      "openai/gpt-3.5-turbo-instruct",
+      "openai/gpt-4-turbo",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "openai/gpt-4o-mini",
+      "perplexity/sonar",
+      "perplexity/sonar-pro",
+      "perplexity/sonar-reasoning",
+      "perplexity/sonar-reasoning-pro",
+      "vercel/v0-1.0-md",
+      "vercel/v0-1.5-md",
+      "amazon/nova-lite",
+      "amazon/nova-micro",
+      "anthropic/claude-3.5-haiku",
+      "anthropic/claude-3-haiku",
+      "amazon/nova-pro",
+      "amazon/titan-embed-text-v2",
+      "google/gemini-embedding-001",
+      "google/text-embedding-005",
+      "google/text-multilingual-embedding-002",
+      "cohere/embed-v4.0",
+      "mistral/codestral-embed",
+      "mistral/mistral-embed",
+      "openai/text-embedding-3-large",
+      "openai/text-embedding-3-small",
+      "openai/text-embedding-ada-002"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "llama3.1-8b",
+    "description": "Cerebras is an inference platform built on its CS-3 system, focused on ultra-low latency and high-throughput LLM service for real-time workloads like code generation and agent tasks.",
+    "id": "cerebras",
+    "modelsUrl": "https://inference-docs.cerebras.ai/models/overview",
+    "name": "Cerebras",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://api.cerebras.ai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://cerebras.ai",
+    "identifier": "cerebras",
+    "modelCount": 2,
+    "models": ["qwen-3-235b-a22b-instruct-2507", "llama3.1-8b"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "openai/gpt-5-nano",
+    "description": "ZenMux is a unified AI aggregation platform that supports OpenAI, Anthropic, Google VertexAI, and more, with flexible routing to switch and manage models easily.",
+    "id": "zenmux",
+    "name": "ZenMux",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://zenmux.ai"
+      },
+      "sdkType": "router",
+      "showModelFetcher": true
+    },
+    "url": "https://zenmux.ai",
+    "identifier": "zenmux",
+    "modelCount": 73,
+    "models": [
+      "zenmux/auto",
+      "openai/gpt-5.2",
+      "openai/gpt-5.2-pro",
+      "openai/gpt-5.2-chat",
+      "google/gemini-3-pro-image-preview",
+      "google/gemini-3-pro-preview",
+      "openai/gpt-5.1",
+      "openai/gpt-5.1-chat",
+      "openai/gpt-5.1-codex",
+      "openai/gpt-5.1-codex-mini",
+      "x-ai/grok-4.1-fast",
+      "x-ai/grok-4.1-fast-non-reasoning",
+      "x-ai/grok-4-fast",
+      "x-ai/grok-4-fast-non-reasoning",
+      "x-ai/grok-4",
+      "x-ai/grok-code-fast-1",
+      "baidu/ernie-5.0-thinking-preview",
+      "volcengine/doubao-seed-code",
+      "moonshotai/kimi-k2-thinking",
+      "moonshotai/kimi-k2-thinking-turbo",
+      "inclusionai/ming-flash-omini-preview",
+      "inclusionai/ring-1t",
+      "inclusionai/ling-1t",
+      "inclusionai/ling-flash-2.0",
+      "inclusionai/ring-flash-2.0",
+      "inclusionai/ling-mini-2.0",
+      "inclusionai/ring-mini-2.0",
+      "minimax/minimax-m2",
+      "kuaishou/kat-coder-pro-v1",
+      "anthropic/claude-haiku-4.5",
+      "deepseek/deepseek-chat",
+      "deepseek/deepseek-reasoner",
+      "deepseek/deepseek-r1-0528",
+      "google/gemini-2.5-pro",
+      "google/gemini-2.5-flash",
+      "openai/gpt-5-pro",
+      "openai/gpt-5",
+      "openai/gpt-5-chat",
+      "openai/gpt-5-mini",
+      "openai/gpt-5-nano",
+      "openai/gpt-5-codex",
+      "openai/gpt-4.1",
+      "openai/gpt-4.1-mini",
+      "openai/gpt-4.1-nano",
+      "qwen/qwen3-max-preview",
+      "qwen/qwen3-max",
+      "qwen/qwen3-vl-plus",
+      "qwen/qwen3-coder-plus",
+      "qwen/qwen3-coder",
+      "qwen/qwen3-14b",
+      "z-ai/glm-4.6",
+      "claude-opus-4-5-20251101",
+      "anthropic/claude-opus-4.1",
+      "anthropic/claude-opus-4",
+      "google/gemini-2.5-flash-image",
+      "anthropic/claude-sonnet-4.5",
+      "anthropic/claude-sonnet-4",
+      "openai/o4-mini",
+      "openai/gpt-4o",
+      "openai/gpt-4o-mini",
+      "moonshotai/kimi-k2-0711",
+      "z-ai/glm-4.5-air",
+      "anthropic/claude-3.5-haiku",
+      "anthropic/claude-3.5-sonnet",
+      "anthropic/claude-3.7-sonnet",
+      "deepseek/deepseek-chat-v3.1",
+      "google/gemini-2.0-flash",
+      "google/gemini-2.0-flash-lite-001",
+      "google/gemini-2.5-flash-lite",
+      "moonshotai/kimi-k2-0905",
+      "qwen/qwen3-235b-a22b-2507",
+      "qwen/qwen3-235b-a22b-thinking-2507",
+      "z-ai/glm-4.5"
+    ]
+  },
+  {
+    "chatModels": [
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 200000,
+        "description": "Claude Haiku 3.5 by Anthropic — fast and cost-efficient model with vision support.",
+        "displayName": "Claude Haiku 3.5",
+        "enabled": false,
+        "id": "claude-3-5-haiku",
+        "maxOutput": 8192,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.8,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 4,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.08,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 1,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2024-10-22",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 200000,
+        "description": "Claude Haiku 4.5 by Anthropic — next-gen Haiku with enhanced reasoning and vision.",
+        "displayName": "Claude Haiku 4.5",
+        "enabled": false,
+        "id": "claude-haiku-4-5",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.1,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 1.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-10-15",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 200000,
+        "description": "Claude Opus 4.1 by Anthropic — premium reasoning model with deep analysis capabilities.",
+        "displayName": "Claude Opus 4.1",
+        "enabled": false,
+        "id": "claude-opus-4-1",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 15,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 1.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 18.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-08-05",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 200000,
+        "description": "Claude Opus 4.5 by Anthropic — flagship model with top-tier reasoning and coding.",
+        "displayName": "Claude Opus 4.5",
+        "enabled": false,
+        "id": "claude-opus-4-5",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 6.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-11-24",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1000000,
+        "description": "Claude Opus 4.6 by Anthropic — 1M context window flagship with advanced reasoning.",
+        "displayName": "Claude Opus 4.6",
+        "enabled": false,
+        "id": "claude-opus-4-6",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 6.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-05",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1000000,
+        "description": "Claude Opus 4.7 by Anthropic — latest Opus with state-of-the-art reasoning and coding.",
+        "displayName": "Claude Opus 4.7",
+        "enabled": true,
+        "id": "claude-opus-4-7",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 6.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-04-16",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1000000,
+        "description": "Claude Sonnet 4 by Anthropic — balanced model with strong coding and reasoning abilities.",
+        "displayName": "Claude Sonnet 4",
+        "enabled": false,
+        "id": "claude-sonnet-4",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 15,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 3.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-05-22",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1000000,
+        "description": "Claude Sonnet 4.5 by Anthropic — improved Sonnet with enhanced coding performance.",
+        "displayName": "Claude Sonnet 4.5",
+        "enabled": false,
+        "id": "claude-sonnet-4-5",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 15,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 3.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-09-29",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1000000,
+        "description": "Claude Sonnet 4.6 by Anthropic — latest Sonnet with superior coding and tool use.",
+        "displayName": "Claude Sonnet 4.6",
+        "enabled": false,
+        "id": "claude-sonnet-4-6",
+        "maxOutput": 32000,
+        "organization": "Anthropic",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 15,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 3.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-17",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1048576,
+        "description": "Gemini 3 Flash by Google — ultra-fast model with multimodal input support.",
+        "displayName": "Gemini 3 Flash",
+        "enabled": false,
+        "id": "gemini-3-flash",
+        "maxOutput": 32000,
+        "organization": "Google",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.05,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-12-17",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1048576,
+        "description": "Gemini 3.1 Pro by Google — premium multimodal model with 1M context window.",
+        "displayName": "Gemini 3.1 Pro",
+        "enabled": true,
+        "id": "gemini-3.1-pro",
+        "maxOutput": 32000,
+        "organization": "Google",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 12,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-19",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 204800,
+        "description": "GLM-5 by Zhipu AI — high-performance coding model with strong reasoning abilities.",
+        "displayName": "GLM-5",
+        "enabled": false,
+        "id": "glm-5",
+        "maxOutput": 32000,
+        "organization": "Zhipu",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 3.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-11",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 204800,
+        "description": "GLM-5.1 by Zhipu AI — latest generation coding model with enhanced reasoning.",
+        "displayName": "GLM-5.1",
+        "enabled": true,
+        "id": "glm-5.1",
+        "maxOutput": 32000,
+        "organization": "Zhipu",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.4,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 4.4,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.26,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-04-07",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5 by OpenAI — flagship model with advanced reasoning and multimodal input.",
+        "displayName": "GPT-5",
+        "enabled": false,
+        "id": "gpt-5",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.07,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 8.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.107,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-08-07",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5 Codex by OpenAI — coding-specialized variant with tool use support.",
+        "displayName": "GPT-5 Codex",
+        "enabled": false,
+        "id": "gpt-5-codex",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.07,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 8.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.107,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-09-15",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5 Nano by OpenAI — lightweight and cost-efficient model.",
+        "displayName": "GPT-5 Nano",
+        "enabled": false,
+        "id": "gpt-5-nano",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-08-07",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.1 by OpenAI — improved GPT-5 with better reasoning accuracy.",
+        "displayName": "GPT-5.1",
+        "enabled": false,
+        "id": "gpt-5.1",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.07,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 8.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.107,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-11-13",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.1 Codex by OpenAI — coding-focused variant with enhanced tool use.",
+        "displayName": "GPT-5.1 Codex",
+        "enabled": false,
+        "id": "gpt-5.1-codex",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.07,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 8.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.107,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-11-13",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.1 Codex Max by OpenAI — maximum capability Codex variant.",
+        "displayName": "GPT-5.1 Codex Max",
+        "enabled": false,
+        "id": "gpt-5.1-codex-max",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 10,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.125,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-11-13",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.1 Codex Mini by OpenAI — compact coding model with strong capabilities.",
+        "displayName": "GPT-5.1 Codex Mini",
+        "enabled": false,
+        "id": "gpt-5.1-codex-mini",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.025,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-11-13",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.2 by OpenAI — upgraded reasoning and multimodal processing.",
+        "displayName": "GPT-5.2",
+        "enabled": false,
+        "id": "gpt-5.2",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 14,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.175,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-12-11",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.2 Codex by OpenAI — coding-specialized with improved tool call accuracy.",
+        "displayName": "GPT-5.2 Codex",
+        "enabled": false,
+        "id": "gpt-5.2-codex",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 14,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.175,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-01-14",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.3 Codex by OpenAI — latest Codex with enhanced code understanding.",
+        "displayName": "GPT-5.3 Codex",
+        "enabled": false,
+        "id": "gpt-5.3-codex",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 14,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.175,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-24",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 128000,
+        "description": "GPT-5.3 Codex Spark by OpenAI — compact coding model optimized for speed.",
+        "displayName": "GPT-5.3 Codex Spark",
+        "enabled": false,
+        "id": "gpt-5.3-codex-spark",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 1.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 14,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.175,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-12",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1050000,
+        "description": "GPT-5.4 by OpenAI — next-gen model with 1M+ context window and multimodal input.",
+        "displayName": "GPT-5.4",
+        "enabled": true,
+        "id": "gpt-5.4",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 2.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 15,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-03-05",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.4 Mini by OpenAI — efficient model balancing cost and performance.",
+        "displayName": "GPT-5.4 Mini",
+        "enabled": false,
+        "id": "gpt-5.4-mini",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.75,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 4.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.075,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-03-17",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "files": true,
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 400000,
+        "description": "GPT-5.4 Nano by OpenAI — ultra-lightweight model for high-throughput tasks.",
+        "displayName": "GPT-5.4 Nano",
+        "enabled": false,
+        "id": "gpt-5.4-nano",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 1.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.02,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-03-17",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 1050000,
+        "description": "GPT-5.4 Pro by OpenAI — most capable model with maximum context and reasoning.",
+        "displayName": "GPT-5.4 Pro",
+        "enabled": false,
+        "id": "gpt-5.4-pro",
+        "maxOutput": 32000,
+        "organization": "OpenAI",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 30,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 180,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 30,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-03-05",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 262144,
+        "description": "Kimi K2.5 by Moonshot AI — advanced reasoning model with image and video input support.",
+        "displayName": "Kimi K2.5",
+        "enabled": false,
+        "id": "kimi-k2.5",
+        "maxOutput": 32000,
+        "organization": "Moonshot",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.6,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.08,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-01-27",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 204800,
+        "description": "MiniMax M2.5 — efficient coding model with strong reasoning abilities.",
+        "displayName": "MiniMax M2.5",
+        "enabled": false,
+        "id": "minimax-m2.5",
+        "maxOutput": 32000,
+        "organization": "MiniMax",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 1.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.06,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-12",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 204800,
+        "description": "MiniMax M2.5 Free — free tier coding model with full reasoning capabilities.",
+        "displayName": "MiniMax M2.5 Free",
+        "enabled": true,
+        "id": "minimax-m2.5-free",
+        "maxOutput": 32000,
+        "organization": "MiniMax",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-12",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 204800,
+        "description": "Nemotron 3 Super Free by Nvidia — free tier reasoning model with strong coding support.",
+        "displayName": "Nemotron 3 Super Free",
+        "enabled": true,
+        "id": "nemotron-3-super-free",
+        "maxOutput": 32000,
+        "organization": "Nvidia",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-03-11",
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 262144,
+        "description": "Qwen3.5 Plus by Alibaba — cost-effective coding model with vision support.",
+        "displayName": "Qwen3.5 Plus",
+        "enabled": false,
+        "id": "qwen3.5-plus",
+        "maxOutput": 32000,
+        "organization": "Alibaba",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 1.2,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.02,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 0.25,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-02-16",
+        "settings": {
+          "extendParams": ["reasoningEffort"]
+        },
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindowTokens": 262144,
+        "description": "Qwen3.6 Plus by Alibaba — latest Qwen coding model with enhanced reasoning and vision.",
+        "displayName": "Qwen3.6 Plus",
+        "enabled": false,
+        "id": "qwen3.6-plus",
+        "maxOutput": 32000,
+        "organization": "Alibaba",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0.5,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 3,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0.05,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 0.625,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2026-04-02",
+        "settings": {
+          "extendParams": ["reasoningEffort"]
+        },
+        "type": "chat"
+      },
+      {
+        "abilities": {
+          "functionCall": true,
+          "reasoning": true
+        },
+        "contextWindowTokens": 200000,
+        "description": "Big Pickle by OpenCode — free open-weights model with strong coding capabilities.",
+        "displayName": "Big Pickle",
+        "enabled": true,
+        "id": "big-pickle",
+        "maxOutput": 32000,
+        "organization": "OpenCode",
+        "pricing": {
+          "currency": "USD",
+          "units": [
+            {
+              "name": "textInput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textOutput",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheRead",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            },
+            {
+              "name": "textInput_cacheWrite",
+              "rate": 0,
+              "strategy": "fixed",
+              "unit": "millionTokens"
+            }
+          ]
+        },
+        "releasedAt": "2025-10-17",
+        "type": "chat"
+      }
+    ],
+    "checkModel": "claude-sonnet-4-5",
+    "description": "OpenCode Zen provides access to curated models from OpenAI, Anthropic, Moonshot, MiniMax, Zhipu, Qwen, and more via a single API key.",
+    "id": "opencodezen",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "modelsUrl": "https://opencode.ai/zen",
+    "name": "OpenCode Zen",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://opencode.ai/zen/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://opencode.ai/zen",
+    "identifier": "opencodezen",
+    "modelCount": 35,
+    "models": [
+      "claude-3-5-haiku",
+      "claude-haiku-4-5",
+      "claude-opus-4-1",
+      "claude-opus-4-5",
+      "claude-opus-4-6",
+      "claude-opus-4-7",
+      "claude-sonnet-4",
+      "claude-sonnet-4-5",
+      "claude-sonnet-4-6",
+      "gemini-3-flash",
+      "gemini-3.1-pro",
+      "glm-5",
+      "glm-5.1",
+      "gpt-5",
+      "gpt-5-codex",
+      "gpt-5-nano",
+      "gpt-5.1",
+      "gpt-5.1-codex",
+      "gpt-5.1-codex-max",
+      "gpt-5.1-codex-mini",
+      "gpt-5.2",
+      "gpt-5.2-codex",
+      "gpt-5.3-codex",
+      "gpt-5.3-codex-spark",
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "gpt-5.4-nano",
+      "gpt-5.4-pro",
+      "kimi-k2.5",
+      "minimax-m2.5",
+      "minimax-m2.5-free",
+      "nemotron-3-super-free",
+      "qwen3.5-plus",
+      "qwen3.6-plus",
+      "big-pickle"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "glm-5.1",
+    "description": "OpenCode Go is a $10/month subscription providing reliable access to curated open coding models: GLM, Kimi, MiMo, Qwen, MiniMax.",
+    "disableBrowserRequest": true,
+    "id": "opencodecodingplan",
+    "modelList": {
+      "showModelFetcher": false
+    },
+    "modelsUrl": "https://opencode.ai/go",
+    "name": "OpenCode Go",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://opencode.ai/zen/go/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://opencode.ai/go",
+    "identifier": "opencodecodingplan",
+    "modelCount": 9,
+    "models": [
+      "glm-5.1",
+      "glm-5",
+      "kimi-k2.5",
+      "mimo-v2-omni",
+      "qwen3.6-plus",
+      "minimax-m2.5",
+      "minimax-m2.7",
+      "mimo-v2-pro",
+      "qwen3.5-plus"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "microsoft/phi-4",
+    "description": "Straico simplifies AI integration by providing a unified workspace that brings together top text, image, and audio generative AI models, empowering marketers, entrepreneurs, and enthusiasts with seamless access to diverse AI tools.",
+    "id": "straico",
+    "modelsUrl": "https://straico.com/multimodel/",
+    "name": "Straico",
+    "settings": {
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://straico.com",
+    "identifier": "straico",
+    "modelCount": 0,
+    "models": []
+  },
+  {
+    "chatModels": [],
+    "checkModel": "mimo-v2-flash",
+    "description": "Xiaomi MiMo provides a conversational model service with an OpenAI-compatible API. The mimo-v2-flash model supports deep reasoning, streaming output, function calling, a 256K context window, and a maximum output of 128K.",
+    "id": "xiaomimimo",
+    "modelList": {
+      "showModelFetcher": true
+    },
+    "name": "Xiaomi MiMo",
+    "settings": {
+      "disableBrowserRequest": true,
+      "proxyUrl": {
+        "placeholder": "https://api.xiaomimimo.com/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": true
+    },
+    "url": "https://platform.xiaomimimo.com/",
+    "identifier": "xiaomimimo",
+    "modelCount": 5,
+    "models": ["mimo-v2.5-pro", "mimo-v2.5", "mimo-v2-pro", "mimo-v2-omni", "mimo-v2-flash"]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "LongCat-Flash-Lite",
+    "description": "LongCat is a series of generative AI large models independently developed by Meituan. It is designed to enhance internal enterprise productivity and enable innovative applications through an efficient computational architecture and strong multimodal capabilities.",
+    "id": "longcat",
+    "modelsUrl": "https://longcat.chat/platform/docs/zh/#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A8%A1%E5%9E%8B",
+    "name": "LongCat",
+    "settings": {
+      "disableBrowserRequest": false,
+      "proxyUrl": {
+        "placeholder": "https://api.longcat.chat/openai/v1"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://longcat.chat/platform/usage",
+    "identifier": "longcat",
+    "modelCount": 5,
+    "models": [
+      "LongCat-2.0-Preview",
+      "LongCat-Flash-Lite",
+      "LongCat-Flash-Thinking",
+      "LongCat-Flash-Thinking-2601",
+      "LongCat-Flash-Chat"
+    ]
+  },
+  {
+    "chatModels": [],
+    "checkModel": "KAT-Coder-Air-V1",
+    "description": "StreamLake is an enterprise-level model service and AI computing cloud platform, integrating high-performance model inference, low-cost model customization, and fully-managed services to help enterprises focus on AI application innovation without worrying about the complexity and cost of underlying computing resources.",
+    "id": "streamlake",
+    "modelsUrl": "https://www.streamlake.com/document/WANQING/mdrax1ixkgpgh1ms1na",
+    "name": "StreamLake",
+    "settings": {
+      "proxyUrl": {
+        "placeholder": "https://wanqing.streamlakeapi.com/api/gateway/v1/endpoints"
+      },
+      "sdkType": "openai",
+      "showModelFetcher": false
+    },
+    "url": "https://www.streamlake.com/product/wanqing",
+    "identifier": "streamlake",
+    "modelCount": 13,
+    "models": [
+      "KAT-Coder-Pro-V2",
+      "KAT-Coder-Pro-V1",
+      "KAT-Coder-Exp-72B-1010",
+      "KAT-Coder-Air-V1",
+      "GLM-5-Turbo",
+      "GLM-5",
+      "MiniMax-M2.7",
+      "MiniMax-M2.5",
+      "Kimi-K2.5",
+      "Qwen3.5-Plus",
+      "MiMo-V2-Pro",
+      "DeepSeek-V3.2",
+      "DeepSeek-OCR"
+    ]
+  }
+]

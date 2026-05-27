@@ -1,0 +1,167 @@
+{
+  "author": {
+    "name": "exa-labs",
+    "url": "https://github.com/exa-labs"
+  },
+  "capabilities": {
+    "prompts": true,
+    "resources": true,
+    "tools": true
+  },
+  "category": "web-search",
+  "createdAt": "2026-05-07T06:30:06.638Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["EXA_API_KEY"],
+          "properties": {
+            "TOOLS": {
+              "type": "string",
+              "description": "Comma-separated list of tools to enable (optional). If omitted, all tools are enabled by default."
+            },
+            "EXA_API_KEY": {
+              "type": "string",
+              "description": "Your Exa API key from https://dashboard.exa.ai/api-keys"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "exa-mcp-server", "--tools={{config.TOOLS}}"]
+      },
+      "description": "Install via npm globally or run directly with npx. Set the EXA_API_KEY environment variable to your Exa API key. Optionally specify tools to enable via the --tools argument.",
+      "installationDetails": {
+        "packageName": "exa-mcp-server"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/en/download/",
+            "linux_debian": "sudo apt-get install nodejs npm"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18.0.0",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["EXA_API_KEY"],
+          "properties": {
+            "EXA_API_KEY": {
+              "type": "string",
+              "description": "Your Exa API key from https://dashboard.exa.ai/api-keys"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "mcp-remote", "https://mcp.exa.ai/mcp?exaApiKey={{config.EXA_API_KEY}}"]
+      },
+      "description": "Connect directly to Exa's hosted MCP server without local installation. Provide your Exa API key in the URL query parameter.",
+      "installationDetails": null,
+      "installationMethod": "none",
+      "isRecommended": false,
+      "systemDependencies": []
+    }
+  ],
+  "description": "一个模型上下文协议（MCP）服务器，允许像Claude这样的AI助手使用Exa AI Search API进行实时网页搜索、学术论文搜索、LinkedIn搜索等。需要通过环境变量EXA_API_KEY配置的Exa API密钥。",
+  "homepage": "https://github.com/exa-labs/exa-mcp-server",
+  "icon": "https://github.com/exa-labs.png",
+  "identifier": "exa-labs-exa-mcp-server",
+  "name": "Exa MCP 服务器",
+  "prompts": [
+    {
+      "name": "web_search_help",
+      "arguments": [],
+      "description": "Get help with web search using Exa"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "exa://tools/list",
+      "name": "tools_list",
+      "mimeType": "application/json",
+      "description": "List of available Exa tools and their descriptions"
+    }
+  ],
+  "tools": [
+    {
+      "name": "web_search_exa",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "idempotentHint": true,
+        "destructiveHint": false
+      },
+      "description": "Search the web for any topic and get clean, ready-to-use content.\n\n      Best for: Finding current information, news, facts, people, companies, or answering questions about any topic.\n      Returns: Clean text content from top search results.\n\n      Query tips: \n      describe the ideal page, not keywords. \"blog post comparing React and Vue performance\" not \"React vs Vue\".\n      Use category:people / category:company to search through Linkedin profiles / companies respectively.\n      If highlights are insufficient, follow up with web_fetch_exa on the best URLs.",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Natural language search query. Should be a semantically rich description of the ideal page, not just keywords. Optionally include category:<type> (company, people) to focus results — e.g. 'category:people John Doe software engineer'."
+          },
+          "numResults": {
+            "type": "number",
+            "maximum": 100,
+            "minimum": 1,
+            "description": "Number of search results to return (must be a number, default: 10)."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "web_fetch_exa",
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "idempotentHint": true,
+        "destructiveHint": false
+      },
+      "description": "Read a webpage's full content as clean markdown. Use after web_search_exa when highlights are insufficient or to read any URL.\n\nBest for: Extracting full content from known URLs. Batch multiple URLs in one call.\nReturns: Clean text content and metadata from the page(s).",
+      "inputSchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": ["urls"],
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "URLs to read. Batch multiple URLs in one call."
+          },
+          "maxCharacters": {
+            "type": "number",
+            "minimum": 1,
+            "description": "Maximum characters to extract per page (must be a positive number, default: 3000)"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "updatedAt": "2026-05-23T09:01:31.121Z",
+  "version": "3.2.1"
+}

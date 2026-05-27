@@ -1,0 +1,503 @@
+{
+  "artifacts": {
+    "npm": {
+      "packageName": "tavily-mcp"
+    },
+    "docker": {
+      "tag": "22.12-alpine",
+      "imageName": "node"
+    }
+  },
+  "author": {
+    "name": "tavily-ai",
+    "url": "https://github.com/tavily-ai"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "web-search",
+  "connectionType": "local",
+  "createdAt": "2026-04-26T04:46:08.126Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["TAVILY_API_KEY"],
+          "properties": {
+            "TAVILY_API_KEY": {
+              "type": "string",
+              "description": "Tavily API Key required to authenticate requests"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "tavily-mcp@latest"]
+      },
+      "description": "Run the server directly using npx with the specified version. Requires setting the TAVILY_API_KEY environment variable.",
+      "installationDetails": {
+        "packageName": "tavily-mcp"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=20",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["TAVILY_API_KEY"],
+          "properties": {
+            "TAVILY_API_KEY": {
+              "type": "string",
+              "description": "Tavily API Key required to authenticate requests"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "node",
+        "args": ["build/index.js"]
+      },
+      "description": "Clone the repository, install dependencies, build the project, and run the server using node. Requires setting the TAVILY_API_KEY environment variable.",
+      "installationDetails": {
+        "setupSteps": [
+          "git clone https://github.com/tavily-ai/tavily-mcp.git",
+          "cd tavily-mcp",
+          "npm install",
+          "npm run build"
+        ],
+        "requirementsFile": "package.json",
+        "repositoryUrlToClone": "https://github.com/tavily-ai/tavily-mcp.git"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=20",
+          "type": "runtime",
+          "versionParsingRequired": true
+        },
+        {
+          "checkCommand": "git --version",
+          "installInstructions": {
+            "macos": "brew install git",
+            "manual": "Install Git from https://git-scm.com/downloads",
+            "windows": "Download Git for Windows from https://git-scm.com/download/win",
+            "linux_debian": "sudo apt install git"
+          },
+          "name": "git",
+          "type": "executable",
+          "versionParsingRequired": false
+        }
+      ]
+    }
+  ],
+  "description": "MCP server for advanced web search using Tavily, providing search, extract, map, and crawl tools with real-time web search and intelligent data extraction capabilities.",
+  "github": {
+    "url": "https://github.com/tavily-ai/tavily-mcp",
+    "stars": 434,
+    "license": "MIT License",
+    "language": "JavaScript"
+  },
+  "haveCloudEndpoint": false,
+  "homepage": "https://github.com/tavily-ai/tavily-mcp",
+  "icon": "https://github.com/tavily-ai.png",
+  "identifier": "tavily-ai-tavily-mcp",
+  "installCount": 2635,
+  "isClaimed": false,
+  "isFeatured": true,
+  "isOfficial": false,
+  "isValidated": true,
+  "name": "Tavily MCP",
+  "overview": {
+    "readme": "# ![Tavily Crawl Beta](./assets/Banner_NEW.png)\n\n\n![GitHub Repo stars](https://img.shields.io/github/stars/tavily-ai/tavily-mcp?style=social)\n![npm](https://img.shields.io/npm/dt/tavily-mcp)\n![smithery badge](https://smithery.ai/badge/@tavily-ai/tavily-mcp)\n\n ## 🎉 **Introducing [tavily-crawl](https://docs.tavily.com/documentation/api-reference/endpoint/crawl) + [tavily-map](https://docs.tavily.com/documentation/api-reference/endpoint/map) in v0.2.1!** 🎉\n\n\n![MCP demo](./assets/demo_new.gif)\n\nThe Model Context Protocol (MCP) is an open standard that enables AI systems to interact seamlessly with various data sources and tools, facilitating secure, two-way connections.\n\nDeveloped by Anthropic, the Model Context Protocol (MCP) enables AI assistants like Claude to seamlessly integrate with Tavily's advanced search and data extraction capabilities. This integration provides AI models with real-time access to web information, complete with sophisticated filtering options and domain-specific search features.\n\nThe Tavily MCP server provides:\n- search, extract, map, crawl tools\n- Real-time web search capabilities through the tavily-search tool\n- Intelligent data extraction from web pages via the tavily-extract tool\n- Powerful web mapping tool that creates a structured map of website \n- Web crawler that systematically explores websites \n\n\n### 📚 Helpful Resources\n- [Tutorial](https://medium.com/@dustin_36183/building-a-knowledge-graph-assistant-combining-tavily-and-neo4j-mcp-servers-with-claude-db92de075df9) on combining Tavily MCP with Neo4j MCP server\n- [Tutorial](https://medium.com/@dustin_36183/connect-your-coding-assistant-to-the-web-integrating-tavily-mcp-with-cline-in-vs-code-5f923a4983d1) on integrating Tavily MCP with Cline in VS Code\n\n## Prerequisites 🔧\n\nBefore you begin, ensure you have:\n\n- [Tavily API key](https://app.tavily.com/home)\n  - If you don't have a Tavily API key, you can sign up for a free account [here](https://app.tavily.com/home)\n- [Claude Desktop](https://claude.ai/download) or [Cursor](https://cursor.sh)\n- [Node.js](https://nodejs.org/) (v20 or higher)\n  - You can verify your Node.js installation by running:\n    - `node --version`\n- [Git](https://git-scm.com/downloads) installed (only needed if using Git installation method)\n  - On macOS: `brew install git`\n  - On Linux: \n    - Debian/Ubuntu: `sudo apt install git`\n    - RedHat/CentOS: `sudo yum install git`\n  - On Windows: Download [Git for Windows](https://git-scm.com/download/win)\n\n## Tavily MCP server installation ⚡\n\n### Running with NPX \n\n```bash\nnpx -y tavily-mcp@0.2.1  \n```\n\n### Installing via Smithery\n\nTo install Tavily MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@tavily-ai/tavily-mcp):\n\n```bash\nnpx -y @smithery/cli install @tavily-ai/tavily-mcp --client claude\n```\n\nAlthough you can launch a server on its own, it's not particularly helpful in isolation. Instead, you should integrate it into an MCP client. Below is an example of how to configure the Claude Desktop app to work with the tavily-mcp server.\n\n\n## Configuring MCP Clients ⚙️\n\nThis repository will explain how to configure [VS Code](https://code.visualstudio.com), [Cursor](https://cursor.sh) and [Claude Desktop](https://claude.ai/desktop) to work with the tavily-mcp server.\n\n### Configuring VS Code 💻\n\nFor one-click installation, click one of the install buttons below:\n\n[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=tavily&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22tavily-mcp%400.1.4%22%5D%2C%22env%22%3A%7B%22TAVILY_API_KEY%22%3A%22%24%7Binput%3Atavily_api_key%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22tavily_api_key%22%2C%22description%22%3A%22Tavily+API+Key%22%2C%22password%22%3Atrue%7D%5D) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=tavily&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22tavily-mcp%400.1.4%22%5D%2C%22env%22%3A%7B%22TAVILY_API_KEY%22%3A%22%24%7Binput%3Atavily_api_key%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22tavily_api_key%22%2C%22description%22%3A%22Tavily+API+Key%22%2C%22password%22%3Atrue%7D%5D&quality=insiders)\n\n### Manual Installation\n\nFirst check if there are install buttons at the top of this section that match your needs. If you prefer manual installation, follow these steps:\n\nAdd the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS) and typing `Preferences: Open User Settings (JSON)`.\n\n```json\n{\n  \"mcp\": {\n    \"inputs\": [\n      {\n        \"type\": \"promptString\",\n        \"id\": \"tavily_api_key\",\n        \"description\": \"Tavily API Key\",\n        \"password\": true\n      }\n    ],\n    \"servers\": {\n      \"tavily\": {\n        \"command\": \"npx\",\n        \"args\": [\"-y\", \"tavily-mcp@0.2.1\"],\n        \"env\": {\n          \"TAVILY_API_KEY\": \"${input:tavily_api_key}\"\n        }\n      }\n    }\n  }\n}\n```\n\nOptionally, you can add it to a file called `.vscode/mcp.json` in your workspace:\n\n```json\n{\n  \"inputs\": [\n    {\n      \"type\": \"promptString\",\n      \"id\": \"tavily_api_key\",\n      \"description\": \"Tavily API Key\",\n      \"password\": true\n    }\n  ],\n  \"servers\": {\n    \"tavily\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"tavily-mcp@0.2.1\"],\n      \"env\": {\n        \"TAVILY_API_KEY\": \"${input:tavily_api_key}\"\n      }\n    }\n  }\n}\n```\n\n### Configuring Cline 🤖\n\nThe easiest way to set up the Tavily MCP server in Cline is through the marketplace with a single click:\n\n1. Open Cline in VS Code\n2. Click on the Cline icon in the sidebar\n3. Navigate to the \"MCP Servers\" tab ( 4 squares )\n4. Search \"Tavily\" and click \"install\"\n5. When prompted, enter your Tavily API key\n\nAlternatively, you can manually set up the Tavily MCP server in Cline:\n\n1. Open the Cline MCP settings file:\n\n   ### For macOS:\n   ```bash\n   # Using Visual Studio Code\n   code ~/Library/Application\\ Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json\n   \n   # Or using TextEdit\n   open -e ~/Library/Application\\ Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json\n   ```\n\n   ### For Windows:\n   ```bash\n   code %APPDATA%\\Code\\User\\globalStorage\\saoudrizwan.claude-dev\\settings\\cline_mcp_settings.json\n   ```\n\n2. Add the Tavily server configuration to the file:\n\n   Replace `your-api-key-here` with your actual [Tavily API key](https://tavily.com/api-keys).\n\n   ```json\n   {\n     \"mcpServers\": {\n       \"tavily-mcp\": {\n         \"command\": \"npx\",\n         \"args\": [\"-y\", \"tavily-mcp@0.2.1\"],\n         \"env\": {\n           \"TAVILY_API_KEY\": \"your-api-key-here\"\n         },\n         \"disabled\": false,\n         \"autoApprove\": []\n       }\n     }\n   }\n   ```\n\n3. Save the file and restart Cline if it's already running.\n\n4. When using Cline, you'll now have access to the Tavily MCP tools. You can ask Cline to use the tavily-search and tavily-extract tools directly in your conversations.\n\n\n### Configuring Cursor 🖥️\n\n> **Note**: Requires Cursor version 0.45.6 or higher\n\nTo set up the Tavily MCP server in Cursor:\n\n1. Open Cursor Settings\n2. Navigate to Features > MCP Servers\n3. Click on the \"+ Add New MCP Server\" button\n4. Fill out the following information:\n   - **Name**: Enter a nickname for the server (e.g., \"tavily-mcp\")\n   - **Type**: Select \"command\" as the type\n   - **Command**: Enter the command to run the server:\n     ```bash\n     env TAVILY_API_KEY=your-api-key npx -y tavily-mcp@0.2.1\n     ```\n     > **Important**: Replace `your-api-key` with your Tavily API key. You can get one at [app.tavily.com/home](https://app.tavily.com/home)\n\nAfter adding the server, it should appear in the list of MCP servers. You may need to manually press the refresh button in the top right corner of the MCP server to populate the tool list.\n\nThe Composer Agent will automatically use the Tavily MCP tools when relevant to your queries. It is better to explicitly request to use the tools by describing what you want to do (e.g., \"User tavily-search to search the web for the latest news on AI\"). On mac press command + L to open the chat, select the composer option at the top of the screen, beside the submit button select agent and submit the query when ready.\n\n![Cursor Interface Example](./assets/cursor-reference.png)\n\n### Configuring the Claude Desktop app 🖥️\n### For macOS:\n\n```bash\n# Create the config file if it doesn't exist\ntouch \"$HOME/Library/Application Support/Claude/claude_desktop_config.json\"\n\n# Opens the config file in TextEdit \nopen -e \"$HOME/Library/Application Support/Claude/claude_desktop_config.json\"\n\n# Alternative method using Visual Studio Code (requires VS Code to be installed)\ncode \"$HOME/Library/Application Support/Claude/claude_desktop_config.json\"\n```\n\n### For Windows:\n```bash\ncode %APPDATA%\\Claude\\claude_desktop_config.json\n```\n\n### Add the Tavily server configuration:\n\nReplace `your-api-key-here` with your actual [Tavily API key](https://tavily.com/api-keys).\n\n```json\n{\n  \"mcpServers\": {\n    \"tavily-mcp\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"tavily-mcp@0.2.1\"],\n      \"env\": {\n        \"TAVILY_API_KEY\": \"your-api-key-here\"\n      }\n    }\n  }\n}\n```\n\n### 2. Git Installation\n\n1. Clone the repository:\n```bash\ngit clone https://github.com/tavily-ai/tavily-mcp.git\ncd tavily-mcp\n```\n\n2. Install dependencies:\n```bash\nnpm install\n```\n\n3. Build the project:\n```bash\nnpm run build\n```\n### Configuring the Claude Desktop app ⚙️\nFollow the configuration steps outlined in the [Configuring the Claude Desktop app](#configuring-the-claude-desktop-app-️) section above, using the below JSON configuration.\n\nReplace `your-api-key-here` with your actual [Tavily API key](https://tavily.com/api-keys) and `/path/to/tavily-mcp` with the actual path where you cloned the repository on your system.\n\n```json\n{\n  \"mcpServers\": {\n    \"tavily\": {\n      \"command\": \"npx\",\n      \"args\": [\"/path/to/tavily-mcp/build/index.js\"],\n      \"env\": {\n        \"TAVILY_API_KEY\": \"your-api-key-here\"\n      }\n    }\n  }\n}\n```\n\n## Usage in Claude Desktop App 🎯\n\nOnce the installation is complete, and the Claude desktop app is configured, you must completely close and re-open the Claude desktop app to see the tavily-mcp server. You should see a hammer icon in the bottom left of the app, indicating available MCP tools, you can click on the hammer icon to see more detial on the tavily-search and tavily-extract tools.\n\n![Alt text](./assets/claude-desktop-ref.png)\n\nNow claude will have complete access to the tavily-mcp server, including the tavily-search and tavily-extract tools. If you insert the below examples into the Claude desktop app, you should see the tavily-mcp server tools in action.\n\n### Tavily Search Examples\n\n1. **General Web Search**:\n```\nCan you search for recent developments in quantum computing?\n```\n\n2. **News Search**:\n```\nSearch for news articles about AI startups from the last 7 days.\n```\n\n3. **Domain-Specific Search**:\n```\nSearch for climate change research on nature.com and sciencedirect.com\n```\n\n### Tavily Extract Examples \n\n1. **Extract Article Content**:\n```\nExtract the main content from this article: https://example.com/article\n```\n\n### ✨ Combine Search and Extract ✨\n\nYou can also combine the tavily-search and tavily-extract tools to perform more complex tasks.\n\n```\nSearch for news articles about AI startups from the last 7 days and extract the main content from each article to generate a detailed report.\n```\n\n## Troubleshooting 🛠️\n\n### Common Issues\n\n1. **Server Not Found**\n   - Verify the npm installation by running `npm --verison`\n   - Check Claude Desktop configuration syntax by running `code ~/Library/Application\\ Support/Claude/claude_desktop_config.json`\n   - Ensure Node.js is properly installed by running `node --version`\n   \n2. **NPX related issues**\n  - If you encounter errors related to `npx`, you may need to use the full path to the npx executable instead. \n  - You can find this path by running `which npx` in your terminal, then replace the `\"command\":  \"npx\"` line with `\"command\": \"/full/path/to/npx\"` in your configuration.\n\n3. **API Key Issues**\n   - Confirm your Tavily API key is valid\n   - Check the API key is correctly set in the config\n   - Verify no spaces or quotes around the API key\n\n## Acknowledgments ✨\n\n- [Model Context Protocol](https://modelcontextprotocol.io) for the MCP specification\n- [Anthropic](https://anthropic.com) for Claude Desktop\n"
+  },
+  "promptsCount": 0,
+  "ratingAverage": 0,
+  "ratingCount": 0,
+  "resourcesCount": 0,
+  "tags": [
+    "tavily-mcp",
+    "tavily",
+    "mcp",
+    "crawl",
+    "model-context-protocol",
+    "websearch",
+    "claude",
+    "claude-desktop",
+    "search-api",
+    "web-search",
+    "ai-search",
+    "anthropic",
+    "real-time-search",
+    "search-tools",
+    "tavily-api",
+    "tavily-search",
+    "tavily-extract",
+    "web-extraction",
+    "data-extraction",
+    "search-integration"
+  ],
+  "tools": [
+    {
+      "name": "tavily_search",
+      "description": "Search the web for current information on any topic. Use for news, facts, or data beyond your knowledge cutoff. Returns snippets and source URLs.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "topic": {
+            "enum": ["general"],
+            "type": "string",
+            "default": "general",
+            "description": "The category of the search. This will determine which of our agents will be used for the search"
+          },
+          "country": {
+            "type": "string",
+            "default": "",
+            "description": "Boost search results from a specific country. Must be a full country name (e.g., 'United States', 'Japan', 'Germany'). ISO country codes (e.g., 'us', 'jp') are not supported. Available only if topic is general. See https://docs.tavily.com/documentation/api-reference/search for the full list of supported countries."
+          },
+          "end_date": {
+            "type": "string",
+            "default": "",
+            "description": "Will return all results before the specified end date. Required to be written in the format YYYY-MM-DD"
+          },
+          "start_date": {
+            "type": "string",
+            "default": "",
+            "description": "Will return all results after the specified start date. Required to be written in the format YYYY-MM-DD."
+          },
+          "time_range": {
+            "enum": ["day", "week", "month", "year"],
+            "type": "string",
+            "description": "The time range back from the current date to include in the search results"
+          },
+          "exact_match": {
+            "type": "boolean",
+            "description": "Only return results containing the exact phrase(s) in quotes in your query"
+          },
+          "max_results": {
+            "type": "number",
+            "default": 5,
+            "maximum": 20,
+            "minimum": 5,
+            "description": "The maximum number of search results to return"
+          },
+          "search_depth": {
+            "enum": ["basic", "advanced", "fast", "ultra-fast"],
+            "type": "string",
+            "default": "basic",
+            "description": "The depth of the search. 'basic' for generic results, 'advanced' for more thorough search, 'fast' for optimized low latency with high relevance, 'ultra-fast' for prioritizing latency above all else"
+          },
+          "include_images": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include a list of query-related images in the response"
+          },
+          "exclude_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "List of domains to specifically exclude, if the user asks to exclude a domain set this to the domain of the site"
+          },
+          "include_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "A list of domains to specifically include in the search results, if the user asks to search on specific sites set this to the domain of the site"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include the favicon URL for each result"
+          },
+          "include_raw_content": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include the cleaned and parsed HTML content of each search result"
+          },
+          "include_image_descriptions": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include a list of query-related images and their descriptions in the response"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_extract",
+      "description": "Extract content from URLs. Returns raw page content in markdown or text format.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["urls"],
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of URLs to extract content from"
+          },
+          "query": {
+            "type": "string",
+            "description": "Query to rerank content chunks by relevance"
+          },
+          "format": {
+            "enum": ["markdown", "text"],
+            "type": "string",
+            "default": "markdown",
+            "description": "Output format"
+          },
+          "extract_depth": {
+            "enum": ["basic", "advanced"],
+            "type": "string",
+            "default": "basic",
+            "description": "Use 'advanced' for LinkedIn, protected sites, or tables/embedded content"
+          },
+          "include_images": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include images from pages"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include favicon URLs"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_crawl",
+      "description": "Crawl a website starting from a URL. Extracts content from pages with configurable depth and breadth.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the crawl"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "description": "Total number of links the crawler will process before stopping"
+          },
+          "format": {
+            "enum": ["markdown", "text"],
+            "type": "string",
+            "default": "markdown",
+            "description": "The format of the extracted web page content. markdown returns content in markdown format. text returns plain text and may increase latency."
+          },
+          "max_depth": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1,
+            "description": "Max depth of the crawl. Defines how far from the base URL the crawler can explore."
+          },
+          "max_breadth": {
+            "type": "integer",
+            "default": 20,
+            "minimum": 1,
+            "description": "Max number of links to follow per level of the tree (i.e., per page)"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler. Instructions specify which types of pages the crawler should return."
+          },
+          "select_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., /docs/.*, /api/v1.*)"
+          },
+          "extract_depth": {
+            "enum": ["basic", "advanced"],
+            "type": "string",
+            "default": "basic",
+            "description": "Advanced extraction retrieves more data, including tables and embedded content, with higher success but may increase latency"
+          },
+          "allow_external": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to return external links in the final response"
+          },
+          "select_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to restrict crawling to specific domains or subdomains (e.g., ^docs\\.example\\.com$)"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include the favicon URL for each result"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_map",
+      "description": "Map a website's structure. Returns a list of URLs found starting from the base URL.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the mapping"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "description": "Total number of links the crawler will process before stopping"
+          },
+          "max_depth": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1,
+            "description": "Max depth of the mapping. Defines how far from the base URL the crawler can explore"
+          },
+          "max_breadth": {
+            "type": "integer",
+            "default": 20,
+            "minimum": 1,
+            "description": "Max number of links to follow per level of the tree (i.e., per page)"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler"
+          },
+          "select_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., /docs/.*, /api/v1.*)"
+          },
+          "allow_external": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to return external links in the final response"
+          },
+          "select_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to restrict crawling to specific domains or subdomains (e.g., ^docs\\.example\\.com$)"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_research",
+      "description": "Perform comprehensive research on a given topic or question. Use this tool when you need to gather information from multiple sources to answer a question or complete a task. Returns a detailed response based on the research findings. Rate limit: 20 requests per minute.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["input"],
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "A comprehensive description of the research task"
+          },
+          "model": {
+            "enum": ["mini", "pro", "auto"],
+            "type": "string",
+            "default": "auto",
+            "description": "Defines the degree of depth of the research. 'mini' is good for narrow tasks with few subtopics. 'pro' is good for broad tasks with many subtopics. 'auto' automatically selects the best model."
+          }
+        }
+      }
+    }
+  ],
+  "toolsCount": 5,
+  "updatedAt": "2026-05-23T14:59:46.513Z",
+  "validatedAt": "2026-04-26T04:46:08.158Z",
+  "version": "0.2.19",
+  "versions": [
+    {
+      "createdAt": "2026-04-26T04:46:08.133Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.18"
+    },
+    {
+      "createdAt": "2026-04-26T04:46:08.126Z",
+      "isLatest": true,
+      "isValidated": true,
+      "version": "0.2.19"
+    },
+    {
+      "createdAt": "2026-04-19T12:31:34.055Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.10"
+    },
+    {
+      "createdAt": "2025-07-18T09:51:11.801Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.9"
+    },
+    {
+      "createdAt": "2025-07-12T06:22:12.160Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.8"
+    },
+    {
+      "createdAt": "2025-07-09T22:36:52.440Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.5"
+    },
+    {
+      "createdAt": "2025-06-04T17:09:14.113Z",
+      "isLatest": false,
+      "isValidated": true,
+      "version": "0.2.1"
+    }
+  ]
+}

@@ -1,0 +1,616 @@
+{
+  "author": {
+    "name": "czlonkowski",
+    "url": "https://github.com/czlonkowski"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "developer",
+  "createdAt": "2025-12-07T06:35:22.543Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "MCP_MODE=stdio",
+          "-v",
+          "n8n-mcp-data:/app/data",
+          "ghcr.io/czlonkowski/n8n-mcp:latest"
+        ]
+      },
+      "description": "Recommended Docker deployment using the official container image. Runs the MCP server in stdio mode inside a container.",
+      "installationDetails": {
+        "imageName": "ghcr.io/czlonkowski/n8n-mcp:latest",
+        "buildRequired": false,
+        "runCommandExample": "docker compose up -d"
+      },
+      "installationMethod": "docker",
+      "isRecommended": true,
+      "systemDependencies": []
+    },
+    {
+      "connection": {
+        "configSchema": null,
+        "type": "stdio",
+        "command": "node",
+        "args": ["/path/to/n8n-mcp/dist/mcp/index.js"]
+      },
+      "description": "Manual local installation requires cloning the repository, installing dependencies, building, and running the server. The argument path must be replaced with the actual local path to the built index.js file.",
+      "installationDetails": {
+        "setupSteps": [
+          "git clone https://github.com/czlonkowski/n8n-mcp.git",
+          "cd n8n-mcp",
+          "git clone https://github.com/n8n-io/n8n-docs.git ../n8n-docs (optional but recommended)",
+          "npm install",
+          "npm run build",
+          "npm run rebuild",
+          "npm start (for stdio mode) or npm run start:http (for HTTP mode)"
+        ],
+        "repositoryUrlToClone": "https://github.com/czlonkowski/n8n-mcp.git"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "type": "runtime",
+          "versionParsingRequired": true
+        },
+        {
+          "checkCommand": "git --version",
+          "installInstructions": {
+            "macos": "brew install git",
+            "manual": "Install Git from https://git-scm.com/downloads",
+            "windows": "Download and install from https://git-scm.com/download/win",
+            "linux_debian": "sudo apt install git"
+          },
+          "name": "git",
+          "type": "executable",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["AUTH_TOKEN", "REMOTE_URL"],
+          "properties": {
+            "AUTH_TOKEN": {
+              "type": "string",
+              "description": "Authorization token for remote server access"
+            },
+            "REMOTE_URL": {
+              "type": "string",
+              "description": "URL of the remote MCP server"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-remote",
+          "https://your-server.com/mcp",
+          "--header",
+          "Authorization: Bearer ${AUTH_TOKEN}"
+        ]
+      },
+      "description": "Remote client connection using the mcp-remote package via npx. Requires Node.js 18+ locally and user to provide AUTH_TOKEN and remote server URL.",
+      "installationDetails": null,
+      "installationMethod": "none",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/en/download/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=18",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    }
+  ],
+  "description": "一个模型上下文协议（MCP）服务器，为人工智能助手提供全面访问 n8n 节点文档、属性和操作的能力。支持本地和远程部署，并可选择克隆 n8n-docs 仓库以增强文档内容。",
+  "homepage": "https://github.com/czlonkowski/n8n-mcp",
+  "icon": "https://github.com/czlonkowski.png",
+  "identifier": "czlonkowski-n8n-mcp",
+  "name": "n8n-MCP",
+  "tools": [
+    {
+      "name": "tools_documentation",
+      "description": "Get documentation for n8n MCP tools. Call without parameters for quick start guide. Use topic parameter to get documentation for specific tools. Use depth='full' for comprehensive documentation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "depth": {
+            "enum": ["essentials", "full"],
+            "type": "string",
+            "default": "essentials",
+            "description": "Level of detail. \"essentials\" (default) for quick reference, \"full\" for comprehensive docs."
+          },
+          "topic": {
+            "type": "string",
+            "description": "Tool name (e.g., \"search_nodes\") or \"overview\" for general guide. Leave empty for quick reference."
+          }
+        }
+      }
+    },
+    {
+      "name": "search_nodes",
+      "description": "Search n8n nodes by keyword with optional real-world examples. Pass query as string. Example: query=\"webhook\" or query=\"database\". Returns max 20 results. Use includeExamples=true to get top 2 template configs per node.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "mode": {
+            "enum": ["OR", "AND", "FUZZY"],
+            "type": "string",
+            "default": "OR",
+            "description": "OR=any word, AND=all words, FUZZY=typo-tolerant"
+          },
+          "limit": {
+            "type": "number",
+            "default": 20,
+            "description": "Max results (default 20)"
+          },
+          "query": {
+            "type": "string",
+            "description": "Search terms. Use quotes for exact phrase."
+          },
+          "includeExamples": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include top 2 real-world configuration examples from popular templates (default: false)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_node",
+      "description": "Get node info with progressive detail levels and multiple modes. Detail: minimal (~200 tokens), standard (~1-2K, default), full (~3-8K). Modes: info (default), docs (markdown documentation), search_properties (find properties), versions/compare/breaking/migrations (version info). Use format='docs' for readable documentation, mode='search_properties' with propertyQuery for finding specific fields.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["nodeType"],
+        "properties": {
+          "mode": {
+            "enum": [
+              "info",
+              "docs",
+              "search_properties",
+              "versions",
+              "compare",
+              "breaking",
+              "migrations"
+            ],
+            "type": "string",
+            "default": "info",
+            "description": "Operation mode. info=node schema, docs=readable markdown documentation, search_properties=find specific properties, versions/compare/breaking/migrations=version info"
+          },
+          "detail": {
+            "enum": ["minimal", "standard", "full"],
+            "type": "string",
+            "default": "standard",
+            "description": "Information detail level. standard=essential properties (recommended), full=everything"
+          },
+          "nodeType": {
+            "type": "string",
+            "description": "Full node type: \"nodes-base.httpRequest\" or \"nodes-langchain.agent\""
+          },
+          "toVersion": {
+            "type": "string",
+            "description": "Target version for compare mode (e.g., \"2.0\"). Defaults to latest if omitted."
+          },
+          "fromVersion": {
+            "type": "string",
+            "description": "Source version for compare/breaking/migrations modes (e.g., \"1.0\")"
+          },
+          "propertyQuery": {
+            "type": "string",
+            "description": "For mode=search_properties: search term to find properties (e.g., \"auth\", \"header\", \"body\")"
+          },
+          "includeExamples": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include real-world configuration examples from templates. Only applies to mode=info with detail=standard. Adds ~200-400 tokens per example."
+          },
+          "includeTypeInfo": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include type structure metadata (type category, JS type, validation rules). Only applies to mode=info. Adds ~80-120 tokens per property."
+          },
+          "maxPropertyResults": {
+            "type": "number",
+            "default": 20,
+            "description": "For mode=search_properties: max results (default 20)"
+          }
+        }
+      }
+    },
+    {
+      "name": "validate_node",
+      "description": "Validate n8n node configuration. Use mode='full' for comprehensive validation with errors/warnings/suggestions, mode='minimal' for quick required fields check. Example: nodeType=\"nodes-base.slack\", config={resource:\"channel\",operation:\"create\"}",
+      "inputSchema": {
+        "type": "object",
+        "required": ["nodeType", "config"],
+        "properties": {
+          "mode": {
+            "enum": ["full", "minimal"],
+            "type": "string",
+            "default": "full",
+            "description": "Validation mode. full=comprehensive validation with errors/warnings/suggestions, minimal=quick required fields check only. Default is \"full\""
+          },
+          "config": {
+            "type": "object",
+            "description": "Configuration as object. For simple nodes use {}. For complex nodes include fields like {resource:\"channel\",operation:\"create\"}"
+          },
+          "profile": {
+            "enum": ["strict", "runtime", "ai-friendly", "minimal"],
+            "type": "string",
+            "default": "ai-friendly",
+            "description": "Profile for mode=full: \"minimal\", \"runtime\", \"ai-friendly\", or \"strict\". Default is \"ai-friendly\""
+          },
+          "nodeType": {
+            "type": "string",
+            "description": "Node type as string. Example: \"nodes-base.slack\""
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": ["nodeType", "displayName", "valid"],
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fix": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "property": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "summary": {
+            "type": "object",
+            "properties": {
+              "hasErrors": {
+                "type": "boolean"
+              },
+              "errorCount": {
+                "type": "number"
+              },
+              "warningCount": {
+                "type": "number"
+              },
+              "suggestionCount": {
+                "type": "number"
+              }
+            }
+          },
+          "nodeType": {
+            "type": "string"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "property": {
+                  "type": "string"
+                },
+                "suggestion": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "suggestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "workflowNodeType": {
+            "type": "string"
+          },
+          "missingRequiredFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only present in mode=minimal"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_template",
+      "description": "Get template by ID. Use mode to control response size: nodes_only (minimal), structure (nodes+connections), full (complete workflow).",
+      "inputSchema": {
+        "type": "object",
+        "required": ["templateId"],
+        "properties": {
+          "mode": {
+            "enum": ["nodes_only", "structure", "full"],
+            "type": "string",
+            "default": "full",
+            "description": "Response detail level. nodes_only: just node list, structure: nodes+connections, full: complete workflow JSON."
+          },
+          "templateId": {
+            "type": "number",
+            "description": "The template ID to retrieve"
+          }
+        }
+      }
+    },
+    {
+      "name": "search_templates",
+      "description": "Search templates with multiple modes. Use searchMode='keyword' for text search, 'by_nodes' to find templates using specific nodes, 'by_task' for curated task-based templates, 'by_metadata' for filtering by complexity/setup time/services.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task": {
+            "enum": [
+              "ai_automation",
+              "data_sync",
+              "webhook_processing",
+              "email_automation",
+              "slack_integration",
+              "data_transformation",
+              "file_processing",
+              "scheduling",
+              "api_integration",
+              "database_operations"
+            ],
+            "type": "string",
+            "description": "For searchMode=by_task: the type of task"
+          },
+          "limit": {
+            "type": "number",
+            "default": 20,
+            "maximum": 100,
+            "minimum": 1,
+            "description": "Maximum number of results. Default 20."
+          },
+          "query": {
+            "type": "string",
+            "description": "For searchMode=keyword: search keyword (e.g., \"chatbot\")"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "id",
+                "name",
+                "description",
+                "author",
+                "nodes",
+                "views",
+                "created",
+                "url",
+                "metadata"
+              ],
+              "type": "string"
+            },
+            "description": "For searchMode=keyword: fields to include in response. Default: all fields."
+          },
+          "offset": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "description": "Pagination offset. Default 0."
+          },
+          "category": {
+            "type": "string",
+            "description": "For searchMode=by_metadata: filter by category (e.g., \"automation\", \"integration\")"
+          },
+          "nodeTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "For searchMode=by_nodes: array of node types (e.g., [\"n8n-nodes-base.httpRequest\", \"n8n-nodes-base.slack\"])"
+          },
+          "complexity": {
+            "enum": ["simple", "medium", "complex"],
+            "type": "string",
+            "description": "For searchMode=by_metadata: filter by complexity level"
+          },
+          "searchMode": {
+            "enum": ["keyword", "by_nodes", "by_task", "by_metadata"],
+            "type": "string",
+            "default": "keyword",
+            "description": "Search mode. keyword=text search (default), by_nodes=find by node types, by_task=curated task templates, by_metadata=filter by complexity/services"
+          },
+          "targetAudience": {
+            "type": "string",
+            "description": "For searchMode=by_metadata: filter by target audience (e.g., \"developers\", \"marketers\")"
+          },
+          "maxSetupMinutes": {
+            "type": "number",
+            "maximum": 480,
+            "minimum": 5,
+            "description": "For searchMode=by_metadata: maximum setup time in minutes"
+          },
+          "minSetupMinutes": {
+            "type": "number",
+            "maximum": 480,
+            "minimum": 5,
+            "description": "For searchMode=by_metadata: minimum setup time in minutes"
+          },
+          "requiredService": {
+            "type": "string",
+            "description": "For searchMode=by_metadata: filter by required service (e.g., \"openai\", \"slack\")"
+          }
+        }
+      }
+    },
+    {
+      "name": "validate_workflow",
+      "description": "Full workflow validation: structure, connections, expressions, AI tools. Returns errors/warnings/fixes. Essential before deploy.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["workflow"],
+        "properties": {
+          "options": {
+            "type": "object",
+            "properties": {
+              "profile": {
+                "enum": ["minimal", "runtime", "ai-friendly", "strict"],
+                "type": "string",
+                "default": "runtime",
+                "description": "Validation profile for node validation. Default \"runtime\"."
+              },
+              "validateNodes": {
+                "type": "boolean",
+                "default": true,
+                "description": "Validate individual node configurations. Default true."
+              },
+              "validateConnections": {
+                "type": "boolean",
+                "default": true,
+                "description": "Validate node connections and flow. Default true."
+              },
+              "validateExpressions": {
+                "type": "boolean",
+                "default": true,
+                "description": "Validate n8n expressions syntax and references. Default true."
+              }
+            },
+            "description": "Optional validation settings"
+          },
+          "workflow": {
+            "type": "object",
+            "description": "The complete workflow JSON to validate. Must include nodes array and connections object."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": ["valid", "summary"],
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "node": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "summary": {
+            "type": "object",
+            "properties": {
+              "errorCount": {
+                "type": "number"
+              },
+              "totalNodes": {
+                "type": "number"
+              },
+              "enabledNodes": {
+                "type": "number"
+              },
+              "triggerNodes": {
+                "type": "number"
+              },
+              "warningCount": {
+                "type": "number"
+              },
+              "validConnections": {
+                "type": "number"
+              },
+              "invalidConnections": {
+                "type": "number"
+              },
+              "expressionsValidated": {
+                "type": "number"
+              }
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "node": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "suggestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-05-23T09:01:10.365Z",
+  "version": "2.28.7"
+}

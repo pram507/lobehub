@@ -1,0 +1,406 @@
+{
+  "author": {
+    "name": "tavily-ai",
+    "url": "https://github.com/tavily-ai"
+  },
+  "capabilities": {
+    "prompts": false,
+    "resources": false,
+    "tools": true
+  },
+  "category": "web-search",
+  "createdAt": "2026-04-26T04:46:08.126Z",
+  "deploymentOptions": [
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["TAVILY_API_KEY"],
+          "properties": {
+            "TAVILY_API_KEY": {
+              "type": "string",
+              "description": "Tavily API Key required to authenticate requests"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "tavily-mcp@latest"]
+      },
+      "description": "Run the server directly using npx with the specified version. Requires setting the TAVILY_API_KEY environment variable.",
+      "installationDetails": {
+        "packageName": "tavily-mcp"
+      },
+      "installationMethod": "npm",
+      "isRecommended": true,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=20",
+          "type": "runtime",
+          "versionParsingRequired": true
+        }
+      ]
+    },
+    {
+      "connection": {
+        "configSchema": {
+          "type": "object",
+          "required": ["TAVILY_API_KEY"],
+          "properties": {
+            "TAVILY_API_KEY": {
+              "type": "string",
+              "description": "Tavily API Key required to authenticate requests"
+            }
+          }
+        },
+        "type": "stdio",
+        "command": "node",
+        "args": ["build/index.js"]
+      },
+      "description": "Clone the repository, install dependencies, build the project, and run the server using node. Requires setting the TAVILY_API_KEY environment variable.",
+      "installationDetails": {
+        "setupSteps": [
+          "git clone https://github.com/tavily-ai/tavily-mcp.git",
+          "cd tavily-mcp",
+          "npm install",
+          "npm run build"
+        ],
+        "requirementsFile": "package.json",
+        "repositoryUrlToClone": "https://github.com/tavily-ai/tavily-mcp.git"
+      },
+      "installationMethod": "manual",
+      "isRecommended": false,
+      "systemDependencies": [
+        {
+          "checkCommand": "node --version",
+          "installInstructions": {
+            "macos": "brew install node",
+            "manual": "Install Node.js from https://nodejs.org/",
+            "windows": "Download and install from https://nodejs.org/",
+            "linux_debian": "sudo apt install nodejs"
+          },
+          "name": "nodejs",
+          "requiredVersion": ">=20",
+          "type": "runtime",
+          "versionParsingRequired": true
+        },
+        {
+          "checkCommand": "git --version",
+          "installInstructions": {
+            "macos": "brew install git",
+            "manual": "Install Git from https://git-scm.com/downloads",
+            "windows": "Download Git for Windows from https://git-scm.com/download/win",
+            "linux_debian": "sudo apt install git"
+          },
+          "name": "git",
+          "type": "executable",
+          "versionParsingRequired": false
+        }
+      ]
+    }
+  ],
+  "description": "MCP server for advanced web search using Tavily, providing search, extract, map, and crawl tools with real-time web search and intelligent data extraction capabilities.",
+  "homepage": "https://github.com/tavily-ai/tavily-mcp",
+  "icon": "https://github.com/tavily-ai.png",
+  "identifier": "tavily-ai-tavily-mcp",
+  "name": "Tavily MCP",
+  "tools": [
+    {
+      "name": "tavily_search",
+      "description": "Search the web for current information on any topic. Use for news, facts, or data beyond your knowledge cutoff. Returns snippets and source URLs.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["query"],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "topic": {
+            "enum": ["general"],
+            "type": "string",
+            "default": "general",
+            "description": "The category of the search. This will determine which of our agents will be used for the search"
+          },
+          "country": {
+            "type": "string",
+            "default": "",
+            "description": "Boost search results from a specific country. Must be a full country name (e.g., 'United States', 'Japan', 'Germany'). ISO country codes (e.g., 'us', 'jp') are not supported. Available only if topic is general. See https://docs.tavily.com/documentation/api-reference/search for the full list of supported countries."
+          },
+          "end_date": {
+            "type": "string",
+            "default": "",
+            "description": "Will return all results before the specified end date. Required to be written in the format YYYY-MM-DD"
+          },
+          "start_date": {
+            "type": "string",
+            "default": "",
+            "description": "Will return all results after the specified start date. Required to be written in the format YYYY-MM-DD."
+          },
+          "time_range": {
+            "enum": ["day", "week", "month", "year"],
+            "type": "string",
+            "description": "The time range back from the current date to include in the search results"
+          },
+          "exact_match": {
+            "type": "boolean",
+            "description": "Only return results containing the exact phrase(s) in quotes in your query"
+          },
+          "max_results": {
+            "type": "number",
+            "default": 5,
+            "maximum": 20,
+            "minimum": 5,
+            "description": "The maximum number of search results to return"
+          },
+          "search_depth": {
+            "enum": ["basic", "advanced", "fast", "ultra-fast"],
+            "type": "string",
+            "default": "basic",
+            "description": "The depth of the search. 'basic' for generic results, 'advanced' for more thorough search, 'fast' for optimized low latency with high relevance, 'ultra-fast' for prioritizing latency above all else"
+          },
+          "include_images": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include a list of query-related images in the response"
+          },
+          "exclude_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "List of domains to specifically exclude, if the user asks to exclude a domain set this to the domain of the site"
+          },
+          "include_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "A list of domains to specifically include in the search results, if the user asks to search on specific sites set this to the domain of the site"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include the favicon URL for each result"
+          },
+          "include_raw_content": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include the cleaned and parsed HTML content of each search result"
+          },
+          "include_image_descriptions": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include a list of query-related images and their descriptions in the response"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_extract",
+      "description": "Extract content from URLs. Returns raw page content in markdown or text format.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["urls"],
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of URLs to extract content from"
+          },
+          "query": {
+            "type": "string",
+            "description": "Query to rerank content chunks by relevance"
+          },
+          "format": {
+            "enum": ["markdown", "text"],
+            "type": "string",
+            "default": "markdown",
+            "description": "Output format"
+          },
+          "extract_depth": {
+            "enum": ["basic", "advanced"],
+            "type": "string",
+            "default": "basic",
+            "description": "Use 'advanced' for LinkedIn, protected sites, or tables/embedded content"
+          },
+          "include_images": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include images from pages"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Include favicon URLs"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_crawl",
+      "description": "Crawl a website starting from a URL. Extracts content from pages with configurable depth and breadth.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the crawl"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "description": "Total number of links the crawler will process before stopping"
+          },
+          "format": {
+            "enum": ["markdown", "text"],
+            "type": "string",
+            "default": "markdown",
+            "description": "The format of the extracted web page content. markdown returns content in markdown format. text returns plain text and may increase latency."
+          },
+          "max_depth": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1,
+            "description": "Max depth of the crawl. Defines how far from the base URL the crawler can explore."
+          },
+          "max_breadth": {
+            "type": "integer",
+            "default": 20,
+            "minimum": 1,
+            "description": "Max number of links to follow per level of the tree (i.e., per page)"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler. Instructions specify which types of pages the crawler should return."
+          },
+          "select_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., /docs/.*, /api/v1.*)"
+          },
+          "extract_depth": {
+            "enum": ["basic", "advanced"],
+            "type": "string",
+            "default": "basic",
+            "description": "Advanced extraction retrieves more data, including tables and embedded content, with higher success but may increase latency"
+          },
+          "allow_external": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to return external links in the final response"
+          },
+          "select_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to restrict crawling to specific domains or subdomains (e.g., ^docs\\.example\\.com$)"
+          },
+          "include_favicon": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include the favicon URL for each result"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_map",
+      "description": "Map a website's structure. Returns a list of URLs found starting from the base URL.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The root URL to begin the mapping"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "description": "Total number of links the crawler will process before stopping"
+          },
+          "max_depth": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1,
+            "description": "Max depth of the mapping. Defines how far from the base URL the crawler can explore"
+          },
+          "max_breadth": {
+            "type": "integer",
+            "default": 20,
+            "minimum": 1,
+            "description": "Max number of links to follow per level of the tree (i.e., per page)"
+          },
+          "instructions": {
+            "type": "string",
+            "description": "Natural language instructions for the crawler"
+          },
+          "select_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., /docs/.*, /api/v1.*)"
+          },
+          "allow_external": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to return external links in the final response"
+          },
+          "select_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "description": "Regex patterns to restrict crawling to specific domains or subdomains (e.g., ^docs\\.example\\.com$)"
+          }
+        }
+      }
+    },
+    {
+      "name": "tavily_research",
+      "description": "Perform comprehensive research on a given topic or question. Use this tool when you need to gather information from multiple sources to answer a question or complete a task. Returns a detailed response based on the research findings. Rate limit: 20 requests per minute.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["input"],
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "A comprehensive description of the research task"
+          },
+          "model": {
+            "enum": ["mini", "pro", "auto"],
+            "type": "string",
+            "default": "auto",
+            "description": "Defines the degree of depth of the research. 'mini' is good for narrow tasks with few subtopics. 'pro' is good for broad tasks with many subtopics. 'auto' automatically selects the best model."
+          }
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-05-23T14:59:46.513Z",
+  "version": "0.2.19"
+}
